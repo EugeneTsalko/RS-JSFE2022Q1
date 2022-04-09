@@ -1,0 +1,166 @@
+// @font-face {
+//     font-family: "Arial";
+//     src: url("/assets/fonts/arial/arialmt.ttf") format("truetype"); 
+//     font-style: normal; 
+//     font-weight: normal; 
+// }
+
+// @font-face {
+//     font-family: "Arial";
+//     src: url("/assets/fonts/arial/arial_bolditalicmt.ttf") format("truetype"); 
+//     font-style: italic; 
+//     font-weight: bold; 
+// } 
+
+// @font-face {
+//     font-family: "Georgia";
+//     src: url("/assets/fonts/georgia/georgia.ttf") format("truetype"); 
+//     font-style: normal; 
+//     font-weight: normal;
+// }
+
+
+// @font-face {
+//     font-family: "Georgia";
+//     src: url("/assets/fonts/georgia/georgia_bolditalic.ttf") format("truetype"); 
+//     font-style: italic; 
+//     font-weight: bold; 
+// } 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+// =======
+$colorPrimary: #F1CDB3;
+$colorDarkS: #CDCDCD;
+$colorLightXl: #FFFFFF;
+$colorLightS: #FAFAFA;
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin fontArial {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 160%;
+}
+
+@mixin fontArialHeaderLogo {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+   letter-spacing: 0.1em;
+}
+
+@mixin fontGeorgia {
+    font-family: 'Tinos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+}
+
+@mixin fontGeorgiaHeaderLogo {
+    font-family: 'Tinos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    @include flexColumn();
+    scroll-behavior: smooth;
+}
+
+main {
+    @include flexColumn();
+    // max-width: 1280px;
+    // width: 1280px;
+    width: 100%;
+
+    
+}
+
+.start-screen-wrapper {
+    @include flexColumn();
+    background: url(/assets/images/png/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+    height: 908px;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    height: 60px;
+    margin-top: 60px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.header-logo {
+    display: block;
+    width: 184px;
+    height: 60px;
+    .header-logo-title {
+        @include fontGeorgiaHeaderLogo;
+        color: $colorPrimary;
+    }
+    .header-logo-subtitle {
+        @include fontArialHeaderLogo;
+        color: $colorLightXl;
+    }
+}
+
+.header-nav {
+    display: flex;
+    margin-left: auto;
+    max-width: 443px;
+    width: 100%;
+    
+    & .nav-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        list-style: none;
+
+        & .list-item-link {
+            @include fontArial();
+            color: $colorDarkS;
+            transition: ease-in-out 0.3s;
+
+            &:hover {
+                color: $colorLightS;
+                border-bottom: 3px solid $colorPrimary;
+            }
+        }
+    }
+}
+
+// h2 {
+//     font-family: 'Arial';
+//     font-style: italic;
+//     font-weight: 400;
+//     font-size: 44px;
+//     line-height: 130%;
+// }
