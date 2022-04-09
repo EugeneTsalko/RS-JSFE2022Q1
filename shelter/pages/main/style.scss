@@ -1,39 +1,11 @@
-// @font-face {
-//     font-family: "Arial";
-//     src: url("/assets/fonts/arial/arialmt.ttf") format("truetype"); 
-//     font-style: normal; 
-//     font-weight: normal; 
-// }
-
-// @font-face {
-//     font-family: "Arial";
-//     src: url("/assets/fonts/arial/arial_bolditalicmt.ttf") format("truetype"); 
-//     font-style: italic; 
-//     font-weight: bold; 
-// } 
-
-// @font-face {
-//     font-family: "Georgia";
-//     src: url("/assets/fonts/georgia/georgia.ttf") format("truetype"); 
-//     font-style: normal; 
-//     font-weight: normal;
-// }
-
-
-// @font-face {
-//     font-family: "Georgia";
-//     src: url("/assets/fonts/georgia/georgia_bolditalic.ttf") format("truetype"); 
-//     font-style: italic; 
-//     font-weight: bold; 
-// } 
-
-
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 
 // =======
 $colorPrimary: #F1CDB3;
+$colorPrimaryLight: #FDDCC4;
 $colorDarkS: #CDCDCD;
+$colorDark3Xl: #292929;
 $colorLightXl: #FFFFFF;
 $colorLightS: #FAFAFA;
 
@@ -44,7 +16,7 @@ $colorLightS: #FAFAFA;
 }
 
 @mixin fontArial {
-    font-family: 'Lato';
+    font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -52,7 +24,7 @@ $colorLightS: #FAFAFA;
 }
 
 @mixin fontArialHeaderLogo {
-    font-family: 'Lato';
+    font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -61,7 +33,7 @@ $colorLightS: #FAFAFA;
 }
 
 @mixin fontGeorgia {
-    font-family: 'Tinos';
+    font-family: 'Georgia';
     font-style: normal;
     font-weight: 400;
     font-size: 35px;
@@ -70,11 +42,20 @@ $colorLightS: #FAFAFA;
 }
 
 @mixin fontGeorgiaHeaderLogo {
-    font-family: 'Tinos';
+    font-family: 'Georgia';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
     line-height: 110%;
+    letter-spacing: 0.06em;
+}
+
+@mixin fontForButton {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 130%;
     letter-spacing: 0.06em;
 }
 
@@ -112,14 +93,12 @@ main {
     max-width: 1200px;
     width: 100%;
     height: 60px;
-    margin-top: 60px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 60px 40px 60px;
 }
 
 .header-logo {
     display: block;
-    width: 184px;
+    width: 186px;
     height: 60px;
     .header-logo-title {
         @include fontGeorgiaHeaderLogo;
@@ -154,6 +133,56 @@ main {
                 border-bottom: 3px solid $colorPrimary;
             }
         }
+    }
+}
+
+// 
+
+.start-screen-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.start-screen-title {
+margin-top: 163px;
+}
+
+h1 {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 130%;
+    color: $colorLightXl;
+    width: 310px;
+    height: 114px;
+}
+
+.start-screen-subheading {
+    @include fontArial();
+    color: $colorDarkS;
+    width: 460px;
+    height: 72px;
+    margin-top: 42px;
+    margin-bottom: 42px;
+}
+
+.btn {
+    max-width: 207px;
+    height: 52px;
+    width: 100%;
+    background-color: $colorPrimary;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    color: $colorDark3Xl;
+    @include fontForButton();
+    transition: ease-in-out 0.3s;
+
+    &:hover {
+        background-color: $colorPrimaryLight;
     }
 }
 
