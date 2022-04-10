@@ -67,7 +67,7 @@ $colorLightXl: #FFFFFF;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 23px;
+    line-height: 115%;
     letter-spacing: 0.06em;
     color: $colorDarkL;
 }
@@ -268,7 +268,6 @@ h3 {
 
 .pets-wrapper {
     @include flexColumn();
-    align-items: center;
     max-width: 1200px;
     width: 100%;
     margin-top: 80px;
@@ -315,10 +314,6 @@ h3 {
     }
 }
 
-.slider-next {
-
-}
-
 .slider-items {
     display: flex;
     justify-content: space-between;
@@ -361,6 +356,57 @@ h3 {
     }
 }
 
+// 
+
+.help-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: $colorLightXl;
+    margin-bottom: 100px;
+}
+
+.help-wrapper {
+    @include flexColumn();
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 80px;
+
+    h3 {
+        max-width: 320px;
+        text-align: center;
+    }
+}
+
+.help-list {
+    display: flex;
+    gap: 55px 112px;
+    margin-top: 60px;
+    max-width: 1026px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+
+    .list-item {
+        @include fontPetName();
+        @include flexColumn();
+        align-content: space-between;
+        justify-content: space-between;
+        height: 113px;
+        width: auto;
+        list-style: none;
+        
+    }
+
+    :nth-child(6) {
+        margin-left: 84px;
+    }
+
+    :nth-child(9) {
+        margin-right: 84px;
+    }
+}
 
 // h2 {
 //     font-family: 'Arial';

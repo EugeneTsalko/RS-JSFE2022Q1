@@ -216,7 +216,6 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-items: center;
   max-width: 1200px;
   width: 100%;
   margin-top: 80px;
@@ -281,7 +280,7 @@ h3 {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  line-height: 23px;
+  line-height: 115%;
   letter-spacing: 0.06em;
   color: #545454;
 }
@@ -308,4 +307,59 @@ h3 {
 .pet-card .btn-pets:hover {
   background-color: #FDDCC4;
   border: 2px solid transparent;
+}
+
+.help-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #FFFFFF;
+  margin-bottom: 100px;
+}
+
+.help-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 80px;
+}
+.help-wrapper h3 {
+  max-width: 320px;
+  text-align: center;
+}
+
+.help-list {
+  display: flex;
+  gap: 55px 112px;
+  margin-top: 60px;
+  max-width: 1026px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.help-list .list-item {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+  height: 113px;
+  width: auto;
+  list-style: none;
+}
+.help-list :nth-child(6) {
+  margin-left: 84px;
+}
+.help-list :nth-child(9) {
+  margin-right: 84px;
 }/*# sourceMappingURL=style.css.map */
