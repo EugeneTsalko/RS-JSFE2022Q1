@@ -137,7 +137,8 @@ main {
 }
 
 .header-logo {
-    display: block;
+    @include flexColumn();
+    justify-content: space-between;
     width: 186px;
     height: 60px;
     .header-logo-title {
@@ -154,6 +155,7 @@ main {
     display: flex;
     margin-left: auto;
     max-width: 443px;
+    height: 27px;
     width: 100%;
     
     & .nav-list {
