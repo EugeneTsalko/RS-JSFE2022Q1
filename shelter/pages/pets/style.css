@@ -1,1 +1,83 @@
-/*# sourceMappingURL=style.css.map */
+@font-face {
+  font-family: "Georgia Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Georgia Regular"), url("/assets/fonts/georgia/georgia.woff") format("woff");
+}
+@font-face {
+  font-family: "Georgia Italic";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Georgia Italic"), url("/assets/fonts/georgia/georgiai.woff") format("woff");
+}
+@font-face {
+  font-family: "Georgia Bold";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Georgia Bold"), url("/assets/fonts/georgia/georgiab.woff") format("woff");
+}
+@font-face {
+  font-family: "Georgia Bold Italic";
+  font-style: italic;
+  font-weight: bold;
+  src: local("Georgia Bold Italic"), url("/assets/fonts/georgia/georgiaz.woff") format("woff");
+}
+@font-face {
+  font-family: "Arial Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Arial Regular"), url("/assets/fonts/arial/ARIAL.woff") format("woff");
+}
+@font-face {
+  font-family: "Arial Italic";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Arial Italic"), url("/assets/fonts/arial/ARIALI.woff") format("woff");
+}
+@font-face {
+  font-family: "Arial Bold";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Arial Bold"), url("/assets/fonts/arial/ARIALBD.woff") format("woff");
+}
+@font-face {
+  font-family: "Arial Bold Italic";
+  font-style: italic;
+  font-weight: bold;
+  src: local("Arial Bold Italic"), url("/assets/fonts/arial/ARIALBI.woff") format("woff");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  height: 120px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  height: 60px;
+}/*# sourceMappingURL=style.css.map */
