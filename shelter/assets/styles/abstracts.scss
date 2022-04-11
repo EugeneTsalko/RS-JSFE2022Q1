@@ -1,0 +1,157 @@
+// =======
+$colorPrimary: #F1CDB3;
+$colorPrimaryLight: #FDDCC4;
+$colorDarkS: #CDCDCD;
+$colorDarkM: #B2B2B2;
+$colorDarkL: #545454;
+$colorDarkXl: #4C4C4C;
+$colorDark3Xl: #292929;
+$colorLightS: #FAFAFA;
+$colorLightL: #F6F6F6;
+$colorLightXl: #FFFFFF;
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin fontArial {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 160%;
+}
+
+@mixin fontArialHeaderLogo {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+   letter-spacing: 0.1em;
+}
+
+@mixin fontArialItalic12px {
+    font-family: 'Arial';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: $colorDarkM;
+}
+
+@mixin fontGeorgia {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+}
+
+@mixin fontGeorgiaHeaderLogo {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+}
+
+@mixin fontForButton {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+}
+
+@mixin fontPetName {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: $colorDarkL;
+}
+
+@mixin fontGeorgia15px {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: $colorDarkL;
+}
+
+@mixin fontGeorgia20px {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: $colorDarkL;
+}
+
+
+@font-face {
+    font-family: 'Georgia Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Georgia Regular'), url('/assets/fonts/georgia/georgia.woff') format('woff');
+}
+    
+@font-face {
+    font-family: 'Georgia Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Georgia Italic'), url('/assets/fonts/georgia/georgiai.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Georgia Bold';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Georgia Bold'), url('/assets/fonts/georgia/georgiab.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Georgia Bold Italic';
+    font-style: italic;
+    font-weight: bold;
+    src: local('Georgia Bold Italic'), url('/assets/fonts/georgia/georgiaz.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Arial Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arial Regular'), url('/assets/fonts/arial/ARIAL.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Arial Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Arial Italic'), url('/assets/fonts/arial/ARIALI.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Arial Bold';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Arial Bold'), url('/assets/fonts/arial/ARIALBD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Arial Bold Italic';
+    font-style: italic;
+    font-weight: bold;
+    src: local('Arial Bold Italic'), url('/assets/fonts/arial/ARIALBI.woff') format('woff');
+}
