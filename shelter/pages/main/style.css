@@ -150,6 +150,9 @@ h1 {
 .btn:hover {
   background-color: #FDDCC4;
 }
+.btn a {
+  color: #292929;
+}
 
 .about-section {
   display: flex;
