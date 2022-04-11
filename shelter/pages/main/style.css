@@ -500,4 +500,53 @@ h3 {
 }
 .footer-card a img {
   margin-right: 20px;
+}
+
+@font-face {
+  font-family: "Georgia Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Georgia Regular"), url("/assets/fonts/georgia/georgia.woff") format("woff");
+}
+@font-face {
+  font-family: "Georgia Italic";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Georgia Italic"), url("/assets/fonts/georgia/georgiai.woff") format("woff");
+}
+@font-face {
+  font-family: "Georgia Bold";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Georgia Bold"), url("/assets/fonts/georgia/georgiab.woff") format("woff");
+}
+@font-face {
+  font-family: "Georgia Bold Italic";
+  font-style: italic;
+  font-weight: bold;
+  src: local("Georgia Bold Italic"), url("/assets/fonts/georgia/georgiaz.woff") format("woff");
+}
+@font-face {
+  font-family: "Arial Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Arial Regular"), url("/assets/fonts/arial/ARIAL.woff") format("woff");
+}
+@font-face {
+  font-family: "Arial Italic";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Arial Italic"), url("/assets/fonts/arial/ARIALI.woff") format("woff");
+}
+@font-face {
+  font-family: "Arial Bold";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Arial Bold"), url("/assets/fonts/arial/ARIALBD.woff") format("woff");
+}
+@font-face {
+  font-family: "Arial Bold Italic";
+  font-style: italic;
+  font-weight: bold;
+  src: local("Arial Bold Italic"), url("/assets/fonts/arial/ARIALBI.woff") format("woff");
 }/*# sourceMappingURL=style.css.map */
