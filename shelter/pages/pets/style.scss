@@ -1,0 +1,236 @@
+@import '../../assets/styles/abstracts';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @include flexColumn();
+}
+
+header {
+    width: 100%;
+    height: 120px;
+    background-color: $colorLightXl;
+    @include flexColumn();
+    justify-content: center;
+    position: sticky;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    height: 60px;
+}
+
+.header-logo {
+    @include flexColumn();
+    justify-content: space-between;
+    width: 186px;
+    height: 60px;
+    .header-logo-title {
+        @include fontGeorgiaHeaderLogo;
+        color: $colorDarkL;
+    }
+    .header-logo-subtitle {
+        @include fontArialHeaderLogo;
+        color: $colorDarkL;
+    }
+}
+
+.nav-list {
+    display: flex;
+    margin-left: auto;
+    max-width: 443px;
+    height: 27px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.list-item-link {
+    @include fontArial();
+    color: $colorDarkL;
+    transition: ease-in-out 0.3s;
+
+    &:hover {
+        color: $colorDark3Xl;
+        border-bottom: 3px solid $colorPrimary;
+    }
+}
+
+// 
+
+main {
+    background-color: $colorLightL;
+    width: 100%;
+}
+
+.pets-section {
+    @include flexColumn();
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+.pets-wrapper {
+    @include flexColumn;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: space-between;
+    height: 1162px;
+
+    h3 {
+        text-align: center;
+    }
+}
+
+h3 {
+    @include fontGeorgiaHeaderLogo();
+    font-size: 35px;
+    line-height: 130%;
+    color: $colorDarkL;
+}
+
+.pets-gallery {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    row-gap: 30px;
+    column-gap: 40px;
+}
+
+.pet-card {
+    @include flexColumn();
+    justify-content: space-between;
+    background-color: $colorLightS;
+    width: 270px;
+    height: 435px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+
+    .pet-name {
+        @include fontPetName();
+    }
+
+    &:hover {
+        background-color: $colorLightXl;
+        .btn-pets {
+            background-color: $colorPrimaryLight;
+            border: 2px solid transparent;
+        }
+    }
+}
+
+.btn-pets {
+    width: 187px;
+    height: 52px;
+    padding: 15px 45px;
+    border: 2px solid $colorPrimary;
+    box-sizing: border-box;
+    border-radius: 100px;
+    @include fontForButton();
+    letter-spacing: 0;
+    color: $colorDark3Xl;
+    background-color: transparent;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+
+.pets-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 340px;
+    
+    .slider-current {
+        background-color: $colorPrimary;
+        cursor: auto;
+    }
+   
+}
+
+.slider-button, .slider-current {
+    border: none;
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    border: 2px solid $colorPrimary;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+
+.slider-button {
+    
+    &:hover {
+        background-color: $colorPrimaryLight;
+        border: 2px solid transparent;
+    }
+
+    &.disabled {
+        border-color: $colorDarkS;
+        cursor: auto;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
+// 
+
+.footer {
+    @include flexColumn();
+    background: url(/assets/images/png/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+    width: 100%;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+
+    h3 {
+        color: $colorLightXl;
+        max-width: 280px;
+    }
+    
+
+}
+
+.footer-card {
+    @include flexColumn();
+    margin-top: 16px;
+    align-items: flex-start;
+    height: 234px;
+    justify-content: space-between;
+    
+    a {
+        display: flex;
+        align-items: center;
+        max-width: 302px;
+        @include fontGeorgia20px();
+        color: $colorPrimary;
+
+        img {
+            margin-right: 20px;
+        }
+    }
+}
