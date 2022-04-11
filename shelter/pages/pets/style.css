@@ -242,7 +242,8 @@ h3 {
   width: 340px;
 }
 .pets-buttons .slider-current {
-  background-color: #FDDCC4;
+  background-color: #F1CDB3;
+  cursor: auto;
 }
 
 .slider-button, .slider-current {
@@ -255,9 +256,17 @@ h3 {
   cursor: pointer;
   transition: ease-in-out 0.3s;
 }
-.slider-button:hover, .slider-current:hover {
+
+.slider-button:hover {
   background-color: #FDDCC4;
   border: 2px solid transparent;
+}
+.slider-button.disabled {
+  border-color: #CDCDCD;
+  cursor: auto;
+}
+.slider-button.disabled:hover {
+  background-color: transparent;
 }
 
 .footer {

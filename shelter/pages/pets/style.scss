@@ -158,7 +158,8 @@ h3 {
     width: 340px;
     
     .slider-current {
-        background-color: $colorPrimaryLight;
+        background-color: $colorPrimary;
+        cursor: auto;
     }
    
 }
@@ -172,13 +173,24 @@ h3 {
     border-radius: 50%;
     cursor: pointer;
     transition: ease-in-out 0.3s;
+}
 
+.slider-button {
+    
     &:hover {
         background-color: $colorPrimaryLight;
         border: 2px solid transparent;
     }
-}
 
+    &.disabled {
+        border-color: $colorDarkS;
+        cursor: auto;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
 // 
 
 .footer {
