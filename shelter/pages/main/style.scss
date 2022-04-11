@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-
 // =======
 $colorPrimary: #F1CDB3;
 $colorPrimaryLight: #FDDCC4;
 $colorDarkS: #CDCDCD;
+$colorDarkM: #B2B2B2;
 $colorDarkL: #545454;
 $colorDarkXl: #4C4C4C;
 $colorDark3Xl: #292929;
@@ -33,6 +31,15 @@ $colorLightXl: #FFFFFF;
     font-size: 13px;
     line-height: 15px;
    letter-spacing: 0.1em;
+}
+
+@mixin fontArialItalic12px {
+    font-family: 'Arial';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: $colorDarkM;
 }
 
 @mixin fontGeorgia {
@@ -72,9 +79,25 @@ $colorLightXl: #FFFFFF;
     color: $colorDarkL;
 }
 
-// @mixin fontForSubheading {
+@mixin fontGeorgia15px {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: $colorDarkL;
+}
 
-// }
+@mixin fontGeorgia20px {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: $colorDarkL;
+}
 
 * {
     padding: 0;
@@ -261,7 +284,7 @@ h3 {
 .pets-section {
     display: flex;
     justify-content: center;
-    height: 877px;
+    padding-bottom: 100px;
     width: 100%;
     background-color: $colorLightL;
 }
@@ -396,7 +419,6 @@ h3 {
         height: 113px;
         width: auto;
         list-style: none;
-        
     }
 
     :nth-child(6) {
@@ -408,10 +430,61 @@ h3 {
     }
 }
 
-// h2 {
-//     font-family: 'Arial';
-//     font-style: italic;
-//     font-weight: 400;
-//     font-size: 44px;
-//     line-height: 130%;
-// }
+// 
+
+.donation-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: $colorLightL;
+    padding-bottom: 100px;
+    padding-top: 80px;
+}
+
+.donation-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 915px;
+    width: 100%;
+
+    .donation-image {
+        display: block;
+        width: 505px;
+        height: 261px;
+    }
+}
+
+.donation-content {
+    @include flexColumn();
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 282px;
+    max-width: 380px;
+
+    h3 {
+        max-width: 300px;
+    }
+    
+    span {
+        @include fontGeorgia15px();
+    }
+
+    p {
+        @include fontArialItalic12px();
+    }
+}
+
+.credit-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 349px;
+    height: 43px;
+    background-color: $colorPrimary;
+    border-radius: 9px;
+
+    & span {
+        @include fontGeorgia20px();
+    }
+}
