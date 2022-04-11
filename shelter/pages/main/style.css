@@ -283,6 +283,9 @@ h3 {
   background-color: #FAFAFA;
   width: 270px;
   height: 435px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
 }
 .pet-card .pet-name {
   font-family: "Georgia";
@@ -293,7 +296,15 @@ h3 {
   letter-spacing: 0.06em;
   color: #545454;
 }
-.pet-card .btn-pets {
+.pet-card:hover {
+  background-color: #FFFFFF;
+}
+.pet-card:hover .btn-pets {
+  background-color: #FDDCC4;
+  border: 2px solid transparent;
+}
+
+.btn-pets {
   width: 187px;
   height: 52px;
   padding: 15px 45px;
@@ -312,10 +323,6 @@ h3 {
   margin-bottom: 30px;
   cursor: pointer;
   transition: ease-in-out 0.3s;
-}
-.pet-card .btn-pets:hover {
-  background-color: #FDDCC4;
-  border: 2px solid transparent;
 }
 
 .help-section {

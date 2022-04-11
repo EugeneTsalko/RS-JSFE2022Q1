@@ -361,32 +361,37 @@ h3 {
     background-color: $colorLightS;
     width: 270px;
     height: 435px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
 
     .pet-name {
         @include fontPetName();
     }
 
-    .btn-pets {
-        width: 187px;
-        height: 52px;
-        padding: 15px 45px;
-        border: 2px solid $colorPrimary;
-        box-sizing: border-box;
-        border-radius: 100px;
-        @include fontForButton();
-        letter-spacing: 0;
-        color: $colorDark3Xl;
-        background-color: transparent;
-        margin-bottom: 30px;
-        cursor: pointer;
-        transition: ease-in-out 0.3s;
-
-        &:hover {
+    &:hover {
+        background-color: $colorLightXl;
+        .btn-pets {
             background-color: $colorPrimaryLight;
             border: 2px solid transparent;
         }
-
     }
+}
+
+.btn-pets {
+    width: 187px;
+    height: 52px;
+    padding: 15px 45px;
+    border: 2px solid $colorPrimary;
+    box-sizing: border-box;
+    border-radius: 100px;
+    @include fontForButton();
+    letter-spacing: 0;
+    color: $colorDark3Xl;
+    background-color: transparent;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
 }
 
 // 
