@@ -606,6 +606,7 @@ h3 {
 .footer-wrapper {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding-top: 40px;
   max-width: 1200px;
   width: 100%;
@@ -614,6 +615,14 @@ h3 {
 .footer-wrapper h3 {
   color: #FFFFFF;
   max-width: 280px;
+}
+@media screen and (max-width: 768px) {
+  .footer-wrapper {
+    padding: 0 64px 0;
+  }
+  .footer-wrapper img {
+    margin: 0 auto;
+  }
 }
 
 .footer-card {
@@ -640,4 +649,10 @@ h3 {
 }
 .footer-card a img {
   margin-right: 20px;
+}
+@media screen and (max-width: 768px) {
+  .footer-card {
+    margin-top: 30px;
+    margin-bottom: 65px;
+  }
 }/*# sourceMappingURL=style.css.map */

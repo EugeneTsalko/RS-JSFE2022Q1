@@ -31,7 +31,6 @@ main {
 .start-screen-wrapper {
     @include flexColumn();
     background: url('../../assets/images/png/noise_transparent@2x.png'), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
-    // height: 908px;
     width: 100%;
     
 }
@@ -180,7 +179,6 @@ h1 {
 .about-section {
     display: flex;
     justify-content: center;
-    // height: 588px;
     width: 100%;
     background-color: $colorLightXl;
 }
@@ -512,6 +510,7 @@ h3 {
 .footer-wrapper {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding-top: 40px;
     max-width: 1200px;
     width: 100%;
@@ -522,6 +521,13 @@ h3 {
         max-width: 280px;
     }
     
+    @media screen and (max-width: 768px) {
+        padding: 0 64px 0;
+
+        img {
+            margin: 0 auto;
+        }
+    }
 
 }
 
@@ -542,5 +548,10 @@ h3 {
         img {
             margin-right: 20px;
         }
+    }
+
+    @media screen and (max-width: 768px) {
+        margin-top: 30px;
+        margin-bottom: 65px;
     }
 }
