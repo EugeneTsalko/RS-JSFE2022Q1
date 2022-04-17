@@ -40,6 +40,11 @@ header {
         padding-left: 30px;
         padding-right: 30px;
     }
+    @media screen and (max-width: 700px) {
+        padding-left: 14px;
+    }
+
+
 }
 
 .header-logo {
@@ -66,6 +71,10 @@ header {
     justify-content: space-between;
     align-items: center;
     list-style: none;
+
+    @media screen and (max-width: 700px) {
+        display: none;
+    }
 }
 
 .list-item-link {
@@ -95,6 +104,11 @@ main {
     @media screen and (max-width: 1279px) {
         padding-bottom: 76px;
     }
+
+    @media screen and (max-width: 700px) {
+        padding-top: 162px;
+        padding-bottom: 46px;
+    }
 }
 
 .pets-wrapper {
@@ -114,6 +128,10 @@ h3 {
     font-size: 35px;
     line-height: 130%;
     color: $colorDarkL;
+
+    @media screen and (max-width: 700px) {
+        font-size: 25px;
+    }
 }
 
 .pets-gallery {
@@ -136,6 +154,20 @@ h3 {
             display: none;
         }
         .pet-card:nth-child(8) {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        padding-top: 40px;
+        justify-content: center;
+        .pet-card:nth-child(4) {
+            display: none;
+        }
+        .pet-card:nth-child(5) {
+            display: none;
+        }
+        .pet-card:nth-child(6) {
             display: none;
         }
     }
@@ -190,6 +222,10 @@ h3 {
         background-color: $colorPrimary;
         cursor: auto;
     }
+
+    @media screen and (max-width: 700px) {
+        max-width: 300px;
+    }
    
 }
 
@@ -222,48 +258,6 @@ h3 {
 }
 // 
 
-// .footer {
-//     @include flexColumn();
-//     background: url('../../assets/images/png/noise_transparent@2x.png'), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
-//     width: 100%;
-// }
-
-// .footer-wrapper {
-//     display: flex;
-//     justify-content: space-between;
-//     padding-top: 40px;
-//     max-width: 1200px;
-//     width: 100%;
-//     display: flex;
-
-//     h3 {
-//         color: $colorLightXl;
-//         max-width: 280px;
-//     }
-    
-
-// }
-
-// .footer-card {
-//     @include flexColumn();
-//     margin-top: 16px;
-//     align-items: flex-start;
-//     height: 234px;
-//     justify-content: space-between;
-    
-//     a {
-//         display: flex;
-//         align-items: center;
-//         max-width: 302px;
-//         @include fontGeorgia20px();
-//         color: $colorPrimary;
-
-//         img {
-//             margin-right: 20px;
-//         }
-//     }
-// }
-
 .footer {
     @include flexColumn();
     background: url('../../assets/images/png/noise_transparent@2x.png'), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
@@ -282,6 +276,10 @@ h3 {
     h3 {
         color: $colorLightXl;
         max-width: 280px;
+
+        @media screen and (max-width: 700px) {
+            text-align: center;
+        }
     }
     
     @media screen and (max-width: 1279px) {
