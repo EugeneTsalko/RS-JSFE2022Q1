@@ -320,9 +320,9 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1280px;
   width: 100%;
-  margin-top: 80px;
+  padding: 80px 40px 0;
 }
 .pets-wrapper h3 {
   max-width: 400px;
@@ -330,6 +330,12 @@ h3 {
 }
 .pets-wrapper .btn {
   max-width: 261px;
+}
+@media screen and (max-width: 768px) {
+  .pets-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .slider {
@@ -343,7 +349,6 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
   width: 100%;
 }
 
@@ -368,6 +373,14 @@ h3 {
   align-content: center;
   max-width: 990px;
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .slider-items {
+    max-width: 580px;
+  }
+  .slider-items .pet-card:last-child {
+    display: none;
+  }
 }
 
 .pet-card {
