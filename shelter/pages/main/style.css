@@ -523,6 +523,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   max-width: 915px;
   width: 100%;
 }
@@ -530,6 +531,15 @@ h3 {
   display: block;
   width: 505px;
   height: 261px;
+}
+@media screen and (max-width: 768px) {
+  .donation-wrapper {
+    justify-content: center;
+  }
+  .donation-wrapper .donation-image {
+    order: 2;
+    margin-top: 60px;
+  }
 }
 
 .donation-content {

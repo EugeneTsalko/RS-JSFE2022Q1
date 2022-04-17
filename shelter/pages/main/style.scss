@@ -431,6 +431,7 @@ h3 {
 .donation-section {
     display: flex;
     justify-content: center;
+    // flex-wrap: wrap;
     width: 100%;
     background-color: $colorLightL;
     padding-bottom: 100px;
@@ -441,6 +442,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     max-width: 915px;
     width: 100%;
 
@@ -448,6 +450,15 @@ h3 {
         display: block;
         width: 505px;
         height: 261px;
+    }
+
+    @media screen and (max-width: 768px) {
+        justify-content: center;
+
+        .donation-image {
+            order: 2;
+            margin-top: 60px
+        }
     }
 }
 
