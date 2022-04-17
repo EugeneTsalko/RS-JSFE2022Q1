@@ -11,7 +11,7 @@
 
 html {
     scroll-behavior: smooth;
-    // overflow: hidden;
+    overflow-x: hidden;
     
 }
 
@@ -130,8 +130,7 @@ main {
         & img {
             width: 260;
             height: 272px;
-            // position: relative;
-            // left: 70px; 
+            left: 40px;
         }
     }
 }
@@ -168,6 +167,8 @@ h1 {
         width: 200px;
         height: 64px;
         align-self: center;
+        text-align: center;
+        letter-spacing: 0.06em;
     }
 }
 
@@ -388,12 +389,14 @@ h3 {
 .slider-prev {
     @media screen and (max-width: 700px) {
         order: 2;
+        margin-left: 43px;
     }
 }
 
 .slider-next {
     @media screen and (max-width: 700px) {
         order: 3;
+        margin-right: 43px;
     }
 }
 
@@ -481,6 +484,9 @@ h3 {
     h3 {
         max-width: 320px;
         text-align: center;
+        @media screen and (max-width: 700px) {
+            max-width: 270px;
+        }
     }
 
     @media screen and (max-width: 700px) {
@@ -546,6 +552,7 @@ h3 {
         margin-top: 42px;
         margin-bottom: 42px;
         gap: 30px;
+        max-width: 290px;
     }
 }
 
@@ -559,6 +566,12 @@ h3 {
     background-color: $colorLightL;
     padding-bottom: 100px;
     padding-top: 80px;
+
+    @media screen and (max-width: 700px) {
+        padding-top: 42px;
+        padding-bottom: 42px;
+    }
+
 }
 
 .donation-wrapper {
@@ -569,21 +582,45 @@ h3 {
     max-width: 915px;
     width: 100%;
 
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        // padding: 0 10px 0;
+    }
+
     .donation-image {
         display: block;
         width: 505px;
         height: 261px;
-    }
 
-    @media screen and (max-width: 1279px) {
-        justify-content: center;
-
-        .donation-image {
+        @media screen and (max-width: 1279px) {
+            justify-content: center;
             order: 2;
-            margin-top: 60px
+            margin-top: 60px;
+
+        @media screen and (max-width: 700px) {
+            width: 260px;
+            height: 135px;
+            margin-top: 42px;
         }
     }
 }
+}
+
+    // @media screen and (max-width: 1279px) {
+    //     justify-content: center;
+
+    //     .donation-image {
+    //         order: 2;
+    //         margin-top: 60px
+    //     }
+    // }
+// }
+
+// .donation-image {
+//     @media screen and (max-width: 700px) {
+//         margin-top: 40px;
+//     }
+// }
 
 .donation-content {
     @include flexColumn();
@@ -598,10 +635,22 @@ h3 {
     
     span {
         @include fontGeorgia15px();
+        @media screen and (max-width: 700px) {
+            letter-spacing: 0;
+        }
     }
 
     p {
         @include fontArialItalic12px();
+        @media screen and (max-width: 700px) {
+            max-width: 280px;
+            text-align: justify;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        align-items: center;
+        
     }
 }
 
@@ -617,10 +666,19 @@ h3 {
 
     & span {
         @include fontGeorgia20px();
+        @media screen and (max-width: 700px) {
+            font-size: 15px;
+        }
+        
     }
 
     &:hover {
         background-color: $colorPrimaryLight;
+    }
+
+    @media screen and (max-width: 700px) {
+        width: 281px;
+        height: 43px;
     }
 }
 
@@ -654,9 +712,15 @@ h3 {
         }
     }
 
+    @media screen and (max-width: 700px) {
+        padding: 30px 10px 0;
+        @include flexColumn;
+        justify-content: center;
+    }
+
 }
 
-.footer-card {
+.footer-card1, .footer-card2 {
     @include flexColumn();
     margin-top: 16px;
     align-items: flex-start;
@@ -678,5 +742,31 @@ h3 {
     @media screen and (max-width: 1279px) {
         margin-top: 30px;
         margin-bottom: 65px;
+    }
+
+    @media screen and (max-width: 700px) {
+        height: 208px;
+        max-width: 278px;
+        margin-top: 0;
+        margin-bottom: 40px;
+        align-items: center;
+    }
+}
+
+.footer-card2 {
+    @media screen and (max-width: 700px) {
+        height: 222px;
+        a {
+            width: 300px;
+            img {
+                margin-left: 0;
+        }
+}
+    }}
+
+.footer-image {
+    @media screen and (max-width: 700px) {
+        width: 260px;
+        height: 269px;
     }
 }
