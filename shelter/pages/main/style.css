@@ -481,11 +481,33 @@ h3 {
   width: auto;
   list-style: none;
 }
+@media screen and (max-width: 768px) {
+  .help-list .list-item {
+    width: 170px;
+  }
+}
 .help-list :nth-child(6) {
   margin-left: 84px;
 }
+@media screen and (max-width: 768px) {
+  .help-list :nth-child(6) {
+    margin-left: 0;
+  }
+}
 .help-list :nth-child(9) {
   margin-right: 84px;
+}
+@media screen and (max-width: 768px) {
+  .help-list :nth-child(9) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .help-list {
+    gap: 53px;
+    max-width: 630px;
+  }
 }
 
 .donation-section {

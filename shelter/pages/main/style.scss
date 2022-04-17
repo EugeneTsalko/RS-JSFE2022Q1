@@ -398,14 +398,31 @@ h3 {
         height: 113px;
         width: auto;
         list-style: none;
+
+        @media screen and (max-width: 768px) {
+            width: 170px;
+        }
     }
 
     :nth-child(6) {
         margin-left: 84px;
+        @media screen and (max-width: 768px) {
+            margin-left: 0;
+        }
     }
 
     :nth-child(9) {
         margin-right: 84px;
+        @media screen and (max-width: 768px) {
+            margin-right: 0;
+        }
+    }
+}
+
+.help-list {
+    @media screen and (max-width: 768px) {
+        gap: 53px;
+        max-width: 630px;
     }
 }
 
