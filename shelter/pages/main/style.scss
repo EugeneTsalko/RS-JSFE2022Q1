@@ -46,6 +46,12 @@ main {
     @media screen and (max-width: 1279px) {
         padding: 60px 30px 0;
     }
+
+    @media screen and (max-width: 767px) {
+        padding: 60px 10px 0;
+    }
+
+
 }
 
 .header-logo {
@@ -90,6 +96,11 @@ main {
     }
 }
 
+.header-nav {
+    @media screen and (max-width: 700px) {
+        display: none;
+    }
+}
 // 
 
 .start-screen-content {
@@ -102,6 +113,8 @@ main {
 
     @media screen and (max-width: 1279px){
         justify-content: center;
+        flex-direction: column;
+        align-content: center;
 
         & img {
             width: 569px;
@@ -110,18 +123,29 @@ main {
             left: 70px; 
         }
     }
+
+    @media screen and (max-width: 700px) {
+        text-align: center;
+
+        & img {
+            width: 260;
+            height: 272px;
+            // position: relative;
+            // left: 70px; 
+        }
+    }
 }
 
 .start-screen-title {
     margin-top: 163px;
     display: flex;
     flex-direction: column;
-    // max-width: 460px;
-    // width: 100%;
 
     @media screen and (max-width: 1279px) {
-        margin-top: 60px;
-        margin-bottom: 100px;
+        // margin-top: 60px;
+        // margin-bottom: 100px;
+        margin: 60px auto 100px;
+        max-width: 460px;
 
         & button {
             align-self: center;
@@ -138,6 +162,13 @@ h1 {
     color: $colorLightXl;
     width: 310px;
     height: 114px;
+
+    @media screen and (max-width: 700px) {
+        font-size: 25px;
+        width: 200px;
+        height: 64px;
+        align-self: center;
+    }
 }
 
 .start-screen-subheading {
@@ -147,6 +178,11 @@ h1 {
     height: 72px;
     margin-top: 42px;
     margin-bottom: 42px;
+
+    @media screen and (max-width: 700px) {
+        width: 300px;
+        height: 96px;
+    }
 }
 
 .btn {
@@ -198,6 +234,12 @@ h1 {
         padding-top: 66px;
         gap: 80px;
     }
+
+    @media screen and (max-width: 700px) {
+        padding-top: 34px;
+        gap: 40px;
+        padding-bottom: 42px;
+    }  
 }
 
 .about-image {
@@ -208,6 +250,11 @@ h1 {
     @media screen and (max-width: 1279px) {
         order: 2
     }
+
+    @media screen and (max-width: 700px) {
+        width: 260px;
+        height: 354px;
+    }
 }
 
 .about-content {
@@ -216,20 +263,30 @@ h1 {
     justify-content: space-between;
     max-width: 430px;
     width: 100%;
-    height: 380px;
+    // height: 380px;
     margin-top: 14px;
 
     & p {
         @include fontArial();
         color: $colorDarkXl;
+
+        @media screen and (max-width: 700px) {
+            max-width: 270px;
+            text-align: justify;
+            margin-top: 24px;
+
+        }  
     }
 
     & h3 {
         max-width: 370px;
+        @media screen and (max-width: 700px) {
+            max-width: 250px;
+        }    
     }
 
-    @media screen and (max-width: 1279px) {
-        // margin-top: 80px;
+    @media screen and (max-width: 700px) {
+        align-items: center;
     }    
 }
 
@@ -238,6 +295,11 @@ h3 {
     font-size: 35px;
     line-height: 130%;
     color: $colorDarkL;
+
+    @media screen and (max-width: 700px) {
+        font-size: 25px;
+        text-align: center;
+    }
 }
 
 // 
