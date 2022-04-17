@@ -387,6 +387,11 @@ h3 {
   width: 100%;
   background-color: #F6F6F6;
 }
+@media screen and (max-width: 700px) {
+  .pets-section {
+    padding-bottom: 42px;
+  }
+}
 
 .pets-wrapper {
   display: flex;
@@ -409,6 +414,11 @@ h3 {
     padding-right: 30px;
   }
 }
+@media screen and (max-width: 700px) {
+  .pets-wrapper {
+    padding: 42px 10px 0;
+  }
+}
 
 .slider {
   margin-top: 60px;
@@ -416,12 +426,26 @@ h3 {
   max-width: 1200px;
   width: 100%;
 }
+@media screen and (max-width: 700px) {
+  .slider {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 270px;
+  }
+}
 
 .slider-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+@media screen and (max-width: 700px) {
+  .slider-wrapper {
+    flex-wrap: wrap;
+    max-width: 270px;
+    gap: 20px;
+  }
 }
 
 .slider-prev, .slider-next {
@@ -439,6 +463,18 @@ h3 {
   border: 2px solid transparent;
 }
 
+@media screen and (max-width: 700px) {
+  .slider-prev {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .slider-next {
+    order: 3;
+  }
+}
+
 .slider-items {
   display: flex;
   justify-content: space-between;
@@ -451,6 +487,14 @@ h3 {
     max-width: 580px;
   }
   .slider-items .pet-card:last-child {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  .slider-items {
+    max-width: 270px;
+  }
+  .slider-items .pet-card:nth-child(2) {
     display: none;
   }
 }
@@ -512,6 +556,11 @@ h3 {
   background-color: #FFFFFF;
   margin-bottom: 100px;
 }
+@media screen and (max-width: 700px) {
+  .help-section {
+    margin-bottom: 0;
+  }
+}
 
 .help-wrapper {
   display: flex;
@@ -524,6 +573,11 @@ h3 {
 .help-wrapper h3 {
   max-width: 320px;
   text-align: center;
+}
+@media screen and (max-width: 700px) {
+  .help-wrapper {
+    margin-top: 42px;
+  }
 }
 
 .help-list {
@@ -558,6 +612,16 @@ h3 {
     width: 170px;
   }
 }
+@media screen and (max-width: 700px) {
+  .help-list .list-item {
+    height: 87px;
+    width: 130px;
+    font-size: 15px;
+  }
+  .help-list .list-item img {
+    height: 50px;
+  }
+}
 .help-list :nth-child(6) {
   margin-left: 84px;
 }
@@ -579,6 +643,13 @@ h3 {
   .help-list {
     gap: 53px;
     max-width: 630px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .help-list {
+    margin-top: 42px;
+    margin-bottom: 42px;
+    gap: 30px;
   }
 }
 
