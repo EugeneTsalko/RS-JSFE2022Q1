@@ -58,6 +58,7 @@ main {
         // margin-top: 0;
         padding-left: 10px;
         padding-right: 10px;
+        justify-content: space-between;
     }
 
 
@@ -68,6 +69,8 @@ main {
     justify-content: space-between;
     width: 186px;
     height: 60px;
+    z-index: 100;
+    
     .header-logo-title {
         @include fontGeorgiaHeaderLogo;
         color: $colorPrimary;
@@ -76,6 +79,10 @@ main {
         @include fontArialHeaderLogo;
         color: $colorLightXl;
     }
+
+    // @media screen and (max-width: 700px){
+    //     position: absolute;
+    // }
 }
 
 .header-nav {
@@ -107,17 +114,20 @@ main {
 
 .header-nav {
     @media screen and (max-width: 700px) {
-        display: none;
-        max-width: 30px;
+        // display: none;
+        // max-width: 30px;
+
+        position: fixed;
+        right: -100%;
 
     }
 }
 
-.nav-list {
-    @media screen and (max-width: 700px) {
-        display: none;
-    }
-}
+// .nav-list {
+//     @media screen and (max-width: 700px) {
+//         display: none;
+//     }
+// }
 
 // 
 
@@ -128,36 +138,84 @@ main {
     height: 22px;
     z-index: 100;
     transition: ease-in-out 0.3s;
+    margin-right: 43px;
 
     &:hover {
         cursor: pointer;
         color: $colorPrimaryLight;
     }
 
-    @media screen and (max-width: 700px) {
-        .burger {
-            display: block;
-        }
 
-        .burger.active {
+}
+
+@media screen and (max-width: 700px) {
+    .burger {
+        display: block;
+    }
+
+    .burger.active {
+        position: fixed;
+        // top: 0;
+        right: 0;
+
+        .line {
+            transform: rotate(90deg);
             position: fixed;
-            top: 0;
-
-            .line {
-                transform: rotate(90deg);
-            }
+            // right: 50;
         }
     }
 }
 
-.line {
-    width: 30px;
-    height: 2px;
-    margin: 10px auto;
-    display: block;
-    background-color: $colorPrimary;
+// .line {
+//     width: 30px;
+//     height: 2px;
+//     margin-bottom: 8px;
+//     display: block;
+//     background-color: $colorPrimary;
+// }
+
+.burger-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    max-width: 330px;
+    width: 100%;
+    background-color: $colorDark3Xl;
+    z-index: 50;
+    // padding-top: 248px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .nav-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 327px;
+        width: 243px;
+        // width: 100%;
+        list-style: none;
+
+        & .list-item-link {
+            @include fontArial();
+            color: $colorDarkS;
+            transition: ease-in-out 0.3s;
+            font-size: 32px;
+
+            &:hover {
+                color: $colorLightS;
+                border-bottom: 3px solid $colorPrimary;
+            }
+        }
+    }
+
 }
 
+.burger-menu.active {
+    right: 0;
+}
 
 
 

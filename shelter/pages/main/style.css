@@ -100,6 +100,7 @@ main {
   .header {
     padding-left: 10px;
     padding-right: 10px;
+    justify-content: space-between;
   }
 }
 
@@ -110,6 +111,7 @@ main {
   justify-content: space-between;
   width: 186px;
   height: 60px;
+  z-index: 100;
 }
 .header-logo .header-logo-title {
   font-family: "Georgia";
@@ -160,14 +162,8 @@ main {
 
 @media screen and (max-width: 700px) {
   .header-nav {
-    display: none;
-    max-width: 30px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .nav-list {
-    display: none;
+    position: fixed;
+    right: -100%;
   }
 }
 
@@ -178,30 +174,66 @@ main {
   height: 22px;
   z-index: 100;
   transition: ease-in-out 0.3s;
+  margin-right: 43px;
 }
 .burger:hover {
   cursor: pointer;
   color: #FDDCC4;
 }
+
 @media screen and (max-width: 700px) {
-  .burger .burger {
+  .burger {
     display: block;
   }
-  .burger .burger.active {
+
+  .burger.active {
     position: fixed;
-    top: 0;
+    right: 0;
   }
-  .burger .burger.active .line {
+  .burger.active .line {
     transform: rotate(90deg);
+    position: fixed;
   }
 }
+.burger-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  max-width: 330px;
+  width: 100%;
+  background-color: #292929;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.burger-menu .nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 327px;
+  width: 243px;
+  list-style: none;
+}
+.burger-menu .nav-list .list-item-link {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+  color: #CDCDCD;
+  transition: ease-in-out 0.3s;
+  font-size: 32px;
+}
+.burger-menu .nav-list .list-item-link:hover {
+  color: #FAFAFA;
+  border-bottom: 3px solid #F1CDB3;
+}
 
-.line {
-  width: 30px;
-  height: 2px;
-  margin: 10px auto;
-  display: block;
-  background-color: #F1CDB3;
+.burger-menu.active {
+  right: 0;
 }
 
 .start-screen-content {
