@@ -23,16 +23,12 @@ body {
 main {
     @include flexColumn();
     width: 100%;
-    // max-width: 1280px;
-    // margin: 0 auto;
-    
 }
 
 .start-screen-wrapper {
     @include flexColumn();
     background: url('../../assets/images/png/noise_transparent@2x.png'), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
     width: 100%;
-    // padding-top: 60px;
 }
 
 .header {
@@ -42,11 +38,8 @@ main {
     width: 100%;
     height: 60px;
     margin-top: 60px;
-    // padding-left: 40px;
-    // padding-right: 40px;
-    
+        
     @media screen and (max-width: 1279px) {
-        // padding: 60px 30px 0;
         margin-top: 30px;
         padding-left: 30px;
         padding-right: 30px;
@@ -54,14 +47,10 @@ main {
     }
 
     @media screen and (max-width: 767px) {
-        // padding: 60px 10px 0;
-        // margin-top: 0;
         padding-left: 10px;
         padding-right: 10px;
         justify-content: space-between;
     }
-
-
 }
 
 .header-logo {
@@ -79,10 +68,6 @@ main {
         @include fontArialHeaderLogo;
         color: $colorLightXl;
     }
-
-    // @media screen and (max-width: 700px){
-    //     position: absolute;
-    // }
 }
 
 .header-nav {
@@ -114,12 +99,8 @@ main {
 
 .header-nav {
     @media screen and (max-width: 700px) {
-        // display: none;
-        // max-width: 30px;
-
         position: fixed;
         right: -100%;
-
     }
 }
 
@@ -145,13 +126,11 @@ main {
 
     .burger.active {
         position: fixed;
-        // top: 0;
         right: 0;
 
         .line {
             transform: rotate(90deg);
             position: fixed;
-            // right: 50;
         }
     }
 }
@@ -165,7 +144,6 @@ main {
     width: 100%;
     background-color: $colorDark3Xl;
     z-index: 50;
-    // padding-top: 248px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,7 +155,6 @@ main {
         align-items: center;
         height: 327px;
         width: 243px;
-        // width: 100%;
         list-style: none;
 
         & .list-item-link {
@@ -214,23 +191,16 @@ main {
         flex-direction: column;
         align-content: center;
         padding-top: 0px;
-
-        & img {
-            width: 569px;
-            height: 593px;
-            position: relative;
-            left: 70px; 
-        }
     }
 
     @media screen and (max-width: 700px) {
         text-align: center;
 
-        & img {
-            width: 260;
-            height: 272px;
-            left: 40px;
-        }
+        // & img {
+        //     width: 260;
+        //     height: 272px;
+        //     left: 40px;
+        // }
     }
 }
 
@@ -310,7 +280,21 @@ h1 {
     display: block;
     max-width: fit-content;
     object-fit: cover;
+
+    @media screen and (max-width: 1279px) {
+        width: 569px;
+        height: 593px;
+        position: relative;
+        left: 70px; 
+    }
+
+    @media screen and (max-width: 700px) {
+        width: 260px;
+        height: 272px;
+        left: 40px;
+    }
 }
+
 // 
 
 .about-section {
@@ -348,7 +332,7 @@ h1 {
     width: 300px;
     height: 408px;
 
-    @media screen and (max-width: 1279px) {
+    @media screen and (max-width: 796px) {
         order: 2
     }
 
@@ -364,7 +348,6 @@ h1 {
     justify-content: space-between;
     max-width: 430px;
     width: 100%;
-    // height: 380px;
     margin-top: 14px;
     margin-bottom: 14px;
 
@@ -465,12 +448,10 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // max-width: 1200px;
     width: 100%;
 
     @media screen and (max-width: 700px) {
         flex-wrap: wrap;
-        // justify-content: center;
         max-width: 270px;
         gap: 20px;
     }
@@ -513,7 +494,7 @@ h3 {
     max-width: 990px;
     width: 100%;
 
-    @media screen and (max-width: 1279px) {
+    @media screen and (max-width: 1170px) {
         .pet-card:last-child {
             display: none;
         }
@@ -667,7 +648,6 @@ h3 {
 .donation-section {
     display: flex;
     justify-content: center;
-    // flex-wrap: wrap;
     width: 100%;
     background-color: $colorLightL;
     padding-bottom: 100px;
@@ -690,7 +670,6 @@ h3 {
 
     @media screen and (max-width: 1000px) {
         flex-direction: column;
-        // padding: 0 10px 0;
     }
 
     .donation-image {
@@ -698,7 +677,7 @@ h3 {
         width: 505px;
         height: 261px;
 
-        @media screen and (max-width: 1279px) {
+        @media screen and (max-width: 1000px) {
             justify-content: center;
             order: 2;
             margin-top: 60px;
@@ -711,22 +690,6 @@ h3 {
     }
 }
 }
-
-    // @media screen and (max-width: 1279px) {
-    //     justify-content: center;
-
-    //     .donation-image {
-    //         order: 2;
-    //         margin-top: 60px
-    //     }
-    // }
-// }
-
-// .donation-image {
-//     @media screen and (max-width: 700px) {
-//         margin-top: 40px;
-//     }
-// }
 
 .donation-content {
     @include flexColumn();

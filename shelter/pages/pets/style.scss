@@ -133,11 +133,9 @@ header {
     width: 100%;
     background-color: $colorDark3Xl;
     z-index: 50;
-    // padding-top: 248px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // display: none;
 
     & .nav-list {
         display: flex;
@@ -145,8 +143,6 @@ header {
         justify-content: space-between;
         align-items: center;
         height: 327px;
-        // width: 243px;
-        // width: 100%;
         list-style: none;
 
         & .list-item-link {
@@ -195,7 +191,6 @@ main {
     max-width: 1200px;
     width: 100%;
     justify-content: space-between;
-    // height: 1162px;
 
     h3 {
         text-align: center;
@@ -223,11 +218,10 @@ h3 {
     padding-top: 60px;
     padding-bottom: 60px;
 
-    @media screen and (max-width: 1279px) {
+    @media screen and (max-width: 1270px) {
         max-width: 580px;
         padding-top: 30px;
         padding-bottom: 40px;
-        // margin-bottom: 40px;
 
         .pet-card:nth-child(7) {
             display: none;
@@ -335,6 +329,7 @@ h3 {
         }
     }
 }
+
 // 
 
 .footer {
@@ -419,7 +414,8 @@ h3 {
                 margin-left: 0;
         }
 }
-    }}
+    }
+}
 
 .footer-image {
     @media screen and (max-width: 700px) {
