@@ -70,7 +70,7 @@ main {
     width: 186px;
     height: 60px;
     z-index: 100;
-    
+
     .header-logo-title {
         @include fontGeorgiaHeaderLogo;
         color: $colorPrimary;
@@ -123,14 +123,6 @@ main {
     }
 }
 
-// .nav-list {
-//     @media screen and (max-width: 700px) {
-//         display: none;
-//     }
-// }
-
-// 
-
 .burger {
     position: relative;
     display: none;
@@ -144,8 +136,6 @@ main {
         cursor: pointer;
         color: $colorPrimaryLight;
     }
-
-
 }
 
 @media screen and (max-width: 700px) {
@@ -165,14 +155,6 @@ main {
         }
     }
 }
-
-// .line {
-//     width: 30px;
-//     height: 2px;
-//     margin-bottom: 8px;
-//     display: block;
-//     background-color: $colorPrimary;
-// }
 
 .burger-menu {
     position: fixed;
@@ -216,9 +198,6 @@ main {
 .burger-menu.active {
     right: 0;
 }
-
-
-
 
 // 
 
@@ -330,6 +309,7 @@ h1 {
 .start-screen-puppy {
     display: block;
     max-width: fit-content;
+    object-fit: cover;
 }
 // 
 
