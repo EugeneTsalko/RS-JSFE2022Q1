@@ -98,7 +98,7 @@ main {
 }
 
 .header-nav {
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         position: fixed;
         right: -100%;
     }
@@ -119,7 +119,7 @@ main {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 767px) {
     .burger {
         display: block;
     }
@@ -193,7 +193,7 @@ main {
         padding-top: 0px;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         text-align: center;
 
         // & img {
@@ -231,7 +231,7 @@ h1 {
     width: 310px;
     height: 114px;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         font-size: 25px;
         width: 200px;
         height: 64px;
@@ -249,7 +249,7 @@ h1 {
     margin-top: 42px;
     margin-bottom: 42px;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         width: 300px;
         height: 96px;
     }
@@ -288,7 +288,7 @@ h1 {
         left: 70px; 
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         width: 260px;
         height: 272px;
         left: 40px;
@@ -316,11 +316,13 @@ h1 {
     padding-bottom: 100px;
 
     @media screen and (max-width: 1279px) {
+        flex-direction: column;
+        align-items: center;
         padding-top: 66px;
         gap: 67px;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         padding-top: 34px;
         gap: 24px;
         padding-bottom: 42px;
@@ -332,11 +334,11 @@ h1 {
     width: 300px;
     height: 408px;
 
-    @media screen and (max-width: 796px) {
+    @media screen and (max-width: 1279px) {
         order: 2
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         width: 260px;
         height: 354px;
     }
@@ -359,7 +361,7 @@ h1 {
             margin-top: 24px;
         }
 
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 767px) {
             padding-top: 0;
             max-width: 270px;
             text-align: justify;
@@ -370,12 +372,12 @@ h1 {
 
     & h3 {
         max-width: 370px;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 767px) {
             max-width: 250px;
         }    
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         align-items: center;
     }    
 }
@@ -386,7 +388,7 @@ h3 {
     line-height: 130%;
     color: $colorDarkL;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         font-size: 25px;
         text-align: center;
     }
@@ -401,7 +403,7 @@ h3 {
     width: 100%;
     background-color: $colorLightL;
     
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         padding-bottom: 42px;
     }
 }
@@ -426,7 +428,7 @@ h3 {
         padding-right: 30px;
     }
     
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         padding: 42px 10px 0;
     }
 }
@@ -437,7 +439,7 @@ h3 {
     max-width: 1200px;
     width: 100%;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         margin-top: 40px;
         margin-bottom: 40px;
         width: 270px;
@@ -450,7 +452,7 @@ h3 {
     justify-content: space-between;
     width: 100%;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         flex-wrap: wrap;
         max-width: 270px;
         gap: 20px;
@@ -474,14 +476,14 @@ h3 {
 }
 
 .slider-prev {
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         order: 2;
         margin-left: 43px;
     }
 }
 
 .slider-next {
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         order: 3;
         margin-right: 43px;
     }
@@ -494,14 +496,14 @@ h3 {
     max-width: 990px;
     width: 100%;
 
-    @media screen and (max-width: 1170px) {
+    @media screen and (max-width: 1279px) {
         .pet-card:last-child {
             display: none;
         }
         max-width: 580px;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         .pet-card:nth-child(2) {
             display: none;
         }
@@ -557,7 +559,7 @@ h3 {
     background-color: $colorLightXl;
     margin-bottom: 100px;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         margin-bottom: 0;
     }
 }
@@ -571,12 +573,12 @@ h3 {
     h3 {
         max-width: 320px;
         text-align: center;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 767px) {
             max-width: 270px;
         }
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         margin-top: 42px;
     }
 }
@@ -604,7 +606,7 @@ h3 {
             width: 170px;
         }
 
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 767px) {
             height: 87px;
             width: 130px;
             font-size: 15px;
@@ -635,7 +637,7 @@ h3 {
         max-width: 630px;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         margin-top: 42px;
         margin-bottom: 42px;
         gap: 30px;
@@ -653,7 +655,7 @@ h3 {
     padding-bottom: 100px;
     padding-top: 80px;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         padding-top: 42px;
         padding-bottom: 42px;
     }
@@ -668,7 +670,7 @@ h3 {
     max-width: 915px;
     width: 100%;
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1279px) {
         flex-direction: column;
     }
 
@@ -677,12 +679,12 @@ h3 {
         width: 505px;
         height: 261px;
 
-        @media screen and (max-width: 1000px) {
+        @media screen and (max-width: 1279px) {
             justify-content: center;
             order: 2;
             margin-top: 60px;
 
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 767px) {
             width: 260px;
             height: 135px;
             margin-top: 42px;
@@ -704,20 +706,20 @@ h3 {
     
     span {
         @include fontGeorgia15px();
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 767px) {
             letter-spacing: 0;
         }
     }
 
     p {
         @include fontArialItalic12px();
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 767px) {
             max-width: 280px;
             text-align: justify;
         }
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         align-items: center;
         
     }
@@ -735,7 +737,7 @@ h3 {
 
     & span {
         @include fontGeorgia20px();
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 767px) {
             font-size: 15px;
         }
         
@@ -745,7 +747,7 @@ h3 {
         background-color: $colorPrimaryLight;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         width: 281px;
         height: 43px;
     }
@@ -760,7 +762,7 @@ h3 {
 }
 
 .footer-wrapper {
-    display: flex;
+    display: flex;    
     justify-content: space-between;
     flex-wrap: wrap;
     padding-top: 40px;
@@ -781,7 +783,7 @@ h3 {
         }
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         padding: 30px 10px 0;
         @include flexColumn;
         justify-content: center;
@@ -813,7 +815,7 @@ h3 {
         margin-bottom: 65px;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         height: 208px;
         max-width: 278px;
         margin-top: 0;
@@ -823,7 +825,7 @@ h3 {
 }
 
 .footer-card2 {
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         height: 222px;
         a {
             width: 300px;
@@ -834,7 +836,7 @@ h3 {
     }}
 
 .footer-image {
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         width: 260px;
         height: 269px;
     }
