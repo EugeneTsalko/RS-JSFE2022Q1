@@ -43,7 +43,7 @@ header {
         padding-right: 30px;
     }
     @media screen and (max-width: 767px) {
-        padding-left: 14px;
+        padding-left: 10px;
     }
 
 
@@ -98,7 +98,7 @@ header {
     height: 22px;
     z-index: 100;
     transition: ease-in-out 0.3s;
-    margin-right: 43px;
+    margin-right: 53px;
 
     &:hover {
         cursor: pointer;
@@ -376,6 +376,7 @@ h3 {
     @include flexColumn();
     margin-top: 16px;
     // margin-right: 5px;
+    padding-right: 20px;
     align-items: flex-start;
     height: 234px;
     justify-content: space-between;
@@ -404,6 +405,13 @@ h3 {
         margin-top: 0;
         margin-bottom: 40px;
         align-items: center;
+        padding-right: 0;
+    }
+}
+
+.footer-card2 {
+    @media screen and (max-width: 1279px) {
+        padding-right: 0px;
     }
 }
 
