@@ -42,8 +42,8 @@ header {
         padding-left: 30px;
         padding-right: 30px;
     }
-    @media screen and (max-width: 700px) {
-        padding-left: 14px;
+    @media screen and (max-width: 767px) {
+        padding-left: 10px;
     }
 
 
@@ -75,7 +75,7 @@ header {
     align-items: center;
     list-style: none;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         display: none;
     }
 }
@@ -98,7 +98,7 @@ header {
     height: 22px;
     z-index: 100;
     transition: ease-in-out 0.3s;
-    margin-right: 43px;
+    margin-right: 53px;
 
     &:hover {
         cursor: pointer;
@@ -106,7 +106,7 @@ header {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 767px) {
     .burger {
         display: block;
     }
@@ -180,7 +180,7 @@ main {
         padding-bottom: 76px;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         padding-top: 162px;
         padding-bottom: 46px;
     }
@@ -203,7 +203,7 @@ h3 {
     line-height: 130%;
     color: $colorDarkL;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         font-size: 25px;
     }
 }
@@ -218,7 +218,7 @@ h3 {
     padding-top: 60px;
     padding-bottom: 60px;
 
-    @media screen and (max-width: 1270px) {
+    @media screen and (max-width: 1279px) {
         max-width: 580px;
         padding-top: 30px;
         padding-bottom: 40px;
@@ -231,7 +231,7 @@ h3 {
         }
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         padding-top: 40px;
         justify-content: center;
         .pet-card:nth-child(4) {
@@ -296,7 +296,7 @@ h3 {
         cursor: auto;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         max-width: 300px;
     }
    
@@ -351,7 +351,7 @@ h3 {
         color: $colorLightXl;
         max-width: 280px;
 
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 767px) {
             text-align: center;
         }
     }
@@ -364,7 +364,7 @@ h3 {
         }
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         padding: 30px 10px 0;
         @include flexColumn;
         justify-content: center;
@@ -375,9 +375,12 @@ h3 {
 .footer-card1, .footer-card2 {
     @include flexColumn();
     margin-top: 16px;
+    // margin-right: 5px;
+    padding-right: 20px;
     align-items: flex-start;
     height: 234px;
     justify-content: space-between;
+
     
     a {
         display: flex;
@@ -396,17 +399,24 @@ h3 {
         margin-bottom: 65px;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         height: 208px;
         max-width: 278px;
         margin-top: 0;
         margin-bottom: 40px;
         align-items: center;
+        padding-right: 0;
     }
 }
 
 .footer-card2 {
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 1279px) {
+        padding-right: 0px;
+    }
+}
+
+.footer-card2 {
+    @media screen and (max-width: 767px) {
         height: 222px;
         a {
             width: 300px;
@@ -418,7 +428,7 @@ h3 {
 }
 
 .footer-image {
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
         width: 260px;
         height: 269px;
     }
