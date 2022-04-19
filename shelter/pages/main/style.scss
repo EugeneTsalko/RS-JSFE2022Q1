@@ -794,6 +794,8 @@ h3 {
 .footer-card1, .footer-card2 {
     @include flexColumn();
     margin-top: 16px;
+    // margin-right: 20px;
+    padding-right: 20px;
     align-items: flex-start;
     height: 234px;
     justify-content: space-between;
@@ -821,6 +823,13 @@ h3 {
         margin-top: 0;
         margin-bottom: 40px;
         align-items: center;
+        padding-right: 0;
+    }
+}
+
+.footer-card2 {
+    @media screen and (max-width: 1279px) {
+        padding-right: 0px;
     }
 }
 
