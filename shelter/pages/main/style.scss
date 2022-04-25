@@ -15,6 +15,10 @@ html {
     overflow-x: hidden;
 }
 
+html.hidden {
+    overflow: hidden;
+}
+
 body {
     @include flexColumn();
     width: 100%;
@@ -28,6 +32,19 @@ main {
 .overlay {
     display: none;
 }
+
+.overlay.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    z-index: 40;
+    background-color: rgba(41, 41, 41, 0.6);
+}
+
+
 
 .start-screen-wrapper {
     @include flexColumn();
@@ -72,6 +89,11 @@ main {
         @include fontArialHeaderLogo;
         color: $colorLightXl;
     }
+}
+
+.header-logo.in-burger {
+    position: fixed;
+    right: 120px;
 }
 
 .header-nav {
@@ -173,8 +195,9 @@ main {
             }
         }
     }
-
+    
 }
+
 
 .burger-menu.active {
     right: 0;

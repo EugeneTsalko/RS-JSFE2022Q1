@@ -59,6 +59,10 @@ html {
   overflow-x: hidden;
 }
 
+html.hidden {
+  overflow: hidden;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -75,6 +79,17 @@ main {
 
 .overlay {
   display: none;
+}
+
+.overlay.active {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  z-index: 40;
+  background-color: rgba(41, 41, 41, 0.6);
 }
 
 .start-screen-wrapper {
@@ -134,6 +149,11 @@ main {
   line-height: 15px;
   letter-spacing: 0.1em;
   color: #FFFFFF;
+}
+
+.header-logo.in-burger {
+  position: fixed;
+  right: 120px;
 }
 
 .header-nav {
