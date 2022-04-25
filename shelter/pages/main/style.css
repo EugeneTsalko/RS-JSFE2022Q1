@@ -1059,4 +1059,28 @@ h3 {
     width: 260px;
     height: 269px;
   }
+}
+
+.popup {
+  display: none;
+}
+.popup.active {
+  display: block;
+}
+
+.popup-wrapper {
+  display: flex;
+  width: 900px;
+  height: 500px;
+  background-color: #FAFAFA;
+  position: fixed;
+  left: calc(50% - 450px);
+  top: calc(50% - 300px);
+  border-radius: 9px;
+}
+
+.popup.close {
+  position: fixed;
+  left: 1080px;
+  top: 70px;
 }/*# sourceMappingURL=style.css.map */

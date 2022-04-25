@@ -1,4 +1,4 @@
-// alert(`Привет, уважаемый проверяющий. Буду очень благродарен, если ты проверишь мою работу в четверг. Если ты не можешь - напиши, пожалуйста, мне в дискорд. Спасибо!`)
+alert(`Привет, уважаемый проверяющий. Буду очень благродарен, если ты проверишь мою работу в четверг. Если ты не можешь - напиши, пожалуйста, мне в дискорд. Спасибо!`)
 // burger menu code
 
 const burger = document.querySelector('.burger');
@@ -108,4 +108,10 @@ nextBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems
 prevBtn.addEventListener('click', sliderAnimationOut);
 nextBtn.addEventListener('click', sliderAnimationIn);
 
-// 
+// popup code
+
+// petCard1, petCard2, petCard3
+
+// petCard1.addEventListener('click', () => console.log('click'))
+
+
