@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="overlay"></div>
     <main class="main" title="Привет, посмотри в консоль, пожалуйста!)">
         <div class="start-screen-wrapper">
             <header class="header">
-                <a href="#" class="header-logo">
+                <a href="./index.html" class="header-logo">
                     <span class="header-logo-title">Cozy House</span>
                     <span class="header-logo-subtitle">Shelter for pets in Boston</span>
                 </a>
@@ -77,30 +78,97 @@
             </div>
         </section>
         <section class="pets-section" id="pets">
+
+            <div class="popup">
+                <div class="popup-wrapper">
+                    <img src="" alt="" class="popup-img">
+                    <div class="popup-content">
+                        <h3 class="popup-name"></h3>
+                        <h4 class="popup-type"></h4>
+                        <p class="popup-description"></p>
+                        <ul class="popup-info">
+                            <li class="popup-age">Age:
+                                <span class="popup-info-value"></span>
+                            </li>
+                            <li class="popup-inoculations">Inoculations:
+                                <span class="popup-info-value"></span>
+                            </li>
+                            <li class="popup-diseases">Diseases:
+                                <span class="popup-info-value"></span>
+                            </li>
+                            <li class="popup-parasites">Parasites:
+                                <span class="popup-info-value"></span>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <img class="popup-close" src="../../assets/icons/svg/modal_close_button.svg" alt="popup-close">
+            </div>
+
             <div class="pets-wrapper">
                 <h3>Our friends who <br>are looking for a house</h3>
                 <div class="slider">
-                    <div class="slider-wrapper">
+                    <div class="slider-wrapper" id="">
                         <button class="slider-prev">
                             <img src="../../assets/icons/svg/button-arrow-prev.svg" alt="prev" class="slider-prev-img">
                         </button>
-                        <div class="slider-items">
-                            <div class="pet-card">
+                        <!-- <div class="slider-items-wrapper"> -->
+                            <div class="slider-items">
+                                <div class="pet-card" id="petCard1">
                                 <img src="../../assets/images/png/pets-katrine.png" alt="Katrine" class="pet-image">
                                 <p class="pet-name">Katrine</p>
                                 <button class="btn-pets">Learn more</button>
                             </div>
-                            <div class="pet-card">
+                            <div class="pet-card" id="petCard2">
                                 <img src="../../assets/images/png/pets-jennifer.png" alt="Jennifer" class="pet-image">
                                 <p class="pet-name">Jennifer</p>
                                 <button class="btn-pets">Learn more</button>
                             </div>
-                            <div class="pet-card">
+                            <div class="pet-card" id="petCard3">
                                 <img src="../../assets/images/png/pets-woody.png" alt="Woody" class="pet-image">
                                 <p class="pet-name">Woody</p>
                                 <button class="btn-pets">Learn more</button>
                             </div>
-                        </div>
+                            </div>
+
+                            <!-- <div class="slider-items">
+                                <div class="pet-card" id="petCard">
+                                <img src="../../assets/images/png/pets-katrine.png" alt="Katrine" class="pet-image">
+                                <p class="pet-name">Katrine</p>
+                                <button class="btn-pets">Learn more</button>
+                            </div>
+                            <div class="pet-card" id="petCard">
+                                <img src="../../assets/images/png/pets-jennifer.png" alt="Jennifer" class="pet-image">
+                                <p class="pet-name">Jennifer</p>
+                                <button class="btn-pets">Learn more</button>
+                            </div>
+                            <div class="pet-card" id="petCard">
+                                <img src="../../assets/images/png/pets-woody.png" alt="Woody" class="pet-image">
+                                <p class="pet-name">Woody</p>
+                                <button class="btn-pets">Learn more</button>
+                            </div>
+                            </div>
+
+                            <div class="slider-items">
+                                <div class="pet-card" id="petCard">
+                                <img src="../../assets/images/png/pets-katrine.png" alt="Katrine" class="pet-image">
+                                <p class="pet-name">Katrine</p>
+                                <button class="btn-pets">Learn more</button>
+                            </div>
+                            <div class="pet-card" id="petCard">
+                                <img src="../../assets/images/png/pets-jennifer.png" alt="Jennifer" class="pet-image">
+                                <p class="pet-name">Jennifer</p>
+                                <button class="btn-pets">Learn more</button>
+                            </div>
+                            <div class="pet-card" id="petCard">
+                                <img src="../../assets/images/png/pets-woody.png" alt="Woody" class="pet-image">
+                                <p class="pet-name">Woody</p>
+                                <button class="btn-pets">Learn more</button>
+                            </div>
+                            </div> -->
+                        
+                        <!-- </div> -->
                         <button class="slider-next">
                             <img src="../../assets/icons/svg/button-arrow-next.svg" alt="next" class="slider-next-img">
                         </button>
@@ -197,5 +265,6 @@
         </div>
     </footer>
 </body>
-<script src="./script.js"></script>
+<script src="./pets.json" type="text/javascript"></script>
+<script src="./script.js" type="text/javascript"></script>
 </html>

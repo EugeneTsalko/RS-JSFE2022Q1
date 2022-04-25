@@ -15,6 +15,10 @@ html {
     overflow-x: hidden;
 }
 
+html.hidden {
+    overflow: hidden;
+}
+
 body {
     @include flexColumn();
     width: 100%;
@@ -24,6 +28,23 @@ main {
     @include flexColumn();
     width: 100%;
 }
+
+.overlay {
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    z-index: 40;
+    background-color: rgba(41, 41, 41, 0.6);
+}
+
+
 
 .start-screen-wrapper {
     @include flexColumn();
@@ -68,6 +89,11 @@ main {
         @include fontArialHeaderLogo;
         color: $colorLightXl;
     }
+}
+
+.header-logo.in-burger {
+    position: fixed;
+    right: 120px;
 }
 
 .header-nav {
@@ -169,8 +195,9 @@ main {
             }
         }
     }
-
+    
 }
+
 
 .burger-menu.active {
     right: 0;
@@ -489,12 +516,24 @@ h3 {
     }
 }
 
+// .slider-items-wrapper {
+//     // max-width: 990px;
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     overflow: hidden;
+// }
+
 .slider-items {
     display: flex;
     justify-content: space-between;
     align-content: center;
     max-width: 990px;
     width: 100%;
+    transition: ease-in-out 1s;
+    // animation: slidein 1s;
+    // overflow: hidden;s
+    
 
     @media screen and (max-width: 1279px) {
         .pet-card:last-child {
@@ -519,7 +558,7 @@ h3 {
     height: 435px;
     border-radius: 9px;
     cursor: pointer;
-    transition: ease-in-out 0.3s;
+    transition: ease-in-out 1s;
 
     .pet-name {
         @include fontPetName();
@@ -533,6 +572,35 @@ h3 {
         }
     }
 }
+
+.animation-in {
+    animation: slidein 0.5s;
+}
+
+@keyframes slidein {
+    from {
+      transform: translateX(-150%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
+
+.animation-out {
+    animation: slideout 0.5s;
+}
+
+@keyframes slideout {
+    from {
+      transform: translateX(150%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
+  
 
 .btn-pets {
     width: 187px;
@@ -850,3 +918,30 @@ h3 {
         height: 269px;
     }
 }
+
+.popup {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.popup-wrapper {
+    display: flex;
+    width: 900px;
+    height: 500px;
+    background-color: $colorLightS;
+    position: fixed;
+    left: calc(50% - 450px);
+    top: calc(50% - 300px);
+    border-radius: 9px;
+}
+
+.popup.close {
+    position: fixed;
+    left: 1080px;
+    top: 70px;
+}
+
+

@@ -59,6 +59,24 @@ html {
   overflow-x: hidden;
 }
 
+html.hidden {
+  overflow: hidden;
+}
+
+.overlay {
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  background-color: rgba(41, 41, 41, 0.6);
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -74,6 +92,10 @@ header {
   justify-content: center;
   position: fixed;
   top: 0;
+}
+
+.header.hidden {
+  background-color: rgba(41, 41, 41, 0.6);
 }
 
 .nav-wrapper {
@@ -124,6 +146,11 @@ header {
   line-height: 15px;
   letter-spacing: 0.1em;
   color: #545454;
+}
+
+.header-logo.in-burger {
+  position: fixed;
+  right: 120px;
 }
 
 .nav-list {
