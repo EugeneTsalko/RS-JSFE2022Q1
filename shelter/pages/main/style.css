@@ -603,6 +603,7 @@ h3 {
   align-content: center;
   max-width: 990px;
   width: 100%;
+  transition: ease-in-out 1s;
 }
 @media screen and (max-width: 1279px) {
   .slider-items {
@@ -631,7 +632,7 @@ h3 {
   height: 435px;
   border-radius: 9px;
   cursor: pointer;
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 1s;
 }
 .pet-card .pet-name {
   font-family: "Georgia";
@@ -650,6 +651,50 @@ h3 {
   border: 2px solid transparent;
 }
 
+.animation-in {
+  -webkit-animation: slidein 0.5s;
+          animation: slidein 0.5s;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.animation-out {
+  -webkit-animation: slideout 0.5s;
+          animation: slideout 0.5s;
+}
+
+@-webkit-keyframes slideout {
+  from {
+    transform: translateX(150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translateX(150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
 .btn-pets {
   width: 187px;
   height: 52px;

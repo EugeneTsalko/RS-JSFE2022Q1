@@ -516,12 +516,24 @@ h3 {
     }
 }
 
+// .slider-items-wrapper {
+//     // max-width: 990px;
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     overflow: hidden;
+// }
+
 .slider-items {
     display: flex;
     justify-content: space-between;
     align-content: center;
     max-width: 990px;
     width: 100%;
+    transition: ease-in-out 1s;
+    // animation: slidein 1s;
+    // overflow: hidden;s
+    
 
     @media screen and (max-width: 1279px) {
         .pet-card:last-child {
@@ -546,7 +558,7 @@ h3 {
     height: 435px;
     border-radius: 9px;
     cursor: pointer;
-    transition: ease-in-out 0.3s;
+    transition: ease-in-out 1s;
 
     .pet-name {
         @include fontPetName();
@@ -560,6 +572,35 @@ h3 {
         }
     }
 }
+
+.animation-in {
+    animation: slidein 0.5s;
+}
+
+@keyframes slidein {
+    from {
+      transform: translateX(-150%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
+
+.animation-out {
+    animation: slideout 0.5s;
+}
+
+@keyframes slideout {
+    from {
+      transform: translateX(150%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
+  
 
 .btn-pets {
     width: 187px;
