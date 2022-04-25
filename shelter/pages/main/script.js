@@ -111,7 +111,8 @@ nextBtn.addEventListener('click', sliderAnimationIn);
 // popup code
 
 // petCard1, petCard2, petCard3
-let popupBtn = document.querySelector('.pet-card')
+const popup = document.querySelector('.popup')
+const popupCloseBtn = document.querySelector('.popup-close')
 
 function isCard(event) {
     console.log(event.target)
@@ -122,8 +123,27 @@ function isCard(event) {
     } else return false
 }
 
+const openPopup = () => {
+    popup.classList.toggle('active')
+    overlay.classList.toggle('active')
+    html.classList.add('hidden')
+}
+
+const closePopup = (event) => {
+    if(event.target.classList.contains('popup-close') ||
+    event.target.classList.contains('overlay')) {
+        popup.classList.remove('active')
+        overlay.classList.remove('active')
+        html.classList.remove('hidden')
+    }
+}
+
+openPopup()
+
 
 sliderItems.addEventListener('click', isCard);
+overlay.addEventListener('click', closePopup);
+popupCloseBtn.addEventListener('click', closePopup);
 // petCard2.addEventListener('click', () => console.log('click'));
 // petCard3.addEventListener('click', () => console.log('click'));
 
