@@ -1,61 +1,117 @@
-console.log(`Сделал самопроверку на всякий случай. Если вдруг вы это читаете, нашли какую-то ошибку, то пожалуйста, сообщите мне в дискорд, карма штука серьезная) Я правда потратил много времени на этот таск и будет очень обидно, если я что-то проглядел. Спасибо!
-Ваша отметка - 100 балла(ов)
-Отзыв по пунктам ТЗ:
-
-
-Комментарии к выполненным пунктам:
-
-1) В браузере Google Chrome при плавном изменении ширины окна от максимума до 320px включительно на странице main не появляется горизонтальная полоса прокрутки, контент не выходит за боковые границы окна
-Комментарий проверяющего: в хроме горизонтальной полосы не обнаружено
-2) В браузере Google Chrome при плавном изменении ширины окна от максимума до 320px включительно на странице our pets не появляется горизонтальная полоса прокрутки, контент не выходит за боковые границы окна
-Комментарий проверяющего: в хроме горизонтальной полосы не обнаружено
-3) В браузере Mozilla Firefox при плавном изменении ширины окна от максимума до 320px включительно на странице main:
-1) не появляется горизонтальная полоса прокрутки, контент не выходит за боковые границы окна
-или
-2) не появляются проблемы в верстке, отличные от тех, что были в Google Chrome.
-При нарушении первого пункта вычитается -10 баллов.
-При выполнении первого пункта и нарушении второго пункта вычитается -5 баллов за каждую уникальную ошибку, но не более -10 баллов
-Комментарий проверяющего: косяков не выявлено
-4) В браузере Mozilla Firefox при плавном изменении ширины окна от максимума до 320px включительно на странице our pets:
-1) не появляется горизонтальная полоса прокрутки, контент не выходит за боковые границы окна
-или
-2) не появляются проблемы в верстке, отличные от тех, что были в Google Chrome.
-При нарушении первого пункта вычитается -10 баллов.
-При выполнении первого пункта и нарушении второго пункта вычитается -5 баллов за каждую уникальную ошибку, но не более -10 баллов
-Комментарий проверяющего: косяков не выявлено
-5) На странице main при ширине страницы большей 1280px выполняются необходимые условия, нет нарушений отступов или размеров при проверке соответствию макету main-1280 на ширине экрана 1280px
-Комментарий проверяющего: на ширине 1280 и выше все четко по макету
-6) На странице main для ширины страницы 768px <= width < 1280px выполняются необходимые условия, нет нарушений отступов или размеров при проверке соответствию макету main-768 на ширине экрана 768px
-Комментарий проверяющего: на ширине 768 пикселей полностью соответствует макету. на промежуточных значениях от 769 до 1279 постарался сделать подобие резиновой верстки, в этом промежутке никаких косяков влияющих на баллы не выявил.
-7) На странице our pets для ширины страницы 768px <= width < 1280px выполняются необходимые условия, нет нарушений отступов или размеров при проверке соответствию макету our-pets-768 на ширине экрана 768px
-Комментарий проверяющего: то же самое, что и в мэйн, но тут больше не респонсив, а адаптив сделал. на 768 все по макету.
-8) На странице main для ширины страницы 320px <= width < 768px выполняются необходимые условия, нет нарушений отступов или размеров при проверке соответствию макету main-320 на ширине экрана 320px
-Комментарий проверяющего: опять же пытался сделать резиновую верстку, насколько это было возможно на промежуточных значениях. на 320 пикселях все по макету. обычное меню скрывается, бургер меню присутствует. 
-9) На странице our pets для ширины страницы 320px <= width < 768px выполняются необходимые условия, нет нарушений отступов или размеров при проверке соответствию макету our-pets-320 на ширине экрана 320px
-Комментарий проверяющего: аналогично мэйну, все по макету на 320px. 
-
-
-Все пункты выполнены полностью!
-
-
-UPD резиновость везде убрал из-за кривотолков в требованиях, чтобы не терять баллы. В остальном все ок.
-`)
+alert(`Привет, уважаемый проверяющий. Буду очень благродарен, если ты проверишь мою работу в четверг. Если ты не можешь - напиши, пожалуйста, мне в дискорд. Спасибо!`)
 // burger menu code
 
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.burger-menu');
+const overlay = document.querySelector('.overlay');
+const html = document.documentElement;
+const logo = document.querySelector('.header-logo');
 
 const toggleBurger = () => {
     burger.classList.toggle('active');
     nav.classList.toggle('active');
+    overlay.classList.toggle('active');
+    html.classList.toggle('hidden');
+    logo.classList.toggle('in-burger');
 }
 
 const closeBurger = (event) => {
-    if (event.target.classList.contains('list-item-link')) {
+    if (!event.target.classList.contains('list-item-link') ||
+    event.target.classList.contains('list-item-link')) {
         burger.classList.remove('active');
         nav.classList.remove('active');
+        overlay.classList.remove('active');
+        html.classList.remove('hidden');
+        logo.classList.remove('in-burger');
     }
 }
 
 burger.addEventListener('click',toggleBurger);
 nav.addEventListener('click', closeBurger);
+overlay.addEventListener('click', closeBurger);
+
+window.addEventListener("resize", function() {
+    if (this.document.documentElement.clientWidth >= 768) {
+        burger.classList.remove('active');
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+        html.classList.remove('hidden');
+        logo.classList.remove('in-burger');
+    }
+  })
+
+//   slider code
+
+let petNameArr = ['katrine', 'jennifer', 'woody', 'sophia', 'freddie', 'scarlett', 'charly', 'timmy'];
+
+const prevBtn = document.querySelector('.slider-prev');
+const nextBtn = document.querySelector('.slider-next');
+let petCard1 = document.querySelector('#petCard1');
+let petCard2 = document.querySelector('#petCard2');
+let petCard3 = document.querySelector('#petCard3');
+let sliderItems = document.querySelector('.slider-items');
+
+function randomInteger(min, max) {
+    // случайное число от min до (max+1)
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
+}
+
+function buildPetCard(i) {
+    let petName = petNameArr[i];
+
+    const buildedPetCard = `
+    
+        <img src="../../assets/images/png/pets-${petName}.png" alt="${petName}" class="pet-image">
+        <p class="pet-name">${petName[0].toUpperCase() + petName.slice(1)}</p>
+        <button class="btn-pets">Learn more</button>
+    
+    `;
+    // console.log(`pet card ${i} bulided`);
+    return buildedPetCard;
+}
+
+function buildSliderItems() {
+    
+    let item1 = buildPetCard(randomInteger(0, 7));
+
+    let item2 = buildPetCard(randomInteger(0, 7));
+    while (item1 === item2) {
+        item2 = buildPetCard(randomInteger(0, 7));
+    }
+
+    let item3 = buildPetCard(randomInteger(0, 7));
+    while(item2 === item3 || item1 === item3) {
+        item3 = buildPetCard(randomInteger(0, 7));
+    }
+
+    let buildedSliderItems = `
+    <div class="pet-card" id="petCard1">${item1}</div>
+    <div class="pet-card" id="petCard2">${item2}</div>
+    <div class="pet-card" id="petCard3">${item3}</div>
+    `;
+    return buildedSliderItems;
+}
+
+function sliderAnimationIn() {
+    sliderItems.classList.add('animation-in');
+    setTimeout(() => sliderItems.classList.remove('animation-in'), 500);
+}
+
+function sliderAnimationOut() {
+    sliderItems.classList.add('animation-out');
+    setTimeout(() => sliderItems.classList.remove('animation-out'), 500);
+}
+
+prevBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
+nextBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
+prevBtn.addEventListener('click', sliderAnimationOut);
+nextBtn.addEventListener('click', sliderAnimationIn);
+
+// popup code
+
+// petCard1, petCard2, petCard3
+
+// petCard1.addEventListener('click', () => console.log('click'))
+
+

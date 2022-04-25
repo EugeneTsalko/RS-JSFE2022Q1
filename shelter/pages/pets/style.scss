@@ -13,6 +13,25 @@ html {
     overflow-x: hidden;
 }
 
+html.hidden {
+    overflow: hidden;
+}
+
+.overlay {
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    // z-index: 20;
+    background-color: rgba(41, 41, 41, 0.6);
+}
+
 body {
     @include flexColumn();
 }
@@ -26,6 +45,10 @@ header {
     justify-content: center;
     position: fixed;
     top: 0;
+}
+
+.header.hidden {
+    background-color: rgba(41, 41, 41, 0.6);
 }
 
 .nav-wrapper {
@@ -63,6 +86,11 @@ header {
         @include fontArialHeaderLogo;
         color: $colorDarkL;
     }
+}
+
+.header-logo.in-burger {
+    position: fixed;
+    right: 120px;
 }
 
 .nav-list {
