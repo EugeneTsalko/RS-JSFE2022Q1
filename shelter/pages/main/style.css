@@ -1063,6 +1063,7 @@ h3 {
 
 .popup {
   display: none;
+  z-index: 50;
 }
 .popup.active {
   display: block;
@@ -1079,8 +1080,30 @@ h3 {
   border-radius: 9px;
 }
 
-.popup.close {
+.popup-img {
+  width: 500px;
+  height: 500px;
+}
+
+.popup-close {
   position: fixed;
   left: 1080px;
   top: 70px;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  padding-right: 10px;
+}
+
+.popup-name {
+  padding-bottom: 10px;
+}
+
+.popup-description {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }/*# sourceMappingURL=style.css.map */

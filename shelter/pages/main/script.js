@@ -111,7 +111,20 @@ nextBtn.addEventListener('click', sliderAnimationIn);
 // popup code
 
 // petCard1, petCard2, petCard3
+let popupBtn = document.querySelector('.pet-card')
 
-// petCard1.addEventListener('click', () => console.log('click'))
+function isCard(event) {
+    console.log(event.target)
+
+    if(event.target.classList.contains('pet-card') || event.target.classList.contains('pet-image') || event.target.classList.contains('pet-name') 
+    || event.target.classList.contains('btn-pets')) {
+        return true
+    } else return false
+}
+
+
+sliderItems.addEventListener('click', isCard);
+// petCard2.addEventListener('click', () => console.log('click'));
+// petCard3.addEventListener('click', () => console.log('click'));
 
 
