@@ -59,6 +59,10 @@ html {
   overflow-x: hidden;
 }
 
+html.hidden {
+  overflow: hidden;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -71,6 +75,21 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+.overlay {
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  z-index: 40;
+  background-color: rgba(41, 41, 41, 0.6);
 }
 
 .start-screen-wrapper {
@@ -130,6 +149,11 @@ main {
   line-height: 15px;
   letter-spacing: 0.1em;
   color: #FFFFFF;
+}
+
+.header-logo.in-burger {
+  position: fixed;
+  right: 120px;
 }
 
 .header-nav {
@@ -579,6 +603,7 @@ h3 {
   align-content: center;
   max-width: 990px;
   width: 100%;
+  transition: ease-in-out 1s;
 }
 @media screen and (max-width: 1279px) {
   .slider-items {
@@ -607,7 +632,7 @@ h3 {
   height: 435px;
   border-radius: 9px;
   cursor: pointer;
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 1s;
 }
 .pet-card .pet-name {
   font-family: "Georgia";
@@ -626,6 +651,50 @@ h3 {
   border: 2px solid transparent;
 }
 
+.animation-in {
+  -webkit-animation: slidein 0.5s;
+          animation: slidein 0.5s;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.animation-out {
+  -webkit-animation: slideout 0.5s;
+          animation: slideout 0.5s;
+}
+
+@-webkit-keyframes slideout {
+  from {
+    transform: translateX(150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translateX(150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
 .btn-pets {
   width: 187px;
   height: 52px;
@@ -990,4 +1059,28 @@ h3 {
     width: 260px;
     height: 269px;
   }
+}
+
+.popup {
+  display: none;
+}
+.popup.active {
+  display: block;
+}
+
+.popup-wrapper {
+  display: flex;
+  width: 900px;
+  height: 500px;
+  background-color: #FAFAFA;
+  position: fixed;
+  left: calc(50% - 450px);
+  top: calc(50% - 300px);
+  border-radius: 9px;
+}
+
+.popup.close {
+  position: fixed;
+  left: 1080px;
+  top: 70px;
 }/*# sourceMappingURL=style.css.map */
