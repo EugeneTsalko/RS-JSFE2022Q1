@@ -90,6 +90,7 @@ main {
   height: 100%;
   z-index: 40;
   background-color: rgba(41, 41, 41, 0.6);
+  cursor: pointer;
 }
 
 .start-screen-wrapper {
@@ -1063,9 +1064,27 @@ h3 {
 
 .popup {
   display: none;
+  z-index: 50;
+  width: 952px;
+  height: 552px;
+  position: fixed;
+  top: 20%;
+  align-self: center;
+}
+@media screen and (max-width: 1279px) {
+  .popup {
+    width: 682px;
+    height: 402px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .popup {
+    width: 271px;
+    height: 393px;
+  }
 }
 .popup.active {
-  display: block;
+  display: flex;
 }
 
 .popup-wrapper {
@@ -1073,14 +1092,135 @@ h3 {
   width: 900px;
   height: 500px;
   background-color: #FAFAFA;
-  position: fixed;
-  left: calc(50% - 450px);
-  top: calc(50% - 300px);
   border-radius: 9px;
+  margin-top: 50px;
+  gap: 20px;
+}
+@media screen and (max-width: 1279px) {
+  .popup-wrapper {
+    width: 630px;
+    height: 350px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .popup-wrapper {
+    width: 240px;
+    height: 360px;
+  }
 }
 
-.popup.close {
-  position: fixed;
-  left: 1080px;
-  top: 70px;
+.popup-img {
+  width: 500px;
+  height: 500px;
+  border-radius: 9px;
+}
+@media screen and (max-width: 1279px) {
+  .popup-img {
+    width: 350px;
+    height: 350px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .popup-img {
+    display: none;
+  }
+}
+
+.popup-close {
+  height: 52px;
+  width: 52px;
+  border: 2px solid #F1CDB3;
+  border-radius: 100px;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+  z-index: 101;
+}
+.popup-close:hover {
+  background-color: #FDDCC4;
+  border: 2px solid transparent;
+}
+@media screen and (max-width: 1279px) {
+  .popup-close {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #000000;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+.popup-content h3 {
+  font-size: 35px;
+}
+.popup-content h4 {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  /* identical to box height, or 23px */
+  letter-spacing: 0.06em;
+  color: #000000;
+}
+.popup-content p {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 110%;
+  /* or 17px */
+  letter-spacing: 0.06em;
+  color: #000000;
+}
+@media screen and (max-width: 1279px) {
+  .popup-content p {
+    font-size: 13px;
+  }
+}
+.popup-content li {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 110%;
+  /* identical to box height, or 17px */
+  letter-spacing: 0.06em;
+  color: #000000;
+}
+.popup-content li span {
+  font-weight: 400;
+}
+@media screen and (max-width: 767px) {
+  .popup-content {
+    padding: 10px;
+  }
+}
+
+.popup-name {
+  padding-bottom: 10px;
+}
+
+.popup-description {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media screen and (max-width: 1279px) {
+  .popup-description {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }/*# sourceMappingURL=style.css.map */
