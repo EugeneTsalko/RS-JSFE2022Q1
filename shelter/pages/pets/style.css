@@ -708,4 +708,49 @@ h3 {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+}
+
+.animation-in {
+  -webkit-animation: slidein 0.5s;
+          animation: slidein 0.5s;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.animation-out {
+  -webkit-animation: slideout 0.5s;
+          animation: slideout 0.5s;
+}
+
+@-webkit-keyframes slideout {
+  from {
+    transform: translateX(150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translateX(150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }/*# sourceMappingURL=style.css.map */

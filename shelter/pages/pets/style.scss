@@ -628,3 +628,31 @@ h3 {
         padding-bottom: 20px;
     }
 }
+
+.animation-in {
+    animation: slidein 0.5s;
+}
+
+@keyframes slidein {
+    from {
+      transform: translateX(-150%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
+
+.animation-out {
+    animation: slideout 0.5s;
+}
+
+@keyframes slideout {
+    from {
+      transform: translateX(150%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
