@@ -81,29 +81,32 @@
 
             <div class="popup">
                 <div class="popup-wrapper">
-                    <img src="" alt="" class="popup-img">
+                    <img src="../../assets/images/png/pets-katrine.png" alt="katrine" class="popup-img">
                     <div class="popup-content">
-                        <h3 class="popup-name"></h3>
-                        <h4 class="popup-type"></h4>
-                        <p class="popup-description"></p>
+                        <h3 class="popup-name">Katrine</h3>
+                        <h4 class="popup-type">Cat - British Shorthair</h4>
+                        <p class="popup-description">Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes as long as you are the one. She is picky about her affection. She loves cuddles and to stretch into your hands for a deeper relaxations.</p>
                         <ul class="popup-info">
                             <li class="popup-age">Age:
-                                <span class="popup-info-value"></span>
+                                <span class="popup-info-value">6 months</span>
                             </li>
                             <li class="popup-inoculations">Inoculations:
-                                <span class="popup-info-value"></span>
+                                <span class="popup-info-value">panleukopenia</span>
                             </li>
                             <li class="popup-diseases">Diseases:
-                                <span class="popup-info-value"></span>
+                                <span class="popup-info-value">none</span>
                             </li>
                             <li class="popup-parasites">Parasites:
-                                <span class="popup-info-value"></span>
+                                <span class="popup-info-value">none</span>
                             </li>
                         </ul>
 
                     </div>
                 </div>
-                <img class="popup-close" src="../../assets/icons/svg/modal_close_button.svg" alt="popup-close">
+                
+                <button class="popup-close" data-close="">
+                    <img class="popup-close-img" src="../../assets/icons/svg/modal_close_button.svg" alt="popup-close" data-close="">
+                </button>
             </div>
 
             <div class="pets-wrapper">
@@ -113,62 +116,25 @@
                         <button class="slider-prev">
                             <img src="../../assets/icons/svg/button-arrow-prev.svg" alt="prev" class="slider-prev-img">
                         </button>
-                        <!-- <div class="slider-items-wrapper"> -->
-                            <div class="slider-items">
-                                <div class="pet-card" id="petCard1">
-                                <img src="../../assets/images/png/pets-katrine.png" alt="Katrine" class="pet-image">
-                                <p class="pet-name">Katrine</p>
-                                <button class="btn-pets">Learn more</button>
-                            </div>
-                            <div class="pet-card" id="petCard2">
-                                <img src="../../assets/images/png/pets-jennifer.png" alt="Jennifer" class="pet-image">
-                                <p class="pet-name">Jennifer</p>
-                                <button class="btn-pets">Learn more</button>
-                            </div>
-                            <div class="pet-card" id="petCard3">
-                                <img src="../../assets/images/png/pets-woody.png" alt="Woody" class="pet-image">
-                                <p class="pet-name">Woody</p>
-                                <button class="btn-pets">Learn more</button>
-                            </div>
-                            </div>
-
-                            <!-- <div class="slider-items">
-                                <div class="pet-card" id="petCard">
-                                <img src="../../assets/images/png/pets-katrine.png" alt="Katrine" class="pet-image">
-                                <p class="pet-name">Katrine</p>
-                                <button class="btn-pets">Learn more</button>
-                            </div>
-                            <div class="pet-card" id="petCard">
-                                <img src="../../assets/images/png/pets-jennifer.png" alt="Jennifer" class="pet-image">
-                                <p class="pet-name">Jennifer</p>
-                                <button class="btn-pets">Learn more</button>
-                            </div>
-                            <div class="pet-card" id="petCard">
-                                <img src="../../assets/images/png/pets-woody.png" alt="Woody" class="pet-image">
-                                <p class="pet-name">Woody</p>
-                                <button class="btn-pets">Learn more</button>
-                            </div>
-                            </div>
-
-                            <div class="slider-items">
-                                <div class="pet-card" id="petCard">
-                                <img src="../../assets/images/png/pets-katrine.png" alt="Katrine" class="pet-image">
-                                <p class="pet-name">Katrine</p>
-                                <button class="btn-pets">Learn more</button>
-                            </div>
-                            <div class="pet-card" id="petCard">
-                                <img src="../../assets/images/png/pets-jennifer.png" alt="Jennifer" class="pet-image">
-                                <p class="pet-name">Jennifer</p>
-                                <button class="btn-pets">Learn more</button>
-                            </div>
-                            <div class="pet-card" id="petCard">
-                                <img src="../../assets/images/png/pets-woody.png" alt="Woody" class="pet-image">
-                                <p class="pet-name">Woody</p>
-                                <button class="btn-pets">Learn more</button>
-                            </div>
-                            </div> -->
                         
-                        <!-- </div> -->
+                            <div class="slider-items">
+                                <div class="pet-card" id="petCard1" data-pet="katrine">
+                                <img src="../../assets/images/png/pets-katrine.png" alt="Katrine" class="pet-image" data-pet="katrine">
+                                <p class="pet-name" data-pet="katrine">Katrine</p>
+                                <button class="btn-pets" data-pet="katrine">Learn more</button>
+                            </div>
+                            <div class="pet-card" id="petCard2" data-pet="jennifer">
+                                <img src="../../assets/images/png/pets-jennifer.png" alt="Jennifer" class="pet-image" data-pet="jennifer">
+                                <p class="pet-name" data-pet="jennifer">Jennifer</p>
+                                <button class="btn-pets" data-pet="jennifer">Learn more</button>
+                            </div>
+                            <div class="pet-card" id="petCard3" data-pet="woody">
+                                <img src="../../assets/images/png/pets-woody.png" alt="Woody" class="pet-image" data-pet="woody">
+                                <p class="pet-name" data-pet="woody">Woody</p>
+                                <button class="btn-pets" data-pet="woody">Learn more</button>
+                            </div>
+                            </div>
+
                         <button class="slider-next">
                             <img src="../../assets/icons/svg/button-arrow-next.svg" alt="next" class="slider-next-img">
                         </button>
