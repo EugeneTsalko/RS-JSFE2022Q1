@@ -110,18 +110,15 @@ nextBtn.addEventListener('click', sliderAnimationIn);
 
 // popup code
 
-// petCard1, petCard2, petCard3
 const popup = document.querySelector('.popup')
+const popupWrapper = document.querySelector('.popup-wrapper')
 const popupCloseBtn = document.querySelector('.popup-close')
 const petCardsArr = sliderItems.children;
 
-// petCardsArr.forEach((item) => {
-//     item.addEventListener('click',() => console.log('ok'))
-// })
 const openPopup = () => {
     popup.classList.toggle('active')
     overlay.classList.toggle('active')
-    html.classList.add('hidden')
+    html.classList.toggle('hidden')
 }
 
 
@@ -140,15 +137,14 @@ function showBuildedPopup(event) {
                 console.log(petFromObj)
             }
         }
-        popup.innerHTML = buildPopup(petFromObj)
+        popupWrapper.innerHTML = buildPopup(petFromObj)
     }
-
     openPopup()
 }
 
 function buildPopup(obj) {
     let buildedPopup = `
-                <div class="popup-wrapper">
+                
                     <img src="${obj.img}" alt="${obj.name}" class="popup-img">
                     <div class="popup-content">
                         <h3 class="popup-name">${obj.name[0].toUpperCase() + obj.name.slice(1)}</h3>
@@ -169,27 +165,38 @@ function buildPopup(obj) {
                             </li>
                         </ul>
                     </div>
-                </div>
-                <button class="popup-close">
-                    <img class="popup-close-img" src="../../assets/icons/svg/modal_close_button.svg" alt="popup-close">
-                </button>
+            
     `
     return buildedPopup
 }
 
 const closePopup = (event) => {
-    if(event.target.classList.contains('popup-close') ||
+    console.log(event.target)
+    if(event.target.classList.contains('popup-close') || event.target.classList.contains('popup-close-img') ||
     event.target.classList.contains('overlay')) {
+        console.log(event.target)
         popup.classList.remove('active')
         overlay.classList.remove('active')
         html.classList.remove('hidden')
     }
 }
 
+function closeBtn(event) {
+    if(event.target.classList.contains('popup-close')) {
+        console.log('da')
+    }
+    
+}
 
+
+
+// window.addEventListener('click', () => console.log(event.target))
 sliderItems.addEventListener('click', showBuildedPopup);
-overlay.addEventListener('click', closePopup);
 popupCloseBtn.addEventListener('click', closePopup);
+// popupCloseBtn.addEventListener('click', closeBtn);
+overlay.addEventListener('click', closePopup);
+popup.addEventListener('mouseleave', () => console.log('mouseenter'))
+// popupCloseBtn.addEventListener('click', closePopup);
 // petCard2.addEventListener('click', () => console.log('click'));
 // petCard3.addEventListener('click', () => console.log('click'));
 
