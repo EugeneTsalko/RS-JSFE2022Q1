@@ -461,3 +461,170 @@ h3 {
         height: 269px;
     }
 }
+
+.popup {
+    display: none;
+    z-index: 50;
+    width: 952px;
+    height: 552px;
+    // width: 100%;
+    position: fixed;
+    top: 20%;
+    align-self: center;
+
+    @media screen and (max-width: 1279px) {
+        width: 682px;
+        height: 402px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 271px;
+        height: 393px;
+    }
+
+    &.active {
+        display: flex;
+        // justify-content: center;
+        // align-items: center;
+    }
+}
+
+.popup-wrapper {
+    display: flex;
+    // align-items: center;
+    width: 900px;
+    height: 500px;
+    background-color: $colorLightS;
+    // position: fixed;
+    // left: calc(50% - 450px);
+    // top: calc(50% - 300px);
+    border-radius: 9px;
+    margin-top: 50px;
+    gap:20px;
+
+    @media screen and (max-width: 1279px) {
+        width: 630px;
+        height: 350px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 240px;
+        height: 360px;
+    }
+}
+
+.popup-img {
+    width: 500px;
+    height: 500px;
+    border-radius: 9px;
+
+    @media screen and (max-width: 1279px) {
+        width: 350px;
+        height: 350px;
+    }
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+
+}
+
+.popup-close {
+    // position: absolute;
+    // left: 1080px;
+    // top: 70px;
+    height: 52px;
+    width: 52px;
+    border: 2px solid $colorPrimary;
+    border-radius: 100px;
+    background: transparent;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+    z-index: 101;
+    &:hover {
+        
+        background-color: $colorPrimaryLight;
+        border: 2px solid transparent;
+    }
+
+    @media screen and (max-width: 1279px) {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #000000;
+    @include fontGeorgia20px;
+    
+    h3 {
+        font-size: 35px;
+    }
+
+    h4 {
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 115%;
+        /* identical to box height, or 23px */
+        
+        letter-spacing: 0.06em;
+        
+        color: #000000;    }
+
+    p {
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 110%;
+        /* or 17px */
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+
+        @media screen and (max-width: 1279px) {
+            font-size: 13px;
+        }
+    }
+
+    li {
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 110%;
+        /* identical to box height, or 17px */
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+
+     span {
+         font-weight: 400;
+     }
+    }
+
+    @media screen and (max-width: 767px) {
+        padding: 10px;
+        // justify-content: center;
+    }
+}
+
+.popup-name {
+    padding-bottom: 10px;
+}
+
+.popup-description {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @media screen and (max-width: 1279px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}

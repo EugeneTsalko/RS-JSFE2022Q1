@@ -952,7 +952,7 @@ h3 {
         width: 630px;
         height: 350px;
     }
-    @media screen and (max-width: 1279px) {
+    @media screen and (max-width: 767px) {
         width: 240px;
         height: 360px;
     }
@@ -1076,3 +1076,4 @@ h3 {
     }
 }
 
+// #overlay:hover > .popup-close { background-color: yellow; }

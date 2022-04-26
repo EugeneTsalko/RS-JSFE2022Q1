@@ -1102,7 +1102,7 @@ h3 {
     height: 350px;
   }
 }
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 767px) {
   .popup-wrapper {
     width: 240px;
     height: 360px;

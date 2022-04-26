@@ -126,7 +126,7 @@ function showBuildedPopup(event) {
     // console.log(event.target)
 
     if(event.target.hasAttribute('data-pet')) {
-        console.log(event.target.getAttribute('data-pet'))
+        // console.log(event.target.getAttribute('data-pet'))
         let petName = event.target.getAttribute('data-pet')
         let petFromObj
 
@@ -171,33 +171,20 @@ function buildPopup(obj) {
 }
 
 const closePopup = (event) => {
-    console.log(event.target)
+    // console.log(event.target)
     if(event.target.classList.contains('popup-close') || event.target.classList.contains('popup-close-img') ||
     event.target.classList.contains('overlay')) {
-        console.log(event.target)
+        // console.log(event.target)
         popup.classList.remove('active')
         overlay.classList.remove('active')
         html.classList.remove('hidden')
     }
 }
 
-function closeBtn(event) {
-    if(event.target.classList.contains('popup-close')) {
-        console.log('da')
-    }
-    
-}
-
-
-
 // window.addEventListener('click', () => console.log(event.target))
 sliderItems.addEventListener('click', showBuildedPopup);
 popupCloseBtn.addEventListener('click', closePopup);
-// popupCloseBtn.addEventListener('click', closeBtn);
 overlay.addEventListener('click', closePopup);
-popup.addEventListener('mouseleave', () => console.log('mouseenter'))
-// popupCloseBtn.addEventListener('click', closePopup);
-// petCard2.addEventListener('click', () => console.log('click'));
-// petCard3.addEventListener('click', () => console.log('click'));
+
 
 
