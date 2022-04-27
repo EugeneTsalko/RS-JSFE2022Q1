@@ -32,7 +32,7 @@ nav.addEventListener('click', closeBurger);
 overlay.addEventListener('click', closeBurger);
 
 window.addEventListener("resize", function() {
-    if (this.document.documentElement.clientWidth >= 768) {
+    if (this.window.innerWidth >= 768) {
         burger.classList.remove('active');
         nav.classList.remove('active');
         overlay.classList.remove('active');
@@ -47,11 +47,11 @@ let petNameArr = ['jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy',
 
 const prevBtn = document.querySelector('.slider-prev');
 const nextBtn = document.querySelector('.slider-next');
-let petCard1 = document.querySelector('#petCard1');
-let petCard2 = document.querySelector('#petCard2');
-let petCard3 = document.querySelector('#petCard3');
+// let petCard1 = document.querySelector('#petCard1');
+// let petCard2 = document.querySelector('#petCard2');
+// let petCard3 = document.querySelector('#petCard3');
 let sliderItems = document.querySelector('.slider-items');
-
+ 
 function randomInteger(min, max) {
     // случайное число от min до (max+1)
     let rand = min + Math.random() * (max + 1 - min);

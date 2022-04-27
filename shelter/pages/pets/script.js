@@ -34,7 +34,7 @@ overlay.addEventListener('click', closeBurger);
 // header.addEventListener('click', closeBurger);
 
 window.addEventListener("resize", function() {
-    if (this.document.documentElement.clientWidth >= 768) {
+    if (this.window.innerWidth >= 768) {
         burger.classList.remove('active');
         nav.classList.remove('active');
         overlay.classList.remove('active');
@@ -60,7 +60,7 @@ const openPopup = () => {
 }
 
 
-function showBuildedPopup(event) {
+const showBuildedPopup = function (event) {
     // console.log(event.target)
 
     if(event.target.hasAttribute('data-pet')) {
@@ -80,9 +80,8 @@ function showBuildedPopup(event) {
     openPopup()
 }
 
-function buildPopup(obj) {
+const buildPopup = function (obj) {
     let buildedPopup = `
-                
                     <img src="${obj.img}" alt="${obj.name}" class="popup-img">
                     <div class="popup-content">
                         <h3 class="popup-name">${obj.name[0].toUpperCase() + obj.name.slice(1)}</h3>
@@ -103,7 +102,6 @@ function buildPopup(obj) {
                             </li>
                         </ul>
                     </div>
-            
     `
     return buildedPopup
 }
@@ -117,7 +115,6 @@ const closePopup = (event) => {
         overlay.classList.remove('active')
         overlay.classList.remove('zIndex')
         html.classList.remove('hidden')
-        // header.classList.remove('notFixed');
     }
 }
 
@@ -127,6 +124,7 @@ popupCloseBtn.addEventListener('click', closePopup);
 overlay.addEventListener('click', closePopup);
 
 // pagination code
+
 
 let petNameArr = ['jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly', 
 'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
