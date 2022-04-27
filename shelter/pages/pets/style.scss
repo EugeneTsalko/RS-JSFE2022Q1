@@ -469,16 +469,22 @@ h3 {
     height: 552px;
     // width: 100%;
     position: fixed;
-    top: 20%;
+    // top: 20%;
+    left: calc(50% - 450px);
+    top: calc(50% - 300px);
     align-self: center;
 
     @media screen and (max-width: 1279px) {
         width: 682px;
         height: 402px;
+        left: calc(50% - 315px);
+        top: calc(50% - 230px);
     }
     @media screen and (max-width: 767px) {
         width: 271px;
         height: 393px;
+        left: calc(50% - 115px);
+        top: calc(50% - 230px);
     }
 
     &.active {
