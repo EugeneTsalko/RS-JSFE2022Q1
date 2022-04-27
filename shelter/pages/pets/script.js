@@ -125,122 +125,29 @@ overlay.addEventListener('click', closePopup);
 
 // pagination code
 
+const petsGallery = document.querySelector('.pets-gallery');
+const buttonsArr = document.getElementsByClassName("slider-button");
+const beginButton = buttonsArr[0]; 
+const prevButton = buttonsArr[1]; 
+const currentPage = document.querySelector('.slider-current');
+const nextButton = buttonsArr[2];
+const endButton = buttonsArr[3];
 
-let petNameArr = ['jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly', 
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly'];
-
-// let htmlCardsArr = petNameArr.map(buildPetCard);
-
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const prevprevBtn = document.querySelector('.prev-prev');
-const nextnextBtn = document.querySelector('.next-next');
-const currentNum = document.querySelector('.slider-current')
-
-let pageNum = 1;
-let pagesNum = 6;
-let cardsNum = 8;
-
-function getCardsAndPagesNum() {
-    if (window.innerWidth >= 1280) {
-        pagesNum = 6
-        cardsNum = 8
-    } else if (window.innerWidth >= 768) {
-        pagesNum = 8
-        cardsNum = 6
-    } else {
-        pagesNum = 16
-        cardsNum = 3
-    }
-}
+let pageCounter = 1;
 
 
-function randomInteger(min, max) {
-    // случайное число от min до (max+1)
-    let rand = min + Math.random() * (max + 1 - min);
-    return Math.floor(rand);
-}
+beginButton.addEventListener("click", () => {
+    console.log('beginButton')
+});
 
-function buildPetCard(i) {
-    let petName = petNameArr[i];
+prevButton.addEventListener("click", () => {
+    console.log('prevButton')
+});
 
-    const buildedPetCard = `
-    <div class="pet-card" id="petCard1" data-pet="${petName}">
-        <img src="../../assets/images/png/pets-${petName}.png" alt="${petName}" class="pet-image" data-pet="${petName}">
-        <p class="pet-name" data-pet="${petName}">${petName[0].toUpperCase() + petName.slice(1)}</p>
-        <button class="btn-pets" data-pet="${petName}">Learn more</button>
-    </div>
-    `;
-    // console.log(`pet card ${i} bulided`);
-    return buildedPetCard;
-}
+nextButton.addEventListener("click", () => {
+    console.log('nextButton')
+});
 
-function buildSliderItems() {
-    
-    let item1 = buildPetCard(randomInteger(0, petNameArr.length -1));
-
-    let item2 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while (item1 === item2) {
-        item2 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-
-    let item3 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item2 === item3 || item1 === item3) {
-        item3 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item4 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item4 || item2 === item4 || item3 === item4) {
-        item4 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item5 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item5 || item2 === item5 || item3 === item5 || item4 === item5) {
-        item5 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item6 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item6 || item2 === item6 || item3 === item6 || item4 === item6 || item5 === item6) {
-        item6 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item7 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item7 || item2 === item7 || item3 === item7 || item4 === item7 || item5 === item7 || item6 === item7) {
-        item7 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item8 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item8 || item2 === item8 || item3 === item8 || item4 === item8 || item5 === item8 || item6 === item8 || item7 === item8) {
-        item8 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-
-
-    let buildedSliderItems = `
-    ${item1}
-    ${item2}
-    ${item3}
-    ${item4}
-    ${item5}
-    ${item6}
-    ${item7}
-    ${item8}
-    `;
-    return buildedSliderItems;
-}
-
-function sliderAnimationIn() {
-    sliderItems.classList.add('animation-in');
-    setTimeout(() => sliderItems.classList.remove('animation-in'), 500);
-}
-
-function sliderAnimationOut() {
-    sliderItems.classList.add('animation-out');
-    setTimeout(() => sliderItems.classList.remove('animation-out'), 500);
-}
-
-prevBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
-nextBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
-prevprevBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
-nextnextBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
-// prevBtn.addEventListener('click', sliderAnimationOut);
-// nextBtn.addEventListener('click', sliderAnimationIn);
-
+endButton.addEventListener("click", () => {
+    console.log('endButton')
+});
