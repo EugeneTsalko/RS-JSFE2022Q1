@@ -642,6 +642,11 @@ h3 {
   }
 }
 
+.hover {
+  background-color: #FDDCC4;
+  border: 2px solid transparent;
+}
+
 .popup-content {
   display: flex;
   flex-direction: column;

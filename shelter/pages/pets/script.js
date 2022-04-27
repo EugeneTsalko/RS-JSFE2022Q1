@@ -119,10 +119,20 @@ const closePopup = (event) => {
     }
 }
 
+const popupCloseBtnHover = () => {
+    popupCloseBtn.classList.add('hover');
+}
+
+const popupCloseBtnHoverRemove = () => {
+    popupCloseBtn.classList.remove('hover');
+}
+
 // window.addEventListener('click', () => console.log(event.target))
 sliderItems.addEventListener('click', showBuildedPopup);
 popupCloseBtn.addEventListener('click', closePopup);
 overlay.addEventListener('click', closePopup);
+overlay.addEventListener('mouseover', popupCloseBtnHover);
+overlay.addEventListener('mouseout', popupCloseBtnHoverRemove);
 
 // pagination code
 
