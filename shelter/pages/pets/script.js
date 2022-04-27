@@ -13,7 +13,7 @@ const toggleBurger = () => {
     overlay.classList.toggle('active');
     html.classList.toggle('hidden');
     logo.classList.toggle('in-burger');
-    header.classList.toggle('hidden')
+    header.classList.toggle('hidden');
 }
 
 const closeBurger = (event) => {
@@ -34,7 +34,7 @@ overlay.addEventListener('click', closeBurger);
 // header.addEventListener('click', closeBurger);
 
 window.addEventListener("resize", function() {
-    if (this.document.documentElement.clientWidth >= 768) {
+    if (this.window.innerWidth >= 768) {
         burger.classList.remove('active');
         nav.classList.remove('active');
         overlay.classList.remove('active');
@@ -46,41 +46,43 @@ window.addEventListener("resize", function() {
 
 // popup code
 
-const popup = document.querySelector('.popup')
-const popupWrapper = document.querySelector('.popup-wrapper')
-const popupCloseBtn = document.querySelector('.popup-close')
+const popup = document.querySelector('.popup');
+const popupWrapper = document.querySelector('.popup-wrapper');
+const popupCloseBtn = document.querySelector('.popup-close');
 // const petCardsArr = sliderItems.children;
 const sliderItems = document.querySelector('.pets-gallery');
+
 const openPopup = () => {
-    popup.classList.toggle('active')
-    overlay.classList.toggle('active')
-    html.classList.toggle('hidden')
+    popup.classList.toggle('active');
+    overlay.classList.toggle('active');
+    overlay.classList.toggle('zIndex');
+    html.classList.toggle('hidden');
+    // header.classList.toggle('notFixed');
 }
 
 
-function showBuildedPopup(event) {
-    // console.log(event.target)
+const showBuildedPopup = function (event) {
+    // console.log(event.target);
 
     if(event.target.hasAttribute('data-pet')) {
-        // console.log(event.target.getAttribute('data-pet'))
-        let petName = event.target.getAttribute('data-pet')
-        let petFromObj
+        // console.log(event.target.getAttribute('data-pet'));
+        let petName = event.target.getAttribute('data-pet');
+        let petFromObj;
 
         for(let i = 0; i < data.length; i++) {
 
             if (petName === data[i].name) {
-                petFromObj = data[i]
-                console.log(petFromObj)
+                petFromObj = data[i];
+                console.log(petFromObj);
             }
         }
-        popupWrapper.innerHTML = buildPopup(petFromObj)
+        popupWrapper.innerHTML = buildPopup(petFromObj);
     }
-    openPopup()
+    openPopup();
 }
 
-function buildPopup(obj) {
+const buildPopup = function (obj) {
     let buildedPopup = `
-                
                     <img src="${obj.img}" alt="${obj.name}" class="popup-img">
                     <div class="popup-content">
                         <h3 class="popup-name">${obj.name[0].toUpperCase() + obj.name.slice(1)}</h3>
@@ -101,127 +103,174 @@ function buildPopup(obj) {
                             </li>
                         </ul>
                     </div>
-            
-    `
-    return buildedPopup
+    `;
+    return buildedPopup;
 }
 
 const closePopup = (event) => {
-    // console.log(event.target)
+    // console.log(event.target);
     if(event.target.classList.contains('popup-close') || event.target.classList.contains('popup-close-img') ||
     event.target.classList.contains('overlay')) {
-        // console.log(event.target)
-        popup.classList.remove('active')
-        overlay.classList.remove('active')
-        html.classList.remove('hidden')
+        // console.log(event.target);
+        popup.classList.remove('active');
+        overlay.classList.remove('active');
+        overlay.classList.remove('zIndex');
+        html.classList.remove('hidden');
     }
+}
+
+const popupCloseBtnHover = () => {
+    popupCloseBtn.classList.add('hover');
+}
+
+const popupCloseBtnHoverRemove = () => {
+    popupCloseBtn.classList.remove('hover');
 }
 
 // window.addEventListener('click', () => console.log(event.target))
 sliderItems.addEventListener('click', showBuildedPopup);
 popupCloseBtn.addEventListener('click', closePopup);
 overlay.addEventListener('click', closePopup);
+overlay.addEventListener('mouseover', popupCloseBtnHover);
+overlay.addEventListener('mouseout', popupCloseBtnHoverRemove);
 
 // pagination code
 
-let petNameArr = ['jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly', 
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
-'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly'];
+const buttonsArr = document.getElementsByClassName("slider-button");
+const beginButton = buttonsArr[0]; 
+const prevButton = buttonsArr[1]; 
+const currentPage = document.querySelector('.slider-current');
+const nextButton = buttonsArr[2];
+const endButton = buttonsArr[3];
+const petsGallery = document.querySelector('.pets-gallery');
 
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const prevprevBtn = document.querySelector('.prev-prev');
-const nextnextBtn = document.querySelector('.next-next');
-// let petCard1 = document.querySelector('#petCard1');
-// let petCard2 = document.querySelector('#petCard2');
-// let petCard3 = document.querySelector('#petCard3');
-// let sliderGallery = document.querySelector('.pets-gallery');
+let pageCounter = 1;
 
-function randomInteger(min, max) {
-    // случайное число от min до (max+1)
-    let rand = min + Math.random() * (max + 1 - min);
-    return Math.floor(rand);
+let cardsOnPageNumber;
+// function getCardsOnPageNum() {
+if (window.innerWidth >= 1280) {
+        cardsOnPageNumber = 8;
+    } else if (window.innerWidth >= 768) {
+        cardsOnPageNumber = 6;
+    } else {
+        cardsOnPageNumber = 3;
+    }
+// }
+
+const getShuffledNumbers = () => {
+    let numbers = [];
+    for (let i = 0; i < data.length; i++) {
+      numbers.push(i);
+    }
+    let shuffledNumbers = [];
+    for (let i = 0; i < cardsOnPageNumber; i++) {
+        let randomPosition = Math.floor(Math.random() * numbers.length);
+        shuffledNumbers.push(numbers.splice(randomPosition, 1)); // костя 
+    }
+    // console.log(`shuffledNumbers: ${shuffledNumbers}`);
+    return shuffledNumbers.flat();
+};
+
+let uniqueCardsNumsArr = [];
+// let queueArr;
+
+for (let i = 0; i < 48 / cardsOnPageNumber; i++) {
+    uniqueCardsNumsArr.push(getShuffledNumbers());
 }
 
-function buildPetCard(i) {
-    let petName = petNameArr[i];
+let queueArr = uniqueCardsNumsArr.flat(); // массив из 48 номеров уникального порядка
 
-    const buildedPetCard = `
-    <div class="pet-card" id="petCard1" data-pet="${petName}">
-        <img src="../../assets/images/png/pets-${petName}.png" alt="${petName}" class="pet-image" data-pet="${petName}">
-        <p class="pet-name" data-pet="${petName}">${petName[0].toUpperCase() + petName.slice(1)}</p>
-        <button class="btn-pets" data-pet="${petName}">Learn more</button>
-    </div>
-    `;
-    // console.log(`pet card ${i} bulided`);
-    return buildedPetCard;
-}
+let lastPage = queueArr.length / cardsOnPageNumber; // 6 8 16
 
-function buildSliderItems() {
+function buildPage() {
+    let currentPageValue = pageCounter;
+    // console.log(`currentPageValue: ${currentPageValue}`);
     
-    let item1 = buildPetCard(randomInteger(0, petNameArr.length -1));
-
-    let item2 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while (item1 === item2) {
-        item2 = buildPetCard(randomInteger(0, petNameArr.length -1));
+    let lastPageCardIndex = (queueArr.length / lastPage) * currentPageValue;
+    // console.log(`lastPageCardIndex: ${lastPageCardIndex}`);
+    
+    let firstPageCardIndex = lastPageCardIndex - cardsOnPageNumber;
+    // console.log(`firstPageCardIndex: ${firstPageCardIndex}`);
+    
+    for (let i = firstPageCardIndex; i < lastPageCardIndex  && i >= firstPageCardIndex; i++) {
+        let buildPetCard = (function () {
+        const buildedPetCard = document.createElement("div");
+        let petName = data[queueArr[i]].name;
+        buildedPetCard.classList.add("pet-card");
+        buildedPetCard.innerHTML = `
+            <div class="pet-card" id="petCard1" data-pet="${petName}">
+                <img src="../../assets/images/png/pets-${petName}.png" alt="${petName}" class="pet-image" data-pet="${petName}">
+                <p class="pet-name" data-pet="${petName}">${petName[0].toUpperCase() + petName.slice(1)}</p>
+                <button class="btn-pets" data-pet="${petName}">Learn more</button>
+            </div>
+            `;
+        // petsGallery.innerHTML = newCard;
+        petsGallery.insertAdjacentElement('afterbegin', buildedPetCard);
+       })(); // IIFE (Immediately Invoked Function Expression)
     }
-
-    let item3 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item2 === item3 || item1 === item3) {
-        item3 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item4 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item4 || item2 === item4 || item3 === item4) {
-        item4 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item5 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item5 || item2 === item5 || item3 === item5 || item4 === item5) {
-        item5 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item6 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item6 || item2 === item6 || item3 === item6 || item4 === item6 || item5 === item6) {
-        item6 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item7 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item7 || item2 === item7 || item3 === item7 || item4 === item7 || item5 === item7 || item6 === item7) {
-        item7 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-    let item8 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    while(item1 === item8 || item2 === item8 || item3 === item8 || item4 === item8 || item5 === item8 || item6 === item8 || item7 === item8) {
-        item8 = buildPetCard(randomInteger(0, petNameArr.length -1));
-    }
-
-
-    let buildedSliderItems = `
-    ${item1}
-    ${item2}
-    ${item3}
-    ${item4}
-    ${item5}
-    ${item6}
-    ${item7}
-    ${item8}
-    `;
-    return buildedSliderItems;
+    currentPage.innerHTML = currentPageValue;
 }
 
-function sliderAnimationIn() {
-    sliderItems.classList.add('animation-in');
-    setTimeout(() => sliderItems.classList.remove('animation-in'), 500);
+function clearGallery() {
+    petsGallery.innerHTML = '';
 }
 
-function sliderAnimationOut() {
-    sliderItems.classList.add('animation-out');
-    setTimeout(() => sliderItems.classList.remove('animation-out'), 500);
+clearGallery();
+buildPage();
+
+const toggleDisableClass = () => {
+    if (pageCounter === 1) {
+        beginButton.classList.add('disabled');
+        prevButton.classList.add('disabled');
+    } else {
+        beginButton.classList.remove('disabled');
+        prevButton.classList.remove('disabled');
+    }
+
+    if(pageCounter === queueArr.length / cardsOnPageNumber) {
+        nextButton.classList.add('disabled');
+        endButton.classList.add('disabled');
+    } else {
+        nextButton.classList.remove('disabled');
+        endButton.classList.remove('disabled');
+    }
 }
 
-prevBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
-nextBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
-prevprevBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
-nextnextBtn.addEventListener('click', () => sliderItems.innerHTML = buildSliderItems());
-// prevBtn.addEventListener('click', sliderAnimationOut);
-// nextBtn.addEventListener('click', sliderAnimationIn);
+// window.addEventListener('click', () => console.log(event.target));
+
+beginButton.addEventListener("click", () => {
+    // console.log('beginButton');
+    pageCounter = 1;
+    clearGallery();
+    buildPage();
+    toggleDisableClass();
+});
+
+prevButton.addEventListener("click", () => {
+    // console.log('prevButton');
+    if (pageCounter !== 1) {
+        pageCounter -= 1;
+        clearGallery();
+        buildPage();
+        toggleDisableClass(); 
+    }
+});
+
+nextButton.addEventListener("click", () => {
+    // console.log('nextButton');
+    if (pageCounter !== lastPage) {
+    pageCounter += 1;
+    clearGallery();
+    buildPage();
+    toggleDisableClass();
+    }
+});
+
+endButton.addEventListener("click", () => {
+    // console.log('endButton');
+    pageCounter = queueArr.length / cardsOnPageNumber;
+    clearGallery();
+    buildPage();
+    toggleDisableClass();
+});
 

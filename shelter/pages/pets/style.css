@@ -65,6 +65,7 @@ html.hidden {
 
 .overlay {
   display: none;
+  cursor: pointer;
 }
 
 .overlay.active {
@@ -75,6 +76,10 @@ html.hidden {
   min-height: 100vh;
   height: 100%;
   background-color: rgba(41, 41, 41, 0.6);
+}
+
+.overlay.zIndex {
+  z-index: 20;
 }
 
 body {
@@ -431,6 +436,9 @@ h3 {
   border-color: #CDCDCD;
   cursor: auto;
 }
+.slider-button.disabled img {
+  opacity: 0.5;
+}
 .slider-button.disabled:hover {
   background-color: transparent;
 }
@@ -553,19 +561,24 @@ h3 {
   width: 952px;
   height: 552px;
   position: fixed;
-  top: 20%;
+  left: calc(50% - 450px);
+  top: calc(50% - 300px);
   align-self: center;
 }
 @media screen and (max-width: 1279px) {
   .popup {
     width: 682px;
     height: 402px;
+    left: calc(50% - 315px);
+    top: calc(50% - 230px);
   }
 }
 @media screen and (max-width: 767px) {
   .popup {
     width: 271px;
     height: 393px;
+    left: calc(50% - 115px);
+    top: calc(50% - 230px);
   }
 }
 .popup.active {
@@ -630,6 +643,11 @@ h3 {
     width: 40px;
     height: 40px;
   }
+}
+
+.hover {
+  background-color: #FDDCC4;
+  border: 2px solid transparent;
 }
 
 .popup-content {
