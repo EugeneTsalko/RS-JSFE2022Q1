@@ -218,6 +218,24 @@ function clearGallery() {
 clearGallery();
 buildPage();
 
+const toggleDisableClass = () => {
+    if (pageCounter === 1) {
+        beginButton.classList.add('disabled');
+        prevButton.classList.add('disabled');
+    } else {
+        beginButton.classList.remove('disabled');
+        prevButton.classList.remove('disabled');
+    }
+
+    if(pageCounter === queueArr.length / cardsOnPageNumber) {
+        nextButton.classList.add('disabled');
+        endButton.classList.add('disabled');
+    } else {
+        nextButton.classList.remove('disabled');
+        endButton.classList.remove('disabled');
+    }
+}
+
 // window.addEventListener('click', () => console.log(event.target));
 
 beginButton.addEventListener("click", () => {
@@ -225,6 +243,7 @@ beginButton.addEventListener("click", () => {
     pageCounter = 1;
     clearGallery();
     buildPage();
+    toggleDisableClass();
 });
 
 prevButton.addEventListener("click", () => {
@@ -232,7 +251,8 @@ prevButton.addEventListener("click", () => {
     if (pageCounter !== 1) {
         pageCounter -= 1;
         clearGallery();
-        buildPage(); 
+        buildPage();
+        toggleDisableClass(); 
     }
 });
 
@@ -242,6 +262,7 @@ nextButton.addEventListener("click", () => {
     pageCounter += 1;
     clearGallery();
     buildPage();
+    toggleDisableClass();
     }
 });
 
@@ -250,5 +271,6 @@ endButton.addEventListener("click", () => {
     pageCounter = queueArr.length / cardsOnPageNumber;
     clearGallery();
     buildPage();
+    toggleDisableClass();
 });
 

@@ -436,6 +436,9 @@ h3 {
   border-color: #CDCDCD;
   cursor: auto;
 }
+.slider-button.disabled img {
+  opacity: 0.5;
+}
 .slider-button.disabled:hover {
   background-color: transparent;
 }

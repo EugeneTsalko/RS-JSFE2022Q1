@@ -356,6 +356,9 @@ h3 {
     &.disabled {
         border-color: $colorDarkS;
         cursor: auto;
+        img {
+            opacity: 0.5;
+        }
 
         &:hover {
             background-color: transparent;
