@@ -131,14 +131,31 @@ let petNameArr = ['jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy',
 'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly',
 'jennifer', 'sophia', 'woody', 'scarlett', 'katrine', 'timmy', 'freddie', 'charly'];
 
+// let htmlCardsArr = petNameArr.map(buildPetCard);
+
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 const prevprevBtn = document.querySelector('.prev-prev');
 const nextnextBtn = document.querySelector('.next-next');
-// let petCard1 = document.querySelector('#petCard1');
-// let petCard2 = document.querySelector('#petCard2');
-// let petCard3 = document.querySelector('#petCard3');
-// let sliderGallery = document.querySelector('.pets-gallery');
+const currentNum = document.querySelector('.slider-current')
+
+let pageNum = 1;
+let pagesNum = 6;
+let cardsNum = 8;
+
+function getCardsAndPagesNum() {
+    if (window.innerWidth >= 1280) {
+        pagesNum = 6
+        cardsNum = 8
+    } else if (window.innerWidth >= 768) {
+        pagesNum = 8
+        cardsNum = 6
+    } else {
+        pagesNum = 16
+        cardsNum = 3
+    }
+}
+
 
 function randomInteger(min, max) {
     // случайное число от min до (max+1)
