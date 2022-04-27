@@ -146,6 +146,28 @@ if (window.innerWidth >= 1280) {
     }
 // }
 
+const getShuffledNumbers = () => {
+    let numbers = [];
+    for (let i = 0; i < data.length; i++) {
+      numbers.push(i);
+    }
+    let shuffledNumbers = [];
+    for (let i = 0; i < cardsOnPageNumber; i++) {
+        let randomPosition = Math.floor(Math.random() * numbers.length);
+        shuffledNumbers.push(numbers.splice(randomPosition, 1)); // костя писал
+    }
+    // console.log(`shuffledNumbers: ${shuffledNumbers}`)
+    return shuffledNumbers.flat();
+}
+
+let uniqueCardsNumsArr = [];
+// let queueArr
+
+for (let i = 0; i < 48 / cardsOnPageNumber; i++) {
+    uniqueCardsNumsArr.push(getShuffledNumbers());
+}
+
+let queueArr = uniqueCardsNumsArr.flat(); // массив из 48 номеров уникального порядка
 
 function clearGallery() {
     petsGallery.innerHTML = ''
