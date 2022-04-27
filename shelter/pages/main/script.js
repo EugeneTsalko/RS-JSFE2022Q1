@@ -1,5 +1,11 @@
-alert(`Привет, уважаемый проверяющий. Буду очень благродарен, если ты проверишь мою работу в четверг. Если ты не можешь - напиши, пожалуйста, мне в дискорд. Спасибо!`)
-console.log('Привет! Пагинацию не успел сделать, остальное как получилось) Если есть какие-то вопросы - пиши в дискорд. Спасибо!')
+alert(`Привет, благодарю, что подождали с проверкой до четверга. Оставил сообщение в консоли, взгляните, пожалуйста. Спасибо!`)
+console.log(`Привет! Работа не идеальная, точное соответствие с макетом не гарантировано) 
+Слайдер немного кривой, я изначально его сделал как сделал, 
+а только потом посмотрел видео Сергея Шаляпина, 
+по которому делали почти все студенты. 
+Лезть обратно в верстку, чтобы добавлять дивы и менять то, что уже сделал не хватило сил и желания.
+Еще есть пару косяков, которые не попадают под требования задания. 
+Если есть какие-то вопросы - пиши в дискорд. Спасибо!`)
 // burger menu code
 
 const burger = document.querySelector('.burger');
@@ -111,36 +117,34 @@ nextBtn.addEventListener('click', sliderAnimationIn);
 
 // popup code
 
-const popup = document.querySelector('.popup')
-const popupWrapper = document.querySelector('.popup-wrapper')
-const popupCloseBtn = document.querySelector('.popup-close')
+const popup = document.querySelector('.popup');
+const popupWrapper = document.querySelector('.popup-wrapper');
+const popupCloseBtn = document.querySelector('.popup-close');
 const petCardsArr = sliderItems.children;
 
 const openPopup = () => {
-    popup.classList.toggle('active')
-    overlay.classList.toggle('active')
-    html.classList.toggle('hidden')
+    popup.classList.toggle('active');
+    overlay.classList.toggle('active');
+    html.classList.toggle('hidden');
 }
 
 
 function showBuildedPopup(event) {
-    // console.log(event.target)
-
+    // console.log(event.target);
     if(event.target.hasAttribute('data-pet')) {
-        // console.log(event.target.getAttribute('data-pet'))
-        let petName = event.target.getAttribute('data-pet')
-        let petFromObj
+        // console.log(event.target.getAttribute('data-pet'));
+        let petName = event.target.getAttribute('data-pet');
+        let petFromObj;
 
         for(let i = 0; i < data.length; i++) {
-
             if (petName === data[i].name) {
-                petFromObj = data[i]
-                console.log(petFromObj)
+                petFromObj = data[i];
+                console.log(petFromObj);
             }
         }
-        popupWrapper.innerHTML = buildPopup(petFromObj)
+        popupWrapper.innerHTML = buildPopup(petFromObj);
     }
-    openPopup()
+    openPopup();
 }
 
 function buildPopup(obj) {
@@ -168,21 +172,23 @@ function buildPopup(obj) {
                     </div>
             
     `
-    return buildedPopup
+    return buildedPopup;
 }
 
 const closePopup = (event) => {
-    // console.log(event.target)
+    // console.log(event.target);
     if(event.target.classList.contains('popup-close') || event.target.classList.contains('popup-close-img') ||
     event.target.classList.contains('overlay')) {
-        // console.log(event.target)
-        popup.classList.remove('active')
-        overlay.classList.remove('active')
-        html.classList.remove('hidden')
+        // console.log(event.target);
+        popup.classList.remove('active');
+        overlay.classList.remove('active');
+        html.classList.remove('hidden');
     }
 }
 
-// window.addEventListener('click', () => console.log(event.target))
+
+
+// window.addEventListener('click', () => console.log(event.target));
 sliderItems.addEventListener('click', showBuildedPopup);
 popupCloseBtn.addEventListener('click', closePopup);
 overlay.addEventListener('click', closePopup);
