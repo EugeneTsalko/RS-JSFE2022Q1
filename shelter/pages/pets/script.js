@@ -147,6 +147,12 @@ if (window.innerWidth >= 1280) {
 // }
 
 
+function clearGallery() {
+    petsGallery.innerHTML = ''
+}
+
+clearGallery();
+
 beginButton.addEventListener("click", () => {
     console.log('beginButton')
 });
