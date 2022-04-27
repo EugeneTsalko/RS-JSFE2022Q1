@@ -135,6 +135,17 @@ const endButton = buttonsArr[3];
 
 let pageCounter = 1;
 
+let cardsOnPageNumber;
+// function getCardsOnPageNum() {
+if (window.innerWidth >= 1280) {
+        cardsOnPageNumber = 8;
+    } else if (window.innerWidth >= 768) {
+        cardsOnPageNumber = 6;
+    } else {
+        cardsOnPageNumber = 3;
+    }
+// }
+
 
 beginButton.addEventListener("click", () => {
     console.log('beginButton')
