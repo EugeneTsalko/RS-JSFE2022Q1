@@ -1,3 +1,39 @@
-<svg width="25" height="11" viewBox="0 0 25 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M9.94687 10.7852L0.913671 6.08789V4.98438L9.94687 0.287109V1.625L2.43711 5.53125L9.94687 9.44727V10.7852ZM24.018 10.7852L14.9848 6.08789V4.98438L24.018 0.287109V1.625L16.5082 5.53125L24.018 9.44727V10.7852Z" fill="#CDCDCD"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="25"
+   height="11"
+   viewBox="0 0 25 11"
+   fill="none"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="prev-prev.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="51.24"
+     inkscape:cx="12.5"
+     inkscape:cy="5.4937549"
+     inkscape:window-width="2400"
+     inkscape:window-height="1271"
+     inkscape:window-x="-2409"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="M 15.043365,4.984419 24.0766,0.287109 v 1.33793 l -7.509765,3.91602 7.509765,3.90625 V 10.7852 L 15.043365,6.087929 Z m -14.0711,0 9.0332,-4.69731 v 1.33793 l -7.5097,3.91602 7.5097,3.90625 V 10.7852 l -9.0332,-4.697271 z"
+     fill="#292929"
+     id="path2" />
 </svg>
