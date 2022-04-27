@@ -19,6 +19,7 @@ html.hidden {
 
 .overlay {
     display: none;
+    cursor: pointer;
 }
 
 .overlay.active {
@@ -30,6 +31,10 @@ html.hidden {
     height: 100%;
     // z-index: 20;
     background-color: rgba(41, 41, 41, 0.6);
+}
+
+.overlay.zIndex {
+    z-index: 20;
 }
 
 body {

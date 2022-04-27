@@ -54,7 +54,9 @@ const sliderItems = document.querySelector('.pets-gallery');
 const openPopup = () => {
     popup.classList.toggle('active')
     overlay.classList.toggle('active')
+    overlay.classList.toggle('zIndex')
     html.classList.toggle('hidden')
+    // header.classList.toggle('notFixed')
 }
 
 
@@ -113,7 +115,9 @@ const closePopup = (event) => {
         // console.log(event.target)
         popup.classList.remove('active')
         overlay.classList.remove('active')
+        overlay.classList.remove('zIndex')
         html.classList.remove('hidden')
+        // header.classList.remove('notFixed');
     }
 }
 
