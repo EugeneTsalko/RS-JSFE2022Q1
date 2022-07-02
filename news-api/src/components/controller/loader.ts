@@ -1,36 +1,51 @@
+import { Options } from '../../types/index';
+import { Callback } from '../../types/index';
+
 class Loader {
-    constructor(baseLink, options) {
+    baseLink: string;
+    options: Options;
+    constructor(baseLink: string, options: { apiKey: string }) {
         this.baseLink = baseLink;
         this.options = options;
         // console.log(this.baseLink);
         // console.log(this.options);
     }
-    getResp({ endpoint, options = {} }, callback = () => {
-        console.error('No callback for GET response');
-    }) {
+
+    getResp(
+        { endpoint, options = {} }: { endpoint: string; options?: Options },
+        callback = () => {
+            console.error('No callback for GET response');
+        }
+    ) {
         this.load('GET', endpoint, callback, options);
         // console.log(typeof endpoint);
     }
-    errorHandler(res) {
+
+    errorHandler(res: Response) {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
+
         return res;
     }
-    makeUrl(options, endpoint) {
+
+    makeUrl(options: Options, endpoint: string) {
         // console.log(typeof options);
-        const urlOptions = Object.assign(Object.assign({}, this.options), options);
+        const urlOptions = { ...this.options, ...options };
         // console.log(urlOptions);
         // console.log(typeof urlOptions);
         let url = `${this.baseLink}${endpoint}?`;
-        Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key]}&`; // разобраться с этим моментом
+
+        Object.keys(urlOptions).forEach((key: string) => {
+            url += `${key}=${urlOptions[key as keyof typeof urlOptions]}&`; // разобраться с этим моментом
         });
+
         return url.slice(0, -1);
     }
-    load(method, endpoint, callback, options = {}) {
+
+    load(method: string, endpoint: string, callback: Callback<string>, options: Options = {}) {
         // console.log(typeof method);
         // console.log(callback);
         fetch(this.makeUrl(options, endpoint), { method })
@@ -40,4 +55,5 @@ class Loader {
             .catch((err) => console.error(err)); //any
     }
 }
+
 export default Loader;
