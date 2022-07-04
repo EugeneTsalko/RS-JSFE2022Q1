@@ -20,19 +20,15 @@ class Loader {
         const urlOptions = Object.assign(Object.assign({}, this.options), options);
         let url = `${this.baseLink}${endpoint}?`;
         Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key]}&`; // разобраться с этим моментом
+            url += `${key}=${urlOptions[key]}&`;
         });
         return url.slice(0, -1);
     }
     load(method, endpoint, callback, options) {
-        // console.log(typeof method);
-        // console.log(callback);
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            // .then((data: INewsCompilation) => callback(data))
             .then((data) => {
-            // console.log(data);
             callback(data);
         })
             .catch((err) => console.error(err));
