@@ -20,17 +20,17 @@ export interface ISourceName {
 export type Callback<T> = (data: T) => void;
 
 export interface ISources {
+  id: string;
+  name: string;
+  url: string;
+  category: string;
+  language: string;
+  country: string;
+}
+
+export interface INewsSources {
   status: string;
-  sources: [
-    {
-      id: string | null;
-      name: string;
-      url: string;
-      category: string;
-      language: string;
-      country: string;
-    }
-  ];
+    sources: [ISources];
 }
 
 export interface INewsSource {
