@@ -3,7 +3,7 @@ import { INews, INewsClass } from '../../../types/index';
 
 class News implements INewsClass {
     public draw(data: INews[]): void {
-        const news: INews[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+        const news: INews[] = data.length >= 10 ? data.filter((_item: INews, idx: number) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment() as DocumentFragment;
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
