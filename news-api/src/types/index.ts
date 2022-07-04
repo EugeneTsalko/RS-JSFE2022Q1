@@ -2,12 +2,12 @@ export interface INewsClass {
     draw(data: INews[]): void;
 }
 
-export interface INewsSource {
-    id: string;
+interface INewsSource {
+    id: string | null;
     name: string;
 }
 export interface INews {
-    author: string;
+    author: string | null;
     content: string;
     description: string;
     publishedAt: string;
@@ -45,21 +45,11 @@ export interface ISourcesCompilation {
 
 export interface IOptions {
     apiKey?: string;
-    sources?: string | null;
+    sources?: string;
 }
 
 export enum APIEndpoints {
     sources = 'sources',
     everything = 'everything',
 }
-
-export interface ISourceName {
-    sources: string;
-}
-
-export interface IRespOptions {
-    endpoint: string;
-    options?: ISourceName;
-}
-
 export type Callback<T> = { (data: T): void };

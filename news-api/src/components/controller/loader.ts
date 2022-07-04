@@ -2,7 +2,7 @@ import { IOptions, Callback, INewsCompilation, ISourcesCompilation, APIEndpoints
 
 class Loader {
     baseLink: string;
-    options: Record<string, never> | IOptions;
+    options: Record<string, never> | Partial<IOptions>;
     constructor(baseLink: string, options: Record<string, never> | IOptions) {
         this.baseLink = baseLink;
         this.options = options;
@@ -10,8 +10,8 @@ class Loader {
         // console.log(this.options);
     }
 
-    getResp(
-        { endpoint, options = {} }: { endpoint: APIEndpoints; options?: Record<string, never> | IOptions },
+    protected getResp(
+        { endpoint, options = {} }: { endpoint: APIEndpoints; options?: Record<string, never> | Partial<IOptions> },
         callback: Callback<INewsCompilation | ISourcesCompilation> = () => {
             console.error('No callback for GET response');
         }
@@ -21,7 +21,7 @@ class Loader {
         // console.log(options);
     }
 
-    errorHandler(res: Response): Response {
+    private errorHandler(res: Response): Response {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -31,7 +31,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: Record<string, never> | IOptions, endpoint: APIEndpoints): string {
+    private makeUrl(options: Record<string, never> | IOptions, endpoint: APIEndpoints): string {
         // console.log(options);
         const urlOptions = { ...this.options, ...options };
         // console.log(urlOptions);
@@ -45,7 +45,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(
+    protected load(
         method: string,
         endpoint: APIEndpoints,
         callback: Callback<INewsCompilation | ISourcesCompilation>,
