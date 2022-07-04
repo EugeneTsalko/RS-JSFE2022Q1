@@ -3,11 +3,11 @@ export interface INewsClass {
 }
 
 export interface INewsSource {
-    id: string | null;
+    id: string;
     name: string;
 }
 export interface INews {
-    author: string | null;
+    author: string;
     content: string;
     description: string;
     publishedAt: string;
@@ -31,13 +31,14 @@ export interface ISourcesClass {
 // }
 
 export interface ISources {
-    category: string;
-    country: string;
-    description: string;
-    id: string;
-    language: string;
-    name: string;
-    url: string;
+    [key: string]: string;
+    // category: string;
+    // country: string;
+    // description: string;
+    // id: string;
+    // language: string;
+    // name: string;
+    // url: string;
 }
 
 export interface IAppViewClass {
@@ -48,16 +49,21 @@ export interface IAppViewClass {
 }
 
 export interface INewsCompilation {
+    articles?: INews[];
     status: string;
     totalResults?: number;
-    articles?: [INews];
     // sources?: [ISources];
 }
 
 export interface ISourcesCompilation {
+    sources?: ISources[];
     status: string;
-    sources: [ISources];
 }
+
+// {status: 'ok', totalResults: 4221, articles: Array(100)}
+// articles: (100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+// status: "ok"
+// totalResults: 4221
 
 // export interface ILoaderClass {
 //     baseLink: string;
@@ -105,14 +111,5 @@ export interface IRespOptions {
 //   endpoint: string;
 // }
 
-export type Callback<T> = (data?: T) => void;
-
-// export interface INewsSources {
-//     status: string;
-//     sources: [ISources];
-// }
-
-// export enum APIEndpoints {
-//     sources = 'sources',
-//     everything = 'everything',
-// }
+export type Callback<T> = { (data: T): void };
+export type NewCallback<T> = { (data?: T): void };

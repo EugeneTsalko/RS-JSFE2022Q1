@@ -1,6 +1,5 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-// import { INewsCompilation, ISourcesCompilation } from '../../types/index';
 class App {
     constructor() {
         this.controller = new AppController();

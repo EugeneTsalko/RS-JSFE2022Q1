@@ -12,7 +12,7 @@ class Loader {
 
     getResp(
         { endpoint, options = {} }: { endpoint: APIEndpoints; options?: Record<string, never> | IOptions },
-        callback = () => {
+        callback: Callback<INewsCompilation | ISourcesCompilation> = () => {
             console.error('No callback for GET response');
         }
     ): void {

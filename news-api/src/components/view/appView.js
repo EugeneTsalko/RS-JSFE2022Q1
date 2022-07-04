@@ -6,7 +6,7 @@ export class AppView {
         this.sources = new Sources();
     }
     drawNews(data) {
-        // console.log(data);
+        console.log(data);
         const values = (data === null || data === void 0 ? void 0 : data.articles) ? data === null || data === void 0 ? void 0 : data.articles : [];
         this.news.draw(values);
     }

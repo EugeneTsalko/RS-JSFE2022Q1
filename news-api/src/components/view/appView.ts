@@ -11,7 +11,7 @@ export class AppView implements IAppViewClass {
     }
 
     drawNews(data: INewsCompilation): void {
-        // console.log(data);
+        console.log(data);
         const values = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }

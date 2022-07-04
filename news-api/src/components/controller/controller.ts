@@ -2,7 +2,7 @@ import AppLoader from './appLoader';
 import { APIEndpoints, Callback, INewsCompilation, ISourcesCompilation } from '../../types/index';
 
 class AppController extends AppLoader {
-    getSources(callback: Callback<ISourcesCompilation>) {
+    getSources(callback: Callback<ISourcesCompilation>): void {
         // console.log(callback);
         super.getResp(
             {
@@ -13,7 +13,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: Callback<INewsCompilation>) {
+    getNews(e: Event, callback: Callback<INewsCompilation>): void {
         // console.log(e);
         // console.log(callback);
         let target = e.target as HTMLElement;
