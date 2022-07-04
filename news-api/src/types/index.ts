@@ -30,7 +30,7 @@ export interface ISources {
 
 export interface INewsSources {
   status: string;
-    sources: [ISources];
+  sources: [ISources];
 }
 
 export interface INewsSource {
@@ -47,6 +47,11 @@ export interface INews {
   urlToImage: string;
   publishedAt: string;
   content: string;
+}
 
+export interface INewsCompilation {
+  status: string;
+  totalResults: number;
+  articles: [INews];
 }
 
