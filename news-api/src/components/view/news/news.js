@@ -6,11 +6,11 @@ class News {
         const newsItemTemp = document.querySelector('#newsItemTemp');
         news.forEach((item, idx) => {
             const newsClone = newsItemTemp.content.cloneNode(true);
-            if (idx % 2)
-                newsClone.querySelector('.news__item').classList.add('alt');
-            newsClone.querySelector('.news__meta-photo').style.backgroundImage = `url(${item.urlToImage || 'src/assets/news-placeholder.png'})`;
-            newsClone.querySelector('.news__meta-author').textContent =
-                item.author || item.source.name;
+            if (idx % 2) newsClone.querySelector('.news__item').classList.add('alt');
+            newsClone.querySelector('.news__meta-photo').style.backgroundImage = `url(${
+                item.urlToImage || 'src/assets/news-placeholder.png'
+            })`;
+            newsClone.querySelector('.news__meta-author').textContent = item.author || item.source.name;
             newsClone.querySelector('.news__meta-date').textContent = item.publishedAt
                 .slice(0, 10)
                 .split('-')
