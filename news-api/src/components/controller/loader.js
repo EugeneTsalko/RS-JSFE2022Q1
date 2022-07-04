@@ -9,7 +9,8 @@ class Loader {
         console.error('No callback for GET response');
     }) {
         this.load('GET', endpoint, callback, options);
-        // console.log(typeof endpoint);
+        // console.log(endpoint);
+        // console.log(options);
     }
     errorHandler(res) {
         if (!res.ok) {
@@ -36,8 +37,8 @@ class Loader {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data)) // any
-            .catch((err) => console.error(err)); //any
+            .then((data) => callback(data))
+            .catch((err) => console.error(err));
     }
 }
 export default Loader;

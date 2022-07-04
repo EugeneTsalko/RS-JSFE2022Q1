@@ -1,10 +1,9 @@
-import { Options } from '../../types/index';
-import { Callback } from '../../types/index';
+import { IOptions, Callback } from '../../types/index';
 
 class Loader {
     baseLink: string;
-    options: Options;
-    constructor(baseLink: string, options: { apiKey: string }) {
+    options: IOptions;
+    constructor(baseLink: string, options: IOptions) {
         this.baseLink = baseLink;
         this.options = options;
         // console.log(this.baseLink);
@@ -12,13 +11,14 @@ class Loader {
     }
 
     getResp(
-        { endpoint, options = {} }: { endpoint: string; options?: Options },
+        { endpoint, options = {} }: { endpoint: string; options?: IOptions },
         callback = () => {
             console.error('No callback for GET response');
         }
     ) {
         this.load('GET', endpoint, callback, options);
-        // console.log(typeof endpoint);
+        // console.log(endpoint);
+        // console.log(options);
     }
 
     errorHandler(res: Response) {
@@ -31,7 +31,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: Options, endpoint: string) {
+    makeUrl(options: IOptions, endpoint: string) {
         // console.log(typeof options);
         const urlOptions = { ...this.options, ...options };
         // console.log(urlOptions);
@@ -45,14 +45,14 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: Callback<string>, options: Options = {}) {
+    load(method: string, endpoint: string, callback: Callback<string>, options: IOptions = {}) {
         // console.log(typeof method);
         // console.log(callback);
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data)) // any
-            .catch((err) => console.error(err)); //any
+            .then((data) => callback(data))
+            .catch((err: Error) => console.error(err));
     }
 }
 

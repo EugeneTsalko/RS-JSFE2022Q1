@@ -1,29 +1,39 @@
 import AppLoader from './appLoader';
+import { Callback } from '../../types/index';
+
 class AppController extends AppLoader {
     getSources(callback) {
         // console.log(callback);
-        super.getResp({
-            endpoint: 'sources',
-        }, callback);
+        super.getResp(
+            {
+                endpoint: 'sources',
+            },
+            callback
+        );
     }
-    getNews(e, callback) {
+
+    getNews(e: Event, callback: Callback<string>) {
         // console.log(e);
         // console.log(callback);
         let target = e.target;
         // console.log(target);
         const newsContainer = e.currentTarget;
         // console.log(newsContainer);
+
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id');
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
-                    super.getResp({
-                        endpoint: 'everything',
-                        options: {
-                            sources: sourceId,
+                    super.getResp(
+                        {
+                            endpoint: 'everything',
+                            options: {
+                                sources: sourceId,
+                            },
                         },
-                    }, callback);
+                        callback
+                    );
                 }
                 return;
             }
@@ -31,4 +41,5 @@ class AppController extends AppLoader {
         }
     }
 }
+
 export default AppController;
