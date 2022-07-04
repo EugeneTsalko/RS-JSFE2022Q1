@@ -4,20 +4,21 @@ export interface IOptions {
 }
 
 export interface ISourceName {
-  sources?: string;
+  sources: string;
 }
 
-// export interface IRespOptions {
-//   endpoint: 'everything' | 'top-headlines' | 'sources';
-//   options?: SourceName;
-// }
+export interface IRespOptions {
+  // endpoint: APIEndpoints;
+  endpoint: string;
+  options?: ISourceName;
+}
 
 // export interface IEndpoint {
 //   // endpoint: 'everything' | 'top-headlines' | 'sources';
 //   endpoint: string;
 // }
 
-export type Callback<T> = (data: T) => void;
+export type Callback<T> = (data?: T) => void;
 
 export interface ISources {
   id: string;
@@ -54,4 +55,10 @@ export interface INewsCompilation {
   totalResults: number;
   articles: [INews];
 }
+
+// export enum APIEndpoints {
+//   sources = 'sources',
+//   everything = 'everything',
+// }
+
 
