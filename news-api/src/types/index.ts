@@ -21,24 +21,8 @@ export interface ISourcesClass {
     draw(data: ISources[]): void;
 }
 
-// export interface ISources {
-//     id: string;
-//     name: string;
-//     url: string;
-//     category: string;
-//     language: string;
-//     country: string;
-// }
-
 export interface ISources {
     [key: string]: string;
-    // category: string;
-    // country: string;
-    // description: string;
-    // id: string;
-    // language: string;
-    // name: string;
-    // url: string;
 }
 
 export interface IAppViewClass {
@@ -52,35 +36,12 @@ export interface INewsCompilation {
     articles?: INews[];
     status: string;
     totalResults?: number;
-    // sources?: [ISources];
 }
 
 export interface ISourcesCompilation {
     sources?: ISources[];
     status: string;
 }
-
-// {status: 'ok', totalResults: 4221, articles: Array(100)}
-// articles: (100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-// status: "ok"
-// totalResults: 4221
-
-// export interface ILoaderClass {
-//     baseLink: string;
-//     options: Record<string, never> | IOptions;
-//     getResp(
-//         { endpoint, options = {} }: { endpoint: APIEndpoints; options?: Record<string, never> | IOptions },
-//         callback: () => void
-//     );
-//     errorHandler(res: Response): Response;
-//     makeUrl(options: Record<string, never> | IOptions, endpoint: APIEndpoints): string;
-//     load(
-//         method: string,
-//         endpoint: APIEndpoints,
-//         callback: Callback<INewsCompilation | ISourcesCompilation>,
-//         options: Record<string, never> | IOptions
-//     ): void;
-// }
 
 export interface IOptions {
     apiKey?: string;
@@ -92,24 +53,13 @@ export enum APIEndpoints {
     everything = 'everything',
 }
 
-// export interface IAppLoaderClass {
-//   constructor(): void;
-// }
-
 export interface ISourceName {
     sources: string;
 }
 
 export interface IRespOptions {
-    // endpoint: APIEndpoints;
     endpoint: string;
     options?: ISourceName;
 }
 
-// export interface IEndpoint {
-//   // endpoint: 'everything' | 'top-headlines' | 'sources';
-//   endpoint: string;
-// }
-
 export type Callback<T> = { (data: T): void };
-export type NewCallback<T> = { (data?: T): void };
