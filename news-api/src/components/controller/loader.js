@@ -2,15 +2,11 @@ class Loader {
     constructor(baseLink, options) {
         this.baseLink = baseLink;
         this.options = options;
-        // console.log(this.baseLink);
-        // console.log(this.options);
     }
     getResp({ endpoint, options = {} }, callback = () => {
         console.error('No callback for GET response');
     }) {
         this.load('GET', endpoint, callback, options);
-        // console.log(endpoint);
-        // console.log(options);
     }
     errorHandler(res) {
         if (!res.ok) {
@@ -21,10 +17,7 @@ class Loader {
         return res;
     }
     makeUrl(options, endpoint) {
-        // console.log(options);
         const urlOptions = Object.assign(Object.assign({}, this.options), options);
-        // console.log(urlOptions);
-        // console.log(typeof urlOptions);
         let url = `${this.baseLink}${endpoint}?`;
         Object.keys(urlOptions).forEach((key) => {
             url += `${key}=${urlOptions[key]}&`; // разобраться с этим моментом

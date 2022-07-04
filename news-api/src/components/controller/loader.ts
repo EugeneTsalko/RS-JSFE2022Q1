@@ -3,11 +3,9 @@ import { IOptions, Callback, INewsCompilation, ISourcesCompilation, APIEndpoints
 class Loader {
     baseLink: string;
     options: Record<string, never> | Partial<IOptions>;
-    constructor(baseLink: string, options: Record<string, never> | IOptions) {
+    constructor(baseLink: string, options: Record<string, never> | Partial<IOptions>) {
         this.baseLink = baseLink;
         this.options = options;
-        // console.log(this.baseLink);
-        // console.log(this.options);
     }
 
     protected getResp(
@@ -17,8 +15,6 @@ class Loader {
         }
     ): void {
         this.load('GET', endpoint, callback, options);
-        // console.log(endpoint);
-        // console.log(options);
     }
 
     private errorHandler(res: Response): Response {
@@ -31,15 +27,12 @@ class Loader {
         return res;
     }
 
-    private makeUrl(options: Record<string, never> | IOptions, endpoint: APIEndpoints): string {
-        // console.log(options);
-        const urlOptions = { ...this.options, ...options };
-        // console.log(urlOptions);
-        // console.log(typeof urlOptions);
-        let url = `${this.baseLink}${endpoint}?`;
+    private makeUrl(options: Record<string, never> | Partial<IOptions>, endpoint: APIEndpoints): string {
+        const urlOptions: { [index: string]: string } = { ...this.options, ...options };
+        let url = `${this.baseLink}${endpoint}?` as string;
 
         Object.keys(urlOptions).forEach((key: string) => {
-            url += `${key}=${urlOptions[key as keyof typeof urlOptions]}&`; // разобраться с этим моментом
+            url += `${key}=${urlOptions[key as keyof typeof urlOptions]}&`;
         });
 
         return url.slice(0, -1);
@@ -49,16 +42,12 @@ class Loader {
         method: string,
         endpoint: APIEndpoints,
         callback: Callback<INewsCompilation | ISourcesCompilation>,
-        options: Record<string, never> | IOptions
+        options: Record<string, never> | Partial<IOptions>
     ): void {
-        // console.log(typeof method);
-        // console.log(callback);
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            // .then((data: INewsCompilation) => callback(data))
             .then((data: INewsCompilation | ISourcesCompilation) => {
-                // console.log(data);
                 callback(data);
             })
             .catch((err: Error) => console.error(err));
