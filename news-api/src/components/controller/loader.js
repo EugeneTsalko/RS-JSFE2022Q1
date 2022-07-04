@@ -21,7 +21,7 @@ class Loader {
         return res;
     }
     makeUrl(options, endpoint) {
-        // console.log(typeof options);
+        // console.log(options);
         const urlOptions = Object.assign(Object.assign({}, this.options), options);
         // console.log(urlOptions);
         // console.log(typeof urlOptions);
@@ -31,13 +31,17 @@ class Loader {
         });
         return url.slice(0, -1);
     }
-    load(method, endpoint, callback, options = {}) {
+    load(method, endpoint, callback, options) {
         // console.log(typeof method);
         // console.log(callback);
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
+            // .then((data: INewsCompilation) => callback(data))
+            .then((data) => {
+            // console.log(data);
+            callback(data);
+        })
             .catch((err) => console.error(err));
     }
 }

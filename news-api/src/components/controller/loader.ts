@@ -1,9 +1,9 @@
-import { IOptions, Callback } from '../../types/index';
+import { IOptions, Callback, INewsCompilation, ISourcesCompilation, APIEndpoints } from '../../types/index';
 
 class Loader {
     baseLink: string;
-    options: IOptions;
-    constructor(baseLink: string, options: IOptions) {
+    options: Record<string, never> | IOptions;
+    constructor(baseLink: string, options: Record<string, never> | IOptions) {
         this.baseLink = baseLink;
         this.options = options;
         // console.log(this.baseLink);
@@ -11,17 +11,17 @@ class Loader {
     }
 
     getResp(
-        { endpoint, options = {} }: { endpoint: string; options?: IOptions },
+        { endpoint, options = {} }: { endpoint: APIEndpoints; options?: Record<string, never> | IOptions },
         callback = () => {
             console.error('No callback for GET response');
         }
-    ) {
+    ): void {
         this.load('GET', endpoint, callback, options);
         // console.log(endpoint);
         // console.log(options);
     }
 
-    errorHandler(res: Response) {
+    errorHandler(res: Response): Response {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -31,8 +31,8 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: IOptions, endpoint: string) {
-        // console.log(typeof options);
+    makeUrl(options: Record<string, never> | IOptions, endpoint: APIEndpoints): string {
+        // console.log(options);
         const urlOptions = { ...this.options, ...options };
         // console.log(urlOptions);
         // console.log(typeof urlOptions);
@@ -45,13 +45,22 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: Callback<string>, options: IOptions = {}) {
+    load(
+        method: string,
+        endpoint: APIEndpoints,
+        callback: Callback<INewsCompilation | ISourcesCompilation>,
+        options: Record<string, never> | IOptions
+    ): void {
         // console.log(typeof method);
         // console.log(callback);
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
+            // .then((data: INewsCompilation) => callback(data))
+            .then((data: INewsCompilation | ISourcesCompilation) => {
+                // console.log(data);
+                callback(data);
+            })
             .catch((err: Error) => console.error(err));
     }
 }

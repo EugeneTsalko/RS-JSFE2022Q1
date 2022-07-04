@@ -1,7 +1,7 @@
 import './sources.css';
-import { ISources } from '../../../types/index';
+import { ISources, ISourcesClass } from '../../../types/index';
 
-class Sources {
+class Sources implements ISourcesClass {
     draw(data: ISources[]): void {
         // console.log(data);
         const fragment = document.createDocumentFragment() as DocumentFragment;

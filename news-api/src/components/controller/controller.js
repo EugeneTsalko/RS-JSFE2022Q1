@@ -1,9 +1,11 @@
 import AppLoader from './appLoader';
+import { APIEndpoints } from '../../types/index';
 class AppController extends AppLoader {
     getSources(callback) {
         // console.log(callback);
         super.getResp({
-            endpoint: 'sources',
+            // endpoint: 'sources',
+            endpoint: APIEndpoints.sources,
         }, callback);
     }
     getNews(e, callback) {
@@ -19,7 +21,8 @@ class AppController extends AppLoader {
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp({
-                        endpoint: 'everything',
+                        // endpoint: 'everything',
+                        endpoint: APIEndpoints.everything,
                         options: {
                             sources: sourceId,
                         },

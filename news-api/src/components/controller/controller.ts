@@ -1,18 +1,19 @@
 import AppLoader from './appLoader';
-import { Callback } from '../../types/index';
+import { APIEndpoints, Callback, INewsCompilation, ISourcesCompilation } from '../../types/index';
 
 class AppController extends AppLoader {
-    getSources(callback: Callback<string>) {
+    getSources(callback: Callback<ISourcesCompilation>) {
         // console.log(callback);
         super.getResp(
             {
-                endpoint: 'sources',
+                // endpoint: 'sources',
+                endpoint: APIEndpoints.sources,
             },
             callback
         );
     }
 
-    getNews(e: Event, callback: Callback<string>) {
+    getNews(e: Event, callback: Callback<INewsCompilation>) {
         // console.log(e);
         // console.log(callback);
         let target = e.target as HTMLElement;
@@ -27,7 +28,8 @@ class AppController extends AppLoader {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
                         {
-                            endpoint: 'everything',
+                            // endpoint: 'everything',
+                            endpoint: APIEndpoints.everything,
                             options: {
                                 sources: sourceId,
                             },
