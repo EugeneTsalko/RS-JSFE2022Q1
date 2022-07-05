@@ -10,14 +10,6 @@
     
 }
 
-@media screen and (max-width: 640px) {
-    .sources {
-        flex-direction: column;
-        font-size: 12px;
-        width: 40%;
-    }
-}
-
 .sources::-webkit-scrollbar {
     width: 10px;
 }
@@ -58,4 +50,40 @@
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;
+}
+
+@media screen and (max-width: 740px) {
+    .sources {
+        flex-direction: column;
+        font-size: 12px;
+        min-width: 40%;
+        height: 70vh;
+        overflow-x: hidden;
+        align-items: flex-start;
+    }
+
+    .source__item {
+        padding: 5px 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .sources {
+        min-width: 32%;
+    }
+
+    .source__item {
+        font-size: smaller;
+        padding: 2px;
+    }
+
+    .sources::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .sources::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgb(24, 170, 170, 0.5);
+    }
 }
