@@ -53,3 +53,8 @@ export enum APIEndpoints {
     everything = 'everything',
 }
 export type Callback<T> = { (data: T): void };
+
+export interface IRespParams {
+    endpoint: APIEndpoints;
+    options?: Record<string, never> | Partial<IOptions>;
+}

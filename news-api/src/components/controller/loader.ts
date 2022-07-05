@@ -1,4 +1,11 @@
-import { IOptions, Callback, INewsCompilation, ISourcesCompilation, APIEndpoints } from '../../types/interfaces';
+import {
+    IOptions,
+    Callback,
+    INewsCompilation,
+    ISourcesCompilation,
+    APIEndpoints,
+    IRespParams,
+} from '../../types/interfaces';
 
 class Loader {
     baseLink: string;
@@ -9,7 +16,7 @@ class Loader {
     }
 
     protected getResp(
-        { endpoint, options = {} }: { endpoint: APIEndpoints; options?: Record<string, never> | Partial<IOptions> },
+        { endpoint, options = {} }: IRespParams,
         callback: Callback<INewsCompilation | ISourcesCompilation> = () => {
             console.error('No callback for GET response');
         }
