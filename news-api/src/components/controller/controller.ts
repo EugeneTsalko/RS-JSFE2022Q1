@@ -1,5 +1,5 @@
 import AppLoader from './appLoader';
-import { APIEndpoints, Callback, INewsCompilation, ISourcesCompilation } from '../../types/index';
+import { APIEndpoints, Callback, INewsCompilation, ISourcesCompilation } from '../../types/interfaces';
 
 class AppController extends AppLoader {
     getSources(callback: Callback<ISourcesCompilation>): void {

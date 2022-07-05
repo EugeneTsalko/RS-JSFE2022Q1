@@ -1,6 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-import { INewsCompilation, ISourcesCompilation } from '../../types/index';
+import { INewsCompilation, ISourcesCompilation } from '../../types/interfaces';
 
 class App {
     controller: AppController;

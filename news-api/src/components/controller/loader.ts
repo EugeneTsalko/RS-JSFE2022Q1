@@ -1,4 +1,4 @@
-import { IOptions, Callback, INewsCompilation, ISourcesCompilation, APIEndpoints } from '../../types/index';
+import { IOptions, Callback, INewsCompilation, ISourcesCompilation, APIEndpoints } from '../../types/interfaces';
 
 class Loader {
     baseLink: string;
