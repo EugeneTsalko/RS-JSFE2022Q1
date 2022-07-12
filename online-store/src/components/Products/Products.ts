@@ -1,11 +1,11 @@
 import { CATALOG } from '../../constants/catalog';
-import { ROOT_PODUCTS, ROOT_HEADER, ROOT_CART } from '../../constants/root';
+import { ROOT_PODUCTS } from '../../constants/root';
 import '../Products/Products.scss';
 
 export class Products {
   render() {
     let htmlCatalog = '';
-    CATALOG.forEach(({id, name, price, img}) => {
+    CATALOG.forEach(({name, price, img}) => {
       htmlCatalog += `
         <li class="products-element">
           <span class="products-element__name">${name}</span>
