@@ -40,12 +40,18 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav__links {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+}
+
+
+.nav__cart-img {
+  width: 50px;
 }
 
 // main
