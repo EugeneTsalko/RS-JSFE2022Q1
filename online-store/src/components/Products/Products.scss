@@ -19,6 +19,13 @@
   background-color: $color-white;
   box-shadow: $box-shadow;
   border-radius: $border-radius;
+  cursor: pointer;
+  transition: ease-in-out .3s;
+  border: 1px solid transparent;
+}
+
+.products-element:hover {
+  border: 1px solid $color-yellow;
 }
 
 .products-element__name {
