@@ -1,4 +1,4 @@
-const CATALOG = [
+export const CATALOG = [
   {
     id: 'el1',
     name: 'Gibson Les Paul Standard 50s Tobacco Burst',
