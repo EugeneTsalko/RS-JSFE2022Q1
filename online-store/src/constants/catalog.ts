@@ -11,7 +11,7 @@ export const CATALOG = [
   },
   {
     id: 'el2',
-    name: 'Fender Player Stratocaster Polar White Maple Fingerboard',
+    name: 'Fender Player Stratocaster Polar White Maple',
     img: '../../assets/img/el2.jpg',
     price: 589,
     stock: 'Available',
@@ -51,7 +51,7 @@ export const CATALOG = [
   },
   {
     id: 'el6',
-    name: 'Fender FSR Tribute Stratocaster Fiesta Red (Limited Edition)',
+    name: 'Fender FSR Tribute Stratocaster Fiesta Red',
     img: '../../assets/img/el6.jpg',
     price: 749,
     stock: 'Available',
@@ -61,7 +61,7 @@ export const CATALOG = [
   },
   {
     id: 'el7',
-    name: 'Gibson Lzzy Hale Signature Explorerbird Cardinal RedEpiphone Les Paul Custom Koa Natural',
+    name: 'Gibson Lzzy Hale Signature Explorerbird Koa Natural',
     img: '../../assets/img/el7.jpg',
     price: 2499,
     stock: 'Available',
@@ -71,17 +71,17 @@ export const CATALOG = [
   },
   {
     id: 'el8',
-    name: 'ESP LTD Signature Alexi Laiho Ripped Purple Fade Satin',
+    name: 'ESP LTD Signature Alexi Laiho Purple Fade Satin',
     img: '../../assets/img/el8.jpg',
     price: 1699,
-    stock: 'Available',
+    stock: 'Not available',
     strings: 6,
     producer: 'ESP',
     type: 'Electro',
   },
   {
     id: 'el9',
-    name: 'Fender FSR Tribute Stratocaster Black guitarguitar exclusive',
+    name: 'Fender FSR Tribute Stratocaster Black',
     img: '../../assets/img/el9.jpg',
     price: 749,
     stock: 'Available',
@@ -101,7 +101,7 @@ export const CATALOG = [
   },
   {
     id: 'el11',
-    name: 'Fender Player Telecaster Butterscotch Blonde Maple Fingerboard',
+    name: 'Fender Player Telecaster Butterscotch Blonde Maple',
     img: '../../assets/img/el11.jpg',
     price: 589,
     stock: 'Available',
@@ -111,7 +111,7 @@ export const CATALOG = [
   },
   {
     id: 'el12',
-    name: 'Fender Player Plus Stratocaster Tequila Sunrise Maple Fingerboard',
+    name: 'Fender Player Stratocaster Tequila Sunrise',
     img: '../../assets/img/el12.jpg',
     price: 799,
     stock: 'Not available',
@@ -161,7 +161,7 @@ export const CATALOG = [
   },
   {
     id: 'el17',
-    name: 'Fender Limited Edition Vintera 70s Telecaster Thinline Shell Pink',
+    name: 'Fender Vintera 70s Telecaster Shell Pink',
     img: '../../assets/img/el17.jpg',
     price: 999,
     stock: 'Available',
@@ -171,7 +171,7 @@ export const CATALOG = [
   },
   {
     id: 'el18',
-    name: 'Fender Kurt Cobain Jaguar 3 Colour Sunburst NOS Left Handed Rosewood Fingerboard',
+    name: 'Fender Kurt Cobain Jaguar Sunburst Left Handed',
     img: '../../assets/img/el18.jpg',
     price: 1349,
     stock: ' Not available',
@@ -181,7 +181,7 @@ export const CATALOG = [
   },
   {
     id: 'el19',
-    name: 'Fender Player Plus Active Meteora Bass Opal Spark Pau Ferro Fingerboard',
+    name: 'Fender Player Plus Meteora Bass Opal Spark',
     img: '../../assets/img/el19.jpg',
     price: 999,
     stock: 'Available',
