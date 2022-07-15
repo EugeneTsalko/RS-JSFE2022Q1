@@ -1,6 +1,5 @@
 import '../Header/Header.scss';
 import { ROOT_HEADER } from '../../constants/root';
-// import { localStorageUtil } from '../../utils/localStorageUtil';
 
 export class Header {
   render(count: number) {
@@ -21,8 +20,5 @@ export class Header {
     ROOT_HEADER.innerHTML = html;
   }
 }
-
-// const productsStore = localStorageUtil.getProducts();
-// productsStore.length
 
 export const headerPage = new Header();

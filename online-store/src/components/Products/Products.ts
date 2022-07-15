@@ -49,12 +49,12 @@ export class Products {
       }
 
       htmlCatalog += `
-        <li class="products-element">
-          <span class="products-element__name">${name}</span>
-          <img class="products-element__img" src="${img}">
-          <div class="products-element__price">
-            <img class="products-element__price-img" src="./assets/img/price.svg" alt="Price">
-            <span>${price.toLocaleString()} USD</span>
+        <li class="products-element" data-id="${id}">
+          <span class="products-element__name" data-id="${id}">${name}</span>
+          <img class="products-element__img" src="${img}" data-id="${id}">
+          <div class="products-element__price" data-id="${id}">
+            <img class="products-element__price-img" src="./assets/img/price.svg" alt="Price" data-id="${id}">
+            <span data-id="${id}">${price.toLocaleString()} USD</span>
           </div>
           <button class="products-element__btn${activeClass}" data-id="${id}">
             ${activeText}
@@ -75,26 +75,7 @@ export class Products {
     Array.from(btns).forEach(element => element.addEventListener('click', function() {
       const handleSetLocationStorage = productsPage.handleSetLocationStorage.bind(productsPage);
       handleSetLocationStorage(this, element.getAttribute('data-id'))
-
-
     }));
-
-    // const btns = document.getElementsByClassName("products-element__btn");
-    // Array.from(btns).forEach(function(element) {
-    //   element.addEventListener('click', function() {
-
-    //     // localStorageUtil.putProducts(element.getAttribute('data-id'))
-    //     const { pushProduct, products } = localStorageUtil.putProducts(element.getAttribute('data-id'));
-    //     if (pushProduct) {
-    //       element.classList.add(this.classNameActive);
-    //       element.innerHTML = this.labelRemove;
-    //     } else {
-    //       element.classList.remove(this.classNameActive);
-    //       element.innerHTML = this.labelAdd;
-    //     }
-
-    //   });
-    // });
   }
 }
 

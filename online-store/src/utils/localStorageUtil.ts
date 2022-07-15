@@ -1,5 +1,3 @@
-// import { CATALOG } from '../constants/catalog';
-
 export class LocalStorageUtil {
   keyName: string;
   constructor() {
