@@ -1,17 +1,19 @@
 import './styles.scss';
 
+
 import { Products } from './components/Products/Products';
-// import { LocalStorageUtil } from './utils/localStorageUtil';
+// import { productsPage } from './components/Products/Products';
+// // import { localStorageUtil } from './utils/localStorageUtil';
+
+// const productsPage = new Products();
+// productsPage.render();
+// @ts-ignore
+window.productsPage = new Products();
+// @ts-ignore
+window.productsPage.render();
 
 
-const products = new Products();
-products.render();
-
-// const localStorageUtil = new LocalStorageUtil();
+// console.log(productsPage.handleSetLocationStorage)
 
 
 
-// import { Component } from './components/component';
-
-// const component = new Component();
-// component.hello();

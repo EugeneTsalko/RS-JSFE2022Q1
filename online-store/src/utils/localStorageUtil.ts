@@ -28,3 +28,5 @@ export class LocalStorageUtil {
     return { pushProduct, products };
   }
 }
+
+export const localStorageUtil = new LocalStorageUtil();

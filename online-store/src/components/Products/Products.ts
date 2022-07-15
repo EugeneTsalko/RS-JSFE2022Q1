@@ -1,11 +1,49 @@
 import { CATALOG } from '../../constants/catalog';
 import { ROOT_PODUCTS } from '../../constants/root';
+import { localStorageUtil } from '../../utils/localStorageUtil';
 import '../Products/Products.scss';
 
 export class Products {
+  classNameActive: string;
+  labelAdd: string;
+  labelRemove: string;
+  constructor() {
+    this.classNameActive = 'products-element__btn_active';
+    this.labelAdd = 'ADD TO CART';
+    this.labelRemove = 'REMOVE FROM CART';
+
+  }
+
+  handleSetLocationStorage(element, id) {
+    // console.log('ok');
+
+    const { pushProduct, products } = localStorageUtil.putProducts(id);
+
+    if (pushProduct) {
+      element.classList.add(this.classNameActive);
+      element.innerHTML = this.labelRemove;
+    } else {
+      element.classList.remove(this.classNameActive);
+      element.innerHTML = this.labelAdd; 
+    }
+  }
+
   render() {
+    const productsStore = localStorageUtil.getProducts();
+
     let htmlCatalog = '';
-    CATALOG.forEach(({name, price, img}) => {
+
+    CATALOG.forEach(({id, name, price, img}) => {
+      let activeClass = '';
+      let activeText = '';
+
+      if (productsStore.indexOf(id) === -1) {
+        activeText = this.labelAdd;
+      } else {
+        activeText = this.labelRemove;
+        activeClass = ' '+this.classNameActive;
+      }
+
       htmlCatalog += `
         <li class="products-element">
           <span class="products-element__name">${name}</span>
@@ -14,7 +52,9 @@ export class Products {
             <img class="products-element__price-img" src="./assets/img/price.svg" alt="Price">
             <span>${price.toLocaleString()} USD</span>
           </div>
-          <button class="products-element__btn">ADD TO CART</button>
+          <button class="products-element__btn${activeClass}" data-id="${id}" onclick="productsPage.handleSetLocationStorage(this, '${id}')">
+            ${activeText}
+          </button>
         </li>
       `;
     });
@@ -26,8 +66,26 @@ export class Products {
     `;
 
     ROOT_PODUCTS.innerHTML = html;
+
+    // const btns = document.getElementsByClassName("products-element__btn");
+    // Array.from(btns).forEach(function(element) {
+    //   element.addEventListener('click', function() {
+
+    //     // localStorageUtil.putProducts(element.getAttribute('data-id'))
+    //     const { pushProduct, products } = localStorageUtil.putProducts(element.getAttribute('data-id'));
+    //     if (pushProduct) {
+    //       element.classList.add(this.classNameActive);
+    //       element.innerHTML = this.labelRemove;
+    //     } else {
+    //       element.classList.remove(this.classNameActive);
+    //       element.innerHTML = this.labelAdd;
+    //     }
+
+    //   });
+    // });
   }
 }
 
-// const products = new Products();
-// products.render();
+
+// export const productsPage = new Products();
+// productsPage.render();
