@@ -24,3 +24,5 @@ export class Header {
 
 // const productsStore = localStorageUtil.getProducts();
 // productsStore.length
+
+export const headerPage = new Header();

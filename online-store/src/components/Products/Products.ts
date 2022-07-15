@@ -1,6 +1,7 @@
 import { CATALOG } from '../../constants/catalog';
 import { ROOT_PODUCTS } from '../../constants/root';
 import { localStorageUtil } from '../../utils/localStorageUtil';
+import { headerPage } from '../Header/Header';
 import '../Products/Products.scss';
 
 export class Products {
@@ -14,8 +15,8 @@ export class Products {
 
   }
 
-  handleSetLocationStorage(element, id: string) {
-    // console.log('ok');
+  handleSetLocationStorage(element: HTMLElement, id: string) {
+    // console.log(element);
 
     const { pushProduct, products } = localStorageUtil.putProducts(id);
 
@@ -26,7 +27,8 @@ export class Products {
       element.classList.remove(this.classNameActive);
       element.innerHTML = this.labelAdd; 
     }
-    headerPage.render(products.length)
+    const headerPageRender = headerPage.render.bind(headerPage);
+    headerPageRender(products.length);
   }
 
   render() {
@@ -53,7 +55,7 @@ export class Products {
             <img class="products-element__price-img" src="./assets/img/price.svg" alt="Price">
             <span>${price.toLocaleString()} USD</span>
           </div>
-          <button class="products-element__btn${activeClass}" data-id="${id}" onclick="productsPage.handleSetLocationStorage(this, '${id}')">
+          <button class="products-element__btn${activeClass}" data-id="${id}">
             ${activeText}
           </button>
         </li>
@@ -67,6 +69,14 @@ export class Products {
     `;
 
     ROOT_PODUCTS.innerHTML = html;
+
+    const btns = document.getElementsByClassName("products-element__btn");
+    Array.from(btns).forEach(element => element.addEventListener('click', function() {
+      const handleSetLocationStorage = productsPage.handleSetLocationStorage.bind(productsPage);
+      handleSetLocationStorage(this, element.getAttribute('data-id'))
+
+
+    }));
 
     // const btns = document.getElementsByClassName("products-element__btn");
     // Array.from(btns).forEach(function(element) {
@@ -88,5 +98,5 @@ export class Products {
 }
 
 
-// export const productsPage = new Products();
+export const productsPage = new Products();
 // productsPage.render();
