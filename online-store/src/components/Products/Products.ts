@@ -16,19 +16,20 @@ export class Products {
   }
 
   handleSetLocationStorage(element: HTMLElement, id: string) {
-    // console.log(element);
-
-    const { pushProduct, products } = localStorageUtil.putProducts(id);
-
-    if (pushProduct) {
-      element.classList.add(this.classNameActive);
-      element.innerHTML = this.labelRemove;
+    if (localStorageUtil.getProducts().length === 20 && !element.classList.contains(this.classNameActive)) {
+      alert('Sorry, cart is full.')
     } else {
-      element.classList.remove(this.classNameActive);
-      element.innerHTML = this.labelAdd; 
-    }
-    const headerPageRender = headerPage.render.bind(headerPage);
-    headerPageRender(products.length);
+      const { pushProduct, products } = localStorageUtil.putProducts(id);
+      if (pushProduct) {
+        element.classList.add(this.classNameActive);
+        element.innerHTML = this.labelRemove;
+      } else {
+        element.classList.remove(this.classNameActive);
+        element.innerHTML = this.labelAdd; 
+      }
+      const headerPageRender = headerPage.render.bind(headerPage);
+      headerPageRender(products.length);
+    } 
   }
 
   render() {

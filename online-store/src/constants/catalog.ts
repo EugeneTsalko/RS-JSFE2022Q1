@@ -119,4 +119,10 @@ export const CATALOG = [
     img: '../../assets/img/el20.jpg',
     price: 379,
   },
+  {
+    id: 'el21',
+    name: 'Fender CD-60SCE Natural Walnut Fingerboard',
+    img: '../../assets/img/el21.jpg',
+    price: 239,
+  },
 ];
