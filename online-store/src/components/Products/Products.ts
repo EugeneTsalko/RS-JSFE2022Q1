@@ -57,7 +57,7 @@ export class Products {
 
     // const renderCatalog = CATALOG;
 
-    arr.forEach(({id, name, price, img}: {id: string, name: string, price: number, img: string}) => {
+    arr.forEach(({id, name, price, img, type, strings, stock}: {id: string, name: string, price: number, img: string, type:string, strings: number, stock: string}) => {
       let activeClass = '';
       let activeText = '';
 
@@ -72,6 +72,9 @@ export class Products {
         <li class="products-element" data-id="${id}" data-price="${price}">
           <span class="products-element__name" data-id="${id}">${name}</span>
           <img class="products-element__img" src="${img}" data-id="${id}">
+          <span>Type: ${type}</span>
+          <span>Strings: ${strings}</span>
+          <span>Stock: ${stock}</span>
           <div class="products-element__price" data-id="${id}">
             <img class="products-element__price-img" src="./assets/img/price.svg" alt="Price" data-id="${id}">
             <span data-id="${id}">${price.toLocaleString()} USD</span>
