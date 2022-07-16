@@ -1,8 +1,9 @@
-import { CATALOG } from '../../constants/catalog';
+// import { CATALOG } from '../../constants/catalog';
 import { ROOT_PODUCTS } from '../../constants/root';
 import { localStorageUtil } from '../../utils/localStorageUtil';
 import { headerPage } from '../Header/Header';
 import '../Products/Products.scss';
+import { Product } from '../interfaces';
 
 export class Products {
   classNameActive: string;
@@ -32,12 +33,14 @@ export class Products {
     } 
   }
 
-  render() {
+  render(arr: Product[]) {
     const productsStore = localStorageUtil.getProducts();
 
     let htmlCatalog = '';
 
-    CATALOG.forEach(({id, name, price, img}) => {
+    // const renderCatalog = CATALOG;
+
+    arr.forEach(({id, name, price, img}: {id: string, name: string, price: number, img: string}) => {
       let activeClass = '';
       let activeText = '';
 
@@ -49,7 +52,7 @@ export class Products {
       }
 
       htmlCatalog += `
-        <li class="products-element" data-id="${id}">
+        <li class="products-element" data-id="${id}" data-price="${price}">
           <span class="products-element__name" data-id="${id}">${name}</span>
           <img class="products-element__img" src="${img}" data-id="${id}">
           <div class="products-element__price" data-id="${id}">

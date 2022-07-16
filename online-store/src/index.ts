@@ -7,9 +7,11 @@ import { productsPage } from './components/Products/Products';
 import { headerPage } from './components/Header/Header';
 import { localStorageUtil } from './utils/localStorageUtil';
 import { sortPage } from './components/Sort/Sort';
+import { CATALOG } from './constants/catalog';
+
 
 // const productsPage = new Products();
-productsPage.render();
+productsPage.render(CATALOG);
 
 
 // const headerPage = new Header();
