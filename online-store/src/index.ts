@@ -6,6 +6,7 @@ import './styles.scss';
 import { productsPage } from './components/Products/Products';
 import { headerPage } from './components/Header/Header';
 import { localStorageUtil } from './utils/localStorageUtil';
+import { sortPage } from './components/Sort/Sort';
 
 // const productsPage = new Products();
 productsPage.render();
@@ -15,6 +16,8 @@ productsPage.render();
 const productsStore = localStorageUtil.getProducts();
 headerPage.render(productsStore.length);
 
+
+sortPage.render();
 // // @ts-ignore
 // window.productsPage = new Products();
 // // @ts-ignore
