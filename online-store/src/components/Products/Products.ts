@@ -4,6 +4,7 @@ import { localStorageUtil } from '../../utils/localStorageUtil';
 import { headerPage } from '../Header/Header';
 import '../Products/Products.scss';
 import { Product } from '../interfaces';
+import { sortPage } from '../Sort/Sort';
 
 export class Products {
   classNameActive: string;
@@ -13,7 +14,6 @@ export class Products {
     this.classNameActive = 'products-element__btn_active';
     this.labelAdd = 'ADD TO CART';
     this.labelRemove = 'REMOVE FROM CART';
-
   }
 
   handleSetLocationStorage(element: HTMLElement, id: string) {
@@ -35,6 +35,23 @@ export class Products {
 
   render(arr: Product[]) {
     const productsStore = localStorageUtil.getProducts();
+    sortPage.render();
+    const sortMethod = localStorageUtil.getSort();
+
+    switch(sortMethod) {
+      case 'sortPriceLow':
+        arr = arr.sort((a, b ) => a.price > b.price ? 1 : -1);
+        break;
+      case 'sortPriceHigh':
+        arr = arr.sort((a, b ) => b.price > a.price ? 1 : -1);
+        break;
+      case 'sortNameA':
+        arr = arr.sort((a, b ) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
+        break;
+      case 'sortNameZ': 
+        arr = arr.sort((a, b ) => b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1);
+        break;
+    }
 
     let htmlCatalog = '';
 

@@ -2,34 +2,45 @@ import '../Sort/Sort.scss';
 import { ROOT_SORT } from '../../constants/root';
 import { CATALOG } from '../../constants/catalog';
 import { productsPage } from '../Products/Products';
+import { localStorageUtil } from '../../utils/localStorageUtil';
 
 export class Sort {
+  classNameActive: string;
+  constructor() {
+    this.classNameActive = 'sort-btn_active';
+  }
+
+  addClass(element: HTMLElement) {
+    element.classList.add(this.classNameActive)
+  }
 
   sortPriceLow() {
     const renderCatalog = CATALOG;
     renderCatalog.sort((a, b ) => a.price > b.price ? 1 : -1);
-    productsPage.render(renderCatalog)
+    localStorageUtil.setSort('sortPriceLow');
+    productsPage.render(renderCatalog);
   }
 
   sortPriceHigh() {
     const renderCatalog = CATALOG;
     renderCatalog.sort((a, b ) => b.price > a.price ? 1 : -1);
-    productsPage.render(renderCatalog)
+    localStorageUtil.setSort('sortPriceHigh');
+    productsPage.render(renderCatalog);
   }
 
   sortNameA() {
     const renderCatalog = CATALOG;
     renderCatalog.sort((a, b ) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
-    productsPage.render(renderCatalog)
+    localStorageUtil.setSort('sortNameA');
+    productsPage.render(renderCatalog);
   }
 
   sortNameZ() {
     const renderCatalog = CATALOG;
     renderCatalog.sort((a, b ) => b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1);
-    productsPage.render(renderCatalog)
+    localStorageUtil.setSort('sortNameZ');
+    productsPage.render(renderCatalog);
   }
-
-
 
   render() {
     // const html = `
@@ -76,10 +87,26 @@ export class Sort {
       const sortNameZ = sortPage.sortNameZ.bind(sortPage);
       sortNameZ();
     });
+
+    const sortMethod = localStorageUtil.getSort();
+
+    switch(sortMethod) {
+      case 'sortPriceLow':
+        sortOptionPriceLow.classList.add(this.classNameActive);
+        break;
+      case 'sortPriceHigh':
+        sortOptionPriceHigh.classList.add(this.classNameActive);
+        break;
+      case 'sortNameA':
+        sortOptionNameA.classList.add(this.classNameActive);
+        break;
+      case 'sortNameZ': 
+      sortOptionNameZ.classList.add(this.classNameActive);
+        break;
+    }
+
+    
   }
-
-
-
 
 }
 

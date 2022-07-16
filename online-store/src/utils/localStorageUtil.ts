@@ -4,6 +4,14 @@ export class LocalStorageUtil {
     this.keyName = 'products';
   }
 
+  setSort(opt: string) {
+    localStorage.setItem('sort', opt);
+  }
+
+  getSort() {
+    return localStorage.getItem('sort');
+  }
+
   getProducts() {
     const productsLocalStorage = localStorage.getItem(this.keyName);
     if (productsLocalStorage !== null) {

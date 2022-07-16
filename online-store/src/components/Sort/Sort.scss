@@ -1,0 +1,9 @@
+@import '../../styles.scss';
+
+.sort-btn_active {
+  background-color: $color-yellow;
+}
+
+.sort-btn:active {
+  background-color: $color-yellow;
+}
