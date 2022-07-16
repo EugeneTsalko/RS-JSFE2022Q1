@@ -2,8 +2,13 @@ import '../Filters/Filters.scss';
 import { ROOT_FILTERS } from '../../constants/root';
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
+import { localStorageUtil } from '../../utils/localStorageUtil';
 
 export class Filters {
+
+  filterPriceMethod(element: { noUiSlider: { get: () => string[]; }; }): void {
+    localStorageUtil.setPrice(element.noUiSlider.get());
+  }
 
   render() {
 
@@ -49,7 +54,7 @@ export class Filters {
     `
     ROOT_FILTERS.innerHTML = html;
 
-    const filterPrice = document.getElementById('filter-price');
+    const filterPrice = document.getElementById('filter-price') as noUiSlider.target;
 
     noUiSlider.create(filterPrice, {
       start: [239, 4749],
@@ -62,7 +67,13 @@ export class Filters {
       }
     });
 
-    const filterStrings = document.getElementById('filter-strings');
+    filterPrice.addEventListener('click', function(){
+      // console.log(filterPrice.noUiSlider.get());
+      const filterPriceMethod = filtersPage.filterPriceMethod.bind(filtersPage);
+      filterPriceMethod(filterPrice);
+    })
+
+    const filterStrings = document.getElementById('filter-strings') as noUiSlider.target;
 
     noUiSlider.create(filterStrings, {
       start: [4, 7],

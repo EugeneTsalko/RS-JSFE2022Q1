@@ -4,6 +4,11 @@ export class LocalStorageUtil {
     this.keyName = 'products';
   }
 
+  setPrice(arr: string[]) {
+    localStorage.setItem('minPrice', arr[0]);
+    localStorage.setItem('maxPrice', arr[1]);
+  }
+
   setSort(opt: string) {
     localStorage.setItem('sort', opt);
   }

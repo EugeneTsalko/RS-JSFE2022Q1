@@ -1,6 +1,6 @@
 import './styles.scss';
 
-
+// import * as noUiSlider from 'nouislider';
 // import { Products } from './components/Products/Products';
 // import { Header } from './components/Header/Header';
 import { productsPage } from './components/Products/Products';
@@ -34,3 +34,5 @@ sortPage.render();
 
 
 filtersPage.render();
+
+
