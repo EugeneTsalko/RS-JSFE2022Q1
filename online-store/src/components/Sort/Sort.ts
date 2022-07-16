@@ -19,13 +19,13 @@ export class Sort {
 
   sortNameA() {
     const renderCatalog = CATALOG;
-    renderCatalog.sort((a, b ) => a.name > b.name ? 1 : -1);
+    renderCatalog.sort((a, b ) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
     productsPage.render(renderCatalog)
   }
 
   sortNameZ() {
     const renderCatalog = CATALOG;
-    renderCatalog.sort((a, b ) => b.name > a.name ? 1 : -1);
+    renderCatalog.sort((a, b ) => b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1);
     productsPage.render(renderCatalog)
   }
 
