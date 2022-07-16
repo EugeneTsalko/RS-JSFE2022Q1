@@ -1,0 +1,23 @@
+@import '../../styles.scss';
+
+.search-input {
+  max-width: 100%;
+  width: 100%;
+}
+
+.range-filters {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 70px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.value-filters {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  gap: $spacing-small;
+}
+

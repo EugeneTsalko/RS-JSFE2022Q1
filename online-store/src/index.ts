@@ -8,6 +8,7 @@ import { headerPage } from './components/Header/Header';
 import { localStorageUtil } from './utils/localStorageUtil';
 import { sortPage } from './components/Sort/Sort';
 import { CATALOG } from './constants/catalog';
+import { filtersPage } from './components/Filters/Filters';
 
 
 // const productsPage = new Products();
@@ -32,8 +33,4 @@ sortPage.render();
 // window.headerPage.render(productsStore.length);
 
 
-
-// console.log(productsPage.handleSetLocationStorage)
-
-
-
+filtersPage.render();
