@@ -9,6 +9,7 @@ $color-blue: #92B4EC;
 $color-yellow: #FFD24C;
 $color-yellow-light: #FFE69A;
 $color-unaccent: #808080;
+$color-red: #D61C4E;
 
 $transition: ease-in-out .3s;
 $border-radius: 3px;
@@ -38,7 +39,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // background-color: bisque;
+  background-color: #F6F6F6;
   transition: ease-in-out .3s;
 }
 
