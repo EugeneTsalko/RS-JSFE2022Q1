@@ -9,6 +9,13 @@ import { productsPage } from '../Products/Products';
 
 export class Filters {
 
+  filterPopularMethod() {
+    if(!localStorage.popular) {
+      localStorage.popular = 'true';
+    } else localStorage.removeItem('popular');
+    productsPage.render();
+  }
+
   filterPriceMethod(element: { noUiSlider: { get: () => string[]; }; }): void {
     localStorageUtil.setPrice(element.noUiSlider.get());
     // let renderCatalog: Product[] = CATALOG;
@@ -203,6 +210,15 @@ export class Filters {
         el.setAttribute('checked', '');
       }
     });
+
+    const popular: HTMLElement = document.getElementById('popular');
+    popular.addEventListener('click', function() {
+      const filterPopularMethod = filtersPage.filterPopularMethod.bind(filtersPage);
+      filterPopularMethod();
+    })
+    if(localStorage.popular) {
+      popular.setAttribute('checked', '');
+    }
 
 
 

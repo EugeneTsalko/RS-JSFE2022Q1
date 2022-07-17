@@ -72,6 +72,11 @@ export class Products {
       });
     }
 
+    if (localStorage.popular) {
+      console.log(111111)
+      arr = arr.filter(item => item.popular === true)
+    }
+
     if (!arr.length) {
       alert("Sorry, no matches found.");
     }
