@@ -8,6 +8,16 @@ export class LocalStorageUtil {
   //   localStorage.setItem('brand', arg);
   // }
 
+  resetFilters() {
+    const keys = Object.keys(localStorage);
+    if(keys.length) {
+      for(let i=0; i < keys.length; i++) {
+        if (keys[i] !== 'sort')
+        localStorage.removeItem(keys[i]);
+      }
+    }
+  }
+
   getBrand() {
     if (localStorage.brand) {
       return localStorage.getItem('brand').trim().split(' ');

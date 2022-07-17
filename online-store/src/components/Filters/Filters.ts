@@ -133,6 +133,11 @@ export class Filters {
             <label for="popular">Popular</label>
         </fieldset>
     </div>
+    <div class="reset-buttons">
+      <button id="reset-filters">Reset filters</button>
+      <button id="reset-settings">Reset all settings</button>
+
+    </div>
     `
     ROOT_FILTERS.innerHTML = html;
 
@@ -219,6 +224,21 @@ export class Filters {
     if(localStorage.popular) {
       popular.setAttribute('checked', '');
     }
+
+    const resetFiltersBtn = document.getElementById('reset-filters');
+    resetFiltersBtn.addEventListener('click', function(){
+      localStorageUtil.resetFilters();
+      filtersPage.render();
+      productsPage.render();
+    })
+
+    const resetSettingsBtn = document.getElementById('reset-settings');
+    resetSettingsBtn.addEventListener('click', function(){
+      localStorage.clear();
+      filtersPage.render();
+      productsPage.render();
+    })
+
 
 
 

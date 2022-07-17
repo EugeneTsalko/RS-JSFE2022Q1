@@ -73,7 +73,7 @@ export class Products {
     }
 
     if (localStorage.popular) {
-      console.log(111111)
+      // console.log(111111)
       arr = arr.filter(item => item.popular === true)
     }
 
