@@ -3,11 +3,25 @@ import { ROOT_FILTERS } from '../../constants/root';
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import { localStorageUtil } from '../../utils/localStorageUtil';
+// import { CATALOG } from '../../constants/catalog';
+// import { Product } from '../interfaces';
+import { productsPage } from '../Products/Products';
 
 export class Filters {
 
   filterPriceMethod(element: { noUiSlider: { get: () => string[]; }; }): void {
     localStorageUtil.setPrice(element.noUiSlider.get());
+    // let renderCatalog: Product[] = CATALOG;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // renderCatalog = renderCatalog.filter(function(el) {
+    //   return el.price <= +localStorageUtil.getMaxPrice() && el.price >= +localStorageUtil.getMinPrice();
+    // });
+    productsPage.render();
+  }
+
+  filterStringsMethod(element: { noUiSlider: { get: () => string[]; }; }): void {
+    localStorageUtil.setStrings(element.noUiSlider.get());
+    productsPage.render();
   }
 
   render() {
@@ -56,6 +70,10 @@ export class Filters {
 
     const filterPrice = document.getElementById('filter-price') as noUiSlider.target;
 
+    // filterPrice.noUiSlider.set([2000, 2500]);
+    // const filterPriceSet = filterPrice.noUiSlider.set.bind(filterPrice);
+    // filterPriceSet([2000,4000])
+
     noUiSlider.create(filterPrice, {
       start: [239, 4749],
       step: 1,
@@ -85,6 +103,12 @@ export class Filters {
           'max': 7
       }
     });
+
+    filterStrings.addEventListener('click', function(){
+      // console.log(filterPrice.noUiSlider.get());
+      const filterStringsMethod = filtersPage.filterStringsMethod.bind(filtersPage);
+      filterStringsMethod(filterStrings);
+    })
     
   }
 }

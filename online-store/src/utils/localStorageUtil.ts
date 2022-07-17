@@ -9,6 +9,27 @@ export class LocalStorageUtil {
     localStorage.setItem('maxPrice', arr[1]);
   }
 
+  getMaxPrice() {
+    return localStorage.getItem('maxPrice') || 4749;
+  }
+
+  getMinPrice() {
+    return localStorage.getItem('minPrice') || 239;
+  }
+
+  setStrings(arr: string[]) {
+    localStorage.setItem('minStrings', arr[0]);
+    localStorage.setItem('maxStrings', arr[1]);
+  }
+
+  getMaxStrings() {
+    return localStorage.getItem('maxStrings') || 7;
+  }
+
+  getMinStrings() {
+    return localStorage.getItem('minStrings') || 4;
+  }
+
   setSort(opt: string) {
     localStorage.setItem('sort', opt);
   }

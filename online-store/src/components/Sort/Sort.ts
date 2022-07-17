@@ -1,6 +1,6 @@
 import '../Sort/Sort.scss';
 import { ROOT_SORT } from '../../constants/root';
-import { CATALOG } from '../../constants/catalog';
+// import { CATALOG } from '../../constants/catalog';
 import { productsPage } from '../Products/Products';
 import { localStorageUtil } from '../../utils/localStorageUtil';
 
@@ -15,31 +15,32 @@ export class Sort {
   }
 
   sortPriceLow() {
-    const renderCatalog = CATALOG;
-    renderCatalog.sort((a, b ) => a.price > b.price ? 1 : -1);
+    // const renderCatalog = CATALOG;
+    // arr = arr.sort((a, b ) => a.price > b.price ? 1 : -1);
+    // return arr;
     localStorageUtil.setSort('sortPriceLow');
-    productsPage.render(renderCatalog);
+    productsPage.render();
   }
 
   sortPriceHigh() {
-    const renderCatalog = CATALOG;
-    renderCatalog.sort((a, b ) => b.price > a.price ? 1 : -1);
+    // const renderCatalog = CATALOG;
+    // renderCatalog.sort((a, b ) => b.price > a.price ? 1 : -1);
     localStorageUtil.setSort('sortPriceHigh');
-    productsPage.render(renderCatalog);
+    productsPage.render();
   }
 
   sortNameA() {
-    const renderCatalog = CATALOG;
-    renderCatalog.sort((a, b ) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
+    // const renderCatalog = CATALOG;
+    // renderCatalog.sort((a, b ) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
     localStorageUtil.setSort('sortNameA');
-    productsPage.render(renderCatalog);
+    productsPage.render();
   }
 
   sortNameZ() {
-    const renderCatalog = CATALOG;
-    renderCatalog.sort((a, b ) => b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1);
+    // const renderCatalog = CATALOG;
+    // renderCatalog.sort((a, b ) => b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1);
     localStorageUtil.setSort('sortNameZ');
-    productsPage.render(renderCatalog);
+    productsPage.render();
   }
 
   render() {

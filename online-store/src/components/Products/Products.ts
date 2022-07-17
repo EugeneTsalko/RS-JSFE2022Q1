@@ -3,8 +3,10 @@ import { ROOT_PODUCTS } from '../../constants/root';
 import { localStorageUtil } from '../../utils/localStorageUtil';
 import { headerPage } from '../Header/Header';
 import '../Products/Products.scss';
-import { Product } from '../interfaces';
+// import { Product } from '../interfaces';
 import { sortPage } from '../Sort/Sort';
+import { CATALOG } from '../../constants/catalog';
+import { Product } from '../interfaces';
 
 export class Products {
   classNameActive: string;
@@ -33,12 +35,32 @@ export class Products {
     } 
   }
 
-  render(arr: Product[]) {
+  // render(arr: Product[]) {
+    render() {
     const productsStore = localStorageUtil.getProducts();
-    sortPage.render();
     const sortMethod = localStorageUtil.getSort();
 
-    switch(sortMethod) {
+    let arr = CATALOG;
+
+    if (localStorageUtil.getMaxPrice()) {
+      arr = arr.filter(function(el) { //price filter
+        return el.price <= +localStorageUtil.getMaxPrice() && el.price >= +localStorageUtil.getMinPrice()
+      });
+    }
+
+    if (localStorageUtil.getMaxStrings()) {
+      arr = arr.filter(function(el) { //strings filter
+        return el.strings <= +localStorageUtil.getMaxStrings() && el.strings >= +localStorageUtil.getMinStrings();
+      });
+    }
+
+    if (!arr.length) {
+      alert("Sorry, no matches found.");
+    }
+
+    sortPage.render();
+
+    switch(sortMethod) { // sort
       case 'sortPriceLow':
         arr = arr.sort((a, b ) => a.price > b.price ? 1 : -1);
         break;
@@ -57,7 +79,7 @@ export class Products {
 
     // const renderCatalog = CATALOG;
 
-    arr.forEach(({id, name, price, img, type, strings, stock}: {id: string, name: string, price: number, img: string, type:string, strings: number, stock: string}) => {
+    arr.forEach(({id, name, price, img, type, strings, stock}: Product) => {
       let activeClass = '';
       let activeText = '';
 

@@ -22,6 +22,7 @@
   cursor: pointer;
   transition: $transition;
   border: 1px solid transparent;
+  max-width: 310px;
 }
 
 .products-element:hover {
