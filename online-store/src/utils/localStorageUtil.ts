@@ -20,6 +20,12 @@ export class LocalStorageUtil {
     } else console.log('type is empty');
   }
 
+  getPickups() {
+    if (localStorage.pickups) {
+      return localStorage.getItem('pickups').trim().split(' ');
+    } else console.log('pickups is empty');
+  }
+
   setPrice(arr: string[]) {
     localStorage.setItem('minPrice', arr[0]);
     localStorage.setItem('maxPrice', arr[1]);

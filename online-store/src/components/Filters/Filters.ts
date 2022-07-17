@@ -55,6 +55,21 @@ export class Filters {
     productsPage.render();
   }
 
+  filterPickupsMethod(element: HTMLInputElement) {
+    if (element.checked === true) {
+      if(localStorage.pickups) {
+        localStorage.pickups += ` ${element.id}`;
+      } else {
+        localStorage.pickups = ` ${element.id}`;
+      }
+    } else if (!element.checked && localStorageUtil.getPickups().length === 1) {
+      localStorage.removeItem('pickups');
+    } else {
+      localStorage.pickups = localStorage.pickups.replace(` ${element.id}`,'')
+    }
+    productsPage.render();
+  }
+
   render() {
 
     const html = `
@@ -90,6 +105,21 @@ export class Filters {
                 <input type="checkbox" id="acoustic" name="acoustic" data-type="type">
                 <label for="acoustic">Acoustic</label>
         </fieldset>
+        <fieldset>
+        <legend>Sound pickups set:</legend>
+            <input type="checkbox" id="s-s-s" name="s-s-s" data-type="pickups">
+            <label for="s-s-s">S-S-S</label>
+            <input type="checkbox" id="h-h" name="h-h" data-type="pickups">
+            <label for="h-h">H-H</label>
+            <input type="checkbox" id="s-s" name="s-s" data-type="pickups">
+            <label for="s-s">S-S</label>
+            <input type="checkbox" id="s-h" name="s-h" data-type="pickups">
+            <label for="s-h">S-H</label>
+            <input type="checkbox" id="h" name="h" data-type="pickups">
+            <label for="h">H</label>
+            <input type="checkbox" id="none" name="none" data-type="pickups">
+            <label for="none">None</label>
+    </fieldset>
         <fieldset>
             <legend>Popularity:</legend>
             <input type="checkbox" id="popular" name="popular">
@@ -159,6 +189,17 @@ export class Filters {
     }));
     Array.from(types).forEach(function(el) {
       if (localStorage.type && localStorageUtil.getType().includes(el.id)) {
+        el.setAttribute('checked', '');
+      }
+    });
+
+    const pickups: NodeListOf<HTMLInputElement> = document.querySelectorAll('[data-type="pickups"]');
+    Array.from(pickups).forEach(element => element.addEventListener('click', function() {
+      const filterPickupsMethod = filtersPage.filterPickupsMethod.bind(filtersPage);
+      filterPickupsMethod(element);
+    }));
+    Array.from(pickups).forEach(function(el) {
+      if (localStorage.pickups && localStorageUtil.getPickups().includes(el.id)) {
         el.setAttribute('checked', '');
       }
     });

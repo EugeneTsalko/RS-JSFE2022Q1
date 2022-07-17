@@ -66,6 +66,12 @@ export class Products {
       });
     }
 
+    if (localStorage.pickups) {
+      arr = arr.filter(function(el) { //pickups filter
+        return localStorageUtil.getPickups().includes(el.pickups.toLowerCase())
+      });
+    }
+
     if (!arr.length) {
       alert("Sorry, no matches found.");
     }
@@ -91,7 +97,7 @@ export class Products {
 
     // const renderCatalog = CATALOG;
 
-    arr.forEach(({id, name, price, img, type, strings, stock}: Product) => {
+    arr.forEach(({id, name, price, img, type, strings, pickups, stock}: Product) => {
       let activeClass = '';
       let activeText = '';
 
@@ -108,6 +114,7 @@ export class Products {
           <img class="products-element__img" src="${img}" data-id="${id}">
           <span>Type: ${type}</span>
           <span>Strings: ${strings}</span>
+          <span>Pickups: ${pickups}</span>
           <span>Stock: ${stock}</span>
           <div class="products-element__price" data-id="${id}">
             <img class="products-element__price-img" src="./assets/img/price.svg" alt="Price" data-id="${id}">
