@@ -8,6 +8,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Gibson',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: true,
   },
   {
     id: 'el2',
@@ -18,6 +20,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Fender',
     type: 'Electro',
+    pickups: 'S-S-S',
+    popular: true,
   },
   {
     id: 'el3',
@@ -28,6 +32,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Epiphone',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: false,
   },
   {
     id: 'el4',
@@ -38,6 +44,8 @@ export const CATALOG = [
     strings: 7,
     producer: 'ESP',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: false,
   },
   {
     id: 'el5',
@@ -48,6 +56,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'ESP',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: false,
   },
   {
     id: 'el6',
@@ -58,6 +68,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Fender',
     type: 'Electro',
+    pickups: 'S-S-S',
+    popular: true,
   },
   {
     id: 'el7',
@@ -68,6 +80,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Gibson',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: false,
   },
   {
     id: 'el8',
@@ -78,6 +92,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'ESP',
     type: 'Electro',
+    pickups: 'S-H',
+    popular: false,
   },
   {
     id: 'el9',
@@ -88,6 +104,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Fender',
     type: 'Electro',
+    pickups: 'S-S-S',
+    popular: true,
   },
   {
     id: 'el10',
@@ -98,6 +116,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'ESP',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: false,
   },
   {
     id: 'el11',
@@ -108,6 +128,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Fender',
     type: 'Electro',
+    pickups: 'S-S',
+    popular: true,
   },
   {
     id: 'el12',
@@ -118,6 +140,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Fender',
     type: 'Electro',
+    pickups: 'S-S-S',
+    popular: true,
   },
   {
     id: 'el13',
@@ -128,6 +152,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Epiphone',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: true,
   },
   {
     id: 'el14',
@@ -138,6 +164,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Gibson',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: true,
   },
   {
     id: 'el15',
@@ -148,6 +176,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Gibson',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: false,
   },
   {
     id: 'el16',
@@ -158,6 +188,8 @@ export const CATALOG = [
     strings: 4,
     producer: 'Fender',
     type: 'Bass',
+    pickups: 'H',
+    popular: false,
   },
   {
     id: 'el17',
@@ -168,6 +200,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Fender',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: false,
   },
   {
     id: 'el18',
@@ -178,6 +212,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Fender',
     type: 'Electro',
+    pickups: 'H-H',
+    popular: false,
   },
   {
     id: 'el19',
@@ -188,6 +224,8 @@ export const CATALOG = [
     strings: 4,
     producer: 'Fender',
     type: 'Bass',
+    pickups: 'H-H',
+    popular: true,
   },
   {
     id: 'el20',
@@ -198,6 +236,8 @@ export const CATALOG = [
     strings: 6,
     producer: 'Epiphone',
     type: 'Acoustic',
+    pickups: 'None',
+    popular: false,
   },
   {
     id: 'el21',
@@ -208,5 +248,7 @@ export const CATALOG = [
     strings: 6,
     producer: 'Fender',
     type: 'Acoustic',
+    pickups: 'None',
+    popular: true,
   },
 ];

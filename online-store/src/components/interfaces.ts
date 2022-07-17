@@ -7,4 +7,6 @@ export interface Product {
   strings: number,
   producer: string,
   type: string,
+  pickups: string,
+  popular: boolean,
 }
