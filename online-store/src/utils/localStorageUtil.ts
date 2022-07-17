@@ -14,6 +14,12 @@ export class LocalStorageUtil {
     } else console.log('brand is empty');
   }
 
+  getType() {
+    if (localStorage.type) {
+      return localStorage.getItem('type').trim().split(' ');
+    } else console.log('type is empty');
+  }
+
   setPrice(arr: string[]) {
     localStorage.setItem('minPrice', arr[0]);
     localStorage.setItem('maxPrice', arr[1]);

@@ -40,6 +40,21 @@ export class Filters {
     productsPage.render();
   }
 
+  filterTypeMethod(element: HTMLInputElement) {
+    if (element.checked === true) {
+      if(localStorage.type) {
+        localStorage.type += ` ${element.id}`;
+      } else {
+        localStorage.type = ` ${element.id}`;
+      }
+    } else if (!element.checked && localStorageUtil.getType().length === 1) {
+      localStorage.removeItem('type');
+    } else {
+      localStorage.type = localStorage.type.replace(` ${element.id}`,'')
+    }
+    productsPage.render();
+  }
+
   render() {
 
     const html = `
@@ -68,11 +83,11 @@ export class Filters {
         </fieldset>
         <fieldset>
             <legend>Type:</legend>
-                <input type="checkbox" id="electro" name="electro">
+                <input type="checkbox" id="electro" name="electro" data-type="type">
                 <label for="electro">Electro</label>
-                <input type="checkbox" id="bass" name="bass">
+                <input type="checkbox" id="bass" name="bass" data-type="type">
                 <label for="bass">Bass</label>
-                <input type="checkbox" id="acoustic" name="acoustic">
+                <input type="checkbox" id="acoustic" name="acoustic" data-type="type">
                 <label for="acoustic">Acoustic</label>
         </fieldset>
         <fieldset>
@@ -125,16 +140,30 @@ export class Filters {
       const filterStringsMethod = filtersPage.filterStringsMethod.bind(filtersPage);
       filterStringsMethod(filterStrings);
     })
-    const check: NodeListOf<HTMLInputElement> = document.querySelectorAll('[data-type="brand"]');
-    Array.from(check).forEach(element => element.addEventListener('click', function() {
+
+    const brands: NodeListOf<HTMLInputElement> = document.querySelectorAll('[data-type="brand"]');
+    Array.from(brands).forEach(element => element.addEventListener('click', function() {
       const filterBrandMethod = filtersPage.filterBrandMethod.bind(filtersPage);
       filterBrandMethod(element);
     }));
-    Array.from(check).forEach(function(el) {
+    Array.from(brands).forEach(function(el) {
       if (localStorage.brand && localStorageUtil.getBrand().includes(el.id)) {
         el.setAttribute('checked', '');
       }
     });
+
+    const types: NodeListOf<HTMLInputElement> = document.querySelectorAll('[data-type="type"]');
+    Array.from(types).forEach(element => element.addEventListener('click', function() {
+      const filterTypeMethod = filtersPage.filterTypeMethod.bind(filtersPage);
+      filterTypeMethod(element);
+    }));
+    Array.from(types).forEach(function(el) {
+      if (localStorage.type && localStorageUtil.getType().includes(el.id)) {
+        el.setAttribute('checked', '');
+      }
+    });
+
+
 
   }
 }

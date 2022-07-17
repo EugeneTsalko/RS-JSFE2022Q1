@@ -56,10 +56,13 @@ export class Products {
 
     if (localStorage.brand) {
       arr = arr.filter(function(el) { //brand filter
-
-        // for
         return localStorageUtil.getBrand().includes(el.producer.toLowerCase())
-        // el.producer.toLowerCase() === localStorage.brand;
+      });
+    }
+
+    if (localStorage.type) {
+      arr = arr.filter(function(el) { //type filter
+        return localStorageUtil.getType().includes(el.type.toLowerCase())
       });
     }
 
