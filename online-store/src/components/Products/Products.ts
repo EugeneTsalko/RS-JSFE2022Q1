@@ -54,6 +54,15 @@ export class Products {
       });
     }
 
+    if (localStorage.brand) {
+      arr = arr.filter(function(el) { //brand filter
+
+        // for
+        return localStorageUtil.getBrand().includes(el.producer.toLowerCase())
+        // el.producer.toLowerCase() === localStorage.brand;
+      });
+    }
+
     if (!arr.length) {
       alert("Sorry, no matches found.");
     }

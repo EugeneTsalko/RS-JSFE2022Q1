@@ -24,6 +24,22 @@ export class Filters {
     productsPage.render();
   }
 
+  filterBrandMethod(element: HTMLInputElement) {
+    if (element.checked === true) {
+      if(localStorage.brand) {
+        localStorage.brand += ` ${element.id}`;
+      } else {
+        localStorage.brand = ` ${element.id}`;
+      }
+    } else if (!element.checked && localStorageUtil.getBrand().length === 1) {
+      localStorage.removeItem('brand');
+    } else {
+      localStorage.brand = localStorage.brand.replace(` ${element.id}`,'')
+    }
+    // console.log(localStorageUtil.getBrand())
+    productsPage.render();
+  }
+
   render() {
 
     const html = `
@@ -41,13 +57,13 @@ export class Filters {
     <div class="value-filters">
         <fieldset>
             <legend>Brand:</legend>
-                <input type="checkbox" id="fender" name="fender">
+                <input type="checkbox" id="fender" name="fender" data-type="brand">
                 <label for="fender">Fender</label>
-                <input type="checkbox" id="esp" name="esp">
+                <input type="checkbox" id="esp" name="esp" data-type="brand">
                 <label for="esp">ESP</label>
-                <input type="checkbox" id="gibson" name="gibson">
+                <input type="checkbox" id="gibson" name="gibson" data-type="brand">
                 <label for="gibson">Gibson</label>
-                <input type="checkbox" id="epiphone" name="epiphone">
+                <input type="checkbox" id="epiphone" name="epiphone" data-type="brand">
                 <label for="epiphone">Epiphone</label>
         </fieldset>
         <fieldset>
@@ -109,7 +125,17 @@ export class Filters {
       const filterStringsMethod = filtersPage.filterStringsMethod.bind(filtersPage);
       filterStringsMethod(filterStrings);
     })
-    
+    const check: NodeListOf<HTMLInputElement> = document.querySelectorAll('[data-type="brand"]');
+    Array.from(check).forEach(element => element.addEventListener('click', function() {
+      const filterBrandMethod = filtersPage.filterBrandMethod.bind(filtersPage);
+      filterBrandMethod(element);
+    }));
+    Array.from(check).forEach(function(el) {
+      if (localStorage.brand && localStorageUtil.getBrand().includes(el.id)) {
+        el.setAttribute('checked', '');
+      }
+    });
+
   }
 }
 

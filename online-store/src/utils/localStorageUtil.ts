@@ -4,6 +4,16 @@ export class LocalStorageUtil {
     this.keyName = 'products';
   }
 
+  // setBrand(arg: string) {
+  //   localStorage.setItem('brand', arg);
+  // }
+
+  getBrand() {
+    if (localStorage.brand) {
+      return localStorage.getItem('brand').trim().split(' ');
+    } else console.log('brand is empty');
+  }
+
   setPrice(arr: string[]) {
     localStorage.setItem('minPrice', arr[0]);
     localStorage.setItem('maxPrice', arr[1]);
