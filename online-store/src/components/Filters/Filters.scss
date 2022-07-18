@@ -27,9 +27,20 @@
 
 .search-container {
  display: flex;
+ max-width: 100%;
+ width: 100%;
+}
+
+.search-input {
+  border: 1px solid black;
+  border-right: none;
 }
 
 .search-input_close {
+  background-color: $color-white;
   cursor: pointer;
+  padding: 10px;
+  border: 1px solid black;
+  border-left: none;
 }
 

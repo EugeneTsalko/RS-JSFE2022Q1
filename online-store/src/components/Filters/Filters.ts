@@ -4,9 +4,8 @@ import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import { localStorageUtil } from '../../utils/localStorageUtil';
 import { productsPage } from '../Products/Products';
-import { IElement, InoUiSlider} from '../interfaces';
-// import { InoUiSlider } from '../interfaces';
-
+import { IElement, InoUiSlider } from '../interfaces';
+import { headerPage } from '../Header/Header';
 
 export class Filters {
 
@@ -16,20 +15,22 @@ export class Filters {
     window.onbeforeunload = () => sessionStorage.clear();
   }
 
-  filterPopularMethod() {
+  filterPopularMethod(): void {
     if(!localStorage.popular) {
       localStorage.popular = 'true';
     } else localStorage.removeItem('popular');
     productsPage.render();
   }
 
-  filterPriceMethod(element: InoUiSlider): void{
-    localStorageUtil.setPrice(element.noUiSlider.get());
+  filterPriceMethod(){
+    const filterPrice = document.getElementById('filter-price') as InoUiSlider;
+    localStorageUtil.setPrice(filterPrice?.noUiSlider.get());
     productsPage.render();
   }
 
-  filterStringsMethod(element: InoUiSlider): void {
-    localStorageUtil.setStrings(element.noUiSlider.get());
+  filterStringsMethod(): void {
+    const filterStrings = document.getElementById('filter-strings') as InoUiSlider;
+    localStorageUtil.setStrings(filterStrings?.noUiSlider.get());
     productsPage.render();
   }
 
@@ -38,8 +39,6 @@ export class Filters {
       if(localStorage.brand) {
         localStorage.brand += ` ${element.id}`;
       } else {
-        // localStorage.brand = ` ${element.id}`;
-        // localStorage.setItem('brand', ` ${element.id}`);
         localStorageUtil.setBrand(` ${element.id}`);
       }
     } else if (!element.checked && localStorageUtil.getBrand()?.length === 1) {
@@ -162,9 +161,9 @@ export class Filters {
     });
 
     filterPrice.addEventListener('click', function(): void {
-      const filterPriceMethod = filtersPage?.filterPriceMethod.bind(filtersPage);
-      filterPriceMethod(filterPrice);
-    })
+      const filterPriceMethod = filtersPage.filterPriceMethod.bind(filtersPage);
+      filterPriceMethod();
+    });
 
     const filterStrings = document.getElementById('filter-strings') as noUiSlider.target;
 
@@ -180,10 +179,9 @@ export class Filters {
     });
 
     filterStrings.addEventListener('click', function(): void {
-      // console.log(filterPrice.noUiSlider.get());
       const filterStringsMethod = filtersPage.filterStringsMethod.bind(filtersPage);
-      filterStringsMethod(filterStrings);
-    })
+      filterStringsMethod();
+    });
 
     const brands: NodeListOf<HTMLInputElement> = document.querySelectorAll('[data-type="brand"]');
     Array.from(brands).forEach(element => element.addEventListener('click', function(): void {
@@ -222,7 +220,8 @@ export class Filters {
     popular.addEventListener('click', function(): void {
       const filterPopularMethod = filtersPage.filterPopularMethod.bind(filtersPage);
       filterPopularMethod();
-    })
+    });
+
     if(localStorage.popular) {
       popular.setAttribute('checked', '');
     }
@@ -233,24 +232,25 @@ export class Filters {
       sessionStorage.clear();
       filtersPage.render();
       productsPage.render();
-    })
+    });
 
     const resetSettingsBtn = document.getElementById('reset-settings') as HTMLElement;
     resetSettingsBtn.addEventListener('click', function(): void{
       localStorage.clear();
       sessionStorage.clear();
       filtersPage.render();
+      headerPage.render(0);
       productsPage.render();
-    })
+    });
 
     const searchInput = document.getElementById('search') as HTMLElement;
     const searchMethod = filtersPage.searchMethod.bind(filtersPage);
     searchInput.addEventListener('keyup', function(): void {
       searchMethod(searchInput);
-    })
+    });
     searchInput.addEventListener('click', function(): void{
       searchMethod(searchInput);
-    })
+    });
     const searchClose = document.getElementById('close') as HTMLElement;
     searchClose.addEventListener('click', function(): void {
       searchMethod(searchInput);

@@ -7,7 +7,7 @@ export class Header {
     const html = `
       <nav class="nav">
         <a href="./index.html" class="nav__logo">
-          <img class="nav__logo-img" src="../../assets/img/guitar.svg" alt="logo">
+          <img class="nav__logo-img" src="./assets/img/guitar.svg" alt="logo">
           <h1>Guitar Shop</h1>
         </a>
         <ul class="nav__links">

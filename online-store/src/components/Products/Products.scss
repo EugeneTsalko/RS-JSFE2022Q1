@@ -4,10 +4,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 45px;
-  // width: 80%;
-  // max-width: 1200px;
-  margin: $spacing-small auto;
+  // margin: 0 auto;
   padding: $spacing-large;
+  background-color: $color-white-blur;
 }
 
 .products-element {
@@ -23,6 +22,10 @@
   transition: $transition;
   border: 1px solid transparent;
   max-width: 310px;
+
+  @media screen and (max-width: 900px) {
+    justify-self: center;
+  }
 }
 
 .products-element:hover {

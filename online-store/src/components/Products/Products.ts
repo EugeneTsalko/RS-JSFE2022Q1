@@ -18,7 +18,7 @@ export class Products {
     this.labelRemove = 'REMOVE FROM CART';
   }
 
-  handleSetLocationStorage(element: HTMLElement, id: string): void {
+  handleSetLocationStorage(element: Element, id: string): void {
     if (localStorageUtil.getProducts().length === 20 && !element.classList.contains(this.classNameActive)) {
       alert('Sorry, cart is full.')
     } else {
@@ -59,29 +59,29 @@ export class Products {
 
     if (localStorage.brand) {
       arr = arr.filter(function(el) { //brand filter
-        return localStorageUtil.getBrand()?.includes(el.producer.toLowerCase())
+        return localStorageUtil.getBrand()?.includes(el.producer.toLowerCase());
       });
     }
 
     if (localStorage.type) {
       arr = arr.filter(function(el) { //type filter
-        return localStorageUtil.getType()?.includes(el.type.toLowerCase())
+        return localStorageUtil.getType()?.includes(el.type.toLowerCase());
       });
     }
 
     if (localStorage.pickups) {
       arr = arr.filter(function(el) { //pickups filter
-        return localStorageUtil.getPickups()?.includes(el.pickups.toLowerCase())
+        return localStorageUtil.getPickups()?.includes(el.pickups.toLowerCase());
       });
     }
 
     if (localStorage.popular) { //popular filter
-      arr = arr.filter(item => item.popular === true)
+      arr = arr.filter(item => item.popular === true);
     }
 
     if (sessionStorage.search) { // search
       if(sessionStorage.search != '')
-      arr = arr.filter(item => item.name.toLowerCase().search(sessionStorage.search.toLowerCase()) != -1)
+      arr = arr.filter(item => item.name.toLowerCase().search(sessionStorage.search.toLowerCase()) != -1);
     }
     
 
@@ -107,8 +107,6 @@ export class Products {
     }
 
     let htmlCatalog = '';
-
-    // const renderCatalog = CATALOG;
 
     arr.forEach(({id, name, price, img, type, strings, pickups, stock}: Product) => {
       let activeClassBtn = '';
@@ -152,11 +150,11 @@ export class Products {
     ROOT_PODUCTS.innerHTML = html;
 
     const cards: HTMLCollectionOf<Element> = document.getElementsByClassName('products-element');
-    Array.from(cards).forEach(element => element.addEventListener('click', function(): void {
+    Array.from(cards).forEach((element: Element) => element.addEventListener('click', (): void => {
       const handleSetLocationStorage = productsPage.handleSetLocationStorage.bind(productsPage);
       // eslint-disable-next-line
-      handleSetLocationStorage(this, element.getAttribute('data-id')!);
-    }))
+      handleSetLocationStorage(element, element.getAttribute('data-id')!);
+    }));
   }
 }
 

@@ -4,7 +4,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el1',
     name: 'Gibson Les Paul Standard 50s Tobacco Burst',
-    img: '../../assets/img/el1.jpg',
+    img: './assets/img/el1.jpg',
     price: 2199,
     stock: 'Available',
     strings: 6,
@@ -16,7 +16,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el2',
     name: 'Fender Player Stratocaster Polar White Maple',
-    img: '../../assets/img/el2.jpg',
+    img: './assets/img/el2.jpg',
     price: 589,
     stock: 'Available',
     strings: 6,
@@ -28,7 +28,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el3',
     name: 'Epiphone Les Paul Custom Koa Natural',
-    img: '../../assets/img/el3.jpg',
+    img: './assets/img/el3.jpg',
     price: 599,
     stock: 'Available',
     strings: 6,
@@ -40,7 +40,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el4',
     name: 'ESP E-II Horizon NT-7 Evertune Black',
-    img: '../../assets/img/el4.jpg',
+    img: './assets/img/el4.jpg',
     price: 2399,
     stock: 'Available',
     strings: 7,
@@ -52,7 +52,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el5',
     name: 'ESP LTD EC-1000 Vintage Black',
-    img: '../../assets/img/el5.jpg',
+    img: './assets/img/el5.jpg',
     price: 999,
     stock: 'Available',
     strings: 6,
@@ -64,7 +64,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el6',
     name: 'Fender FSR Tribute Stratocaster Fiesta Red',
-    img: '../../assets/img/el6.jpg',
+    img: './assets/img/el6.jpg',
     price: 749,
     stock: 'Available',
     strings: 6,
@@ -76,7 +76,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el7',
     name: 'Gibson Lzzy Hale Signature Explorerbird Koa Natural',
-    img: '../../assets/img/el7.jpg',
+    img: './assets/img/el7.jpg',
     price: 2499,
     stock: 'Available',
     strings: 6,
@@ -88,7 +88,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el8',
     name: 'ESP LTD Signature Alexi Laiho Purple Fade Satin',
-    img: '../../assets/img/el8.jpg',
+    img: './assets/img/el8.jpg',
     price: 1699,
     stock: 'Not available',
     strings: 6,
@@ -100,7 +100,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el9',
     name: 'Fender FSR Tribute Stratocaster Black',
-    img: '../../assets/img/el9.jpg',
+    img: './assets/img/el9.jpg',
     price: 749,
     stock: 'Available',
     strings: 6,
@@ -112,7 +112,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el10',
     name: 'ESP LTD 30th Anniversary KH-3 Kirk Hammett Spider',
-    img: '../../assets/img/el10.jpg',
+    img: './assets/img/el10.jpg',
     price: 1379,
     stock: 'Available',
     strings: 6,
@@ -124,7 +124,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el11',
     name: 'Fender Player Telecaster Butterscotch Blonde Maple',
-    img: '../../assets/img/el11.jpg',
+    img: './assets/img/el11.jpg',
     price: 589,
     stock: 'Available',
     strings: 6,
@@ -136,7 +136,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el12',
     name: 'Fender Player Stratocaster Tequila Sunrise',
-    img: '../../assets/img/el12.jpg',
+    img: './assets/img/el12.jpg',
     price: 799,
     stock: 'Not available',
     strings: 6,
@@ -148,7 +148,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el13',
     name: 'Epiphone Les Paul Standard 60s Iced Tea',
-    img: '../../assets/img/el13.jpg',
+    img: './assets/img/el13.jpg',
     price: 549,
     stock: 'Available',
     strings: 6,
@@ -160,7 +160,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el14',
     name: 'Gibson SG Standard Heritage Cherry',
-    img: '../../assets/img/el14.jpg',
+    img: './assets/img/el14.jpg',
     price: 1399,
     stock: 'Available',
     strings: 6,
@@ -172,7 +172,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el15',
     name: 'Gibson ES-335 Figured Sixties Cherry',
-    img: '../../assets/img/el15.jpg',
+    img: './assets/img/el15.jpg',
     price: 3299,
     stock: 'Available',
     strings: 6,
@@ -184,7 +184,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el16',
     name: 'Fender Custom Jazz Bass Heavy Relic Aged Black',
-    img: '../../assets/img/el16.jpg',
+    img: './assets/img/el16.jpg',
     price: 4749,
     stock: 'Available',
     strings: 4,
@@ -196,7 +196,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el17',
     name: 'Fender Vintera 70s Telecaster Shell Pink',
-    img: '../../assets/img/el17.jpg',
+    img: './assets/img/el17.jpg',
     price: 999,
     stock: 'Available',
     strings: 6,
@@ -208,7 +208,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el18',
     name: 'Fender Kurt Cobain Jaguar Sunburst Left Handed',
-    img: '../../assets/img/el18.jpg',
+    img: './assets/img/el18.jpg',
     price: 1349,
     stock: ' Not available',
     strings: 6,
@@ -220,7 +220,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el19',
     name: 'Fender Player Plus Meteora Bass Opal Spark',
-    img: '../../assets/img/el19.jpg',
+    img: './assets/img/el19.jpg',
     price: 999,
     stock: 'Available',
     strings: 4,
@@ -232,7 +232,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el20',
     name: 'Epiphone J-200EC Studio Vintage Natural',
-    img: '../../assets/img/el20.jpg',
+    img: './assets/img/el20.jpg',
     price: 379,
     stock: 'Available',
     strings: 6,
@@ -244,7 +244,7 @@ export const CATALOG: Product[] = [
   {
     id: 'el21',
     name: 'Fender CD-60SCE Natural Walnut Fingerboard',
-    img: '../../assets/img/el21.jpg',
+    img: './assets/img/el21.jpg',
     price: 239,
     stock: 'Available',
     strings: 6,

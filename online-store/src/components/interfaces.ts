@@ -1,4 +1,3 @@
-// import * as noUiSlider from 'nouislider';
 
 export interface Product {
   id: string,
@@ -19,16 +18,7 @@ export interface IElement extends HTMLElement {
 
 export interface InoUiSlider extends HTMLElement {
   noUiSlider: {
-    get: () => string[];
+    // get: () => string[];
+    get: (unencoded?: boolean) => string[];
+  }
 }
-
-}
-
-// interface noUiSlider {
-//   [key:string]: string
-// }
-
-export interface Instance extends HTMLElement {
-  noUiSlider?: InoUiSlider,
-}
-

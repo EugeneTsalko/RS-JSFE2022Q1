@@ -15,13 +15,16 @@ export class LocalStorageUtil {
     }
   }
 
-  setBrand(opt: string) {
+  setBrand(opt: string): void {
     localStorage.setItem('brand', opt);
   }
 
   getBrand() {
+    // if (localStorage.getItem('brand') !== null) return localStorage.getItem('brand')?.trim().split(' ');
     if (localStorage.brand) {
+      console.log(localStorage.getItem('brand')?.trim().split(' '))
       return localStorage.getItem('brand')?.trim().split(' ');
+      
     }
   }
 
