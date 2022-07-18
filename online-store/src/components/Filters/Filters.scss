@@ -8,8 +8,8 @@
 .range-filters {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
-  gap: 70px;
+  margin-top: 20px;
+  gap: 50px;
   max-width: 100%;
   width: 100%;
 }
@@ -20,6 +20,18 @@
   // align-items: center;
   gap: $spacing-small;
 }
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+label {
+  cursor: pointer;
+  transition: $transition;
+}
+label:hover {
+  color: $color-red;
+}
+
 
 .hide {
   display: none;
@@ -42,5 +54,32 @@
   padding: 10px;
   border: 1px solid black;
   border-left: none;
+}
+
+#reset-filters {
+  cursor: pointer;
+  transition: $transition;
+}
+
+#reset-settings {
+  cursor: pointer;
+  transition: $transition;
+}
+
+#filter-price {
+  cursor: pointer;
+}
+
+#filter-strings {
+  cursor: pointer;
+}
+
+.noUi-touch-area {
+  cursor: pointer;
+  transition: $transition;
+}
+
+.noUi-touch-area:hover {
+  background-color: $color-red;
 }
 
