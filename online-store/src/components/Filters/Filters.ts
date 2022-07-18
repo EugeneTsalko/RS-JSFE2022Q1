@@ -3,32 +3,15 @@ import { ROOT_FILTERS } from '../../constants/root';
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import { localStorageUtil } from '../../utils/localStorageUtil';
-// import { CATALOG } from '../../constants/catalog';
-// import { Product } from '../interfaces';
 import { productsPage } from '../Products/Products';
+import { IElement, InoUiSlider} from '../interfaces';
+// import { InoUiSlider } from '../interfaces';
+
 
 export class Filters {
 
-  // searchMethod(el: { value: string; }) {
-  //   const val = el.value.trim().toLowerCase();
-  //   const products = document.querySelectorAll('.products-element__name');
-  //   if (val != '') {
-  //     products.forEach(function(elem) {
-  //       if(elem.innerHTML.toLowerCase().search(val) == -1) {
-  //         elem.parentElement.classList.add('hide');
-  //       } else {
-  //         elem.parentElement.classList.remove('hide');
-  //       }
-  //     })
-  //   } else{
-  //     products.forEach(function(elem) {
-  //         elem.parentElement.classList.remove('hide');
-  //     })
-  //   }
-  // }
-
-  searchMethod(el: { value: string; }) {
-    sessionStorage.search = el.value.trim().toLowerCase();
+  searchMethod(el: IElement): void {
+    sessionStorage.search = el.value?.trim().toLowerCase();
     productsPage.render()
     window.onbeforeunload = () => sessionStorage.clear();
   }
@@ -40,45 +23,41 @@ export class Filters {
     productsPage.render();
   }
 
-  filterPriceMethod(element: { noUiSlider: { get: () => string[]; }; }): void {
+  filterPriceMethod(element: InoUiSlider): void{
     localStorageUtil.setPrice(element.noUiSlider.get());
-    // let renderCatalog: Product[] = CATALOG;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    // renderCatalog = renderCatalog.filter(function(el) {
-    //   return el.price <= +localStorageUtil.getMaxPrice() && el.price >= +localStorageUtil.getMinPrice();
-    // });
     productsPage.render();
   }
 
-  filterStringsMethod(element: { noUiSlider: { get: () => string[]; }; }): void {
+  filterStringsMethod(element: InoUiSlider): void {
     localStorageUtil.setStrings(element.noUiSlider.get());
     productsPage.render();
   }
 
-  filterBrandMethod(element: HTMLInputElement) {
+  filterBrandMethod(element: HTMLInputElement): void {
     if (element.checked === true) {
       if(localStorage.brand) {
         localStorage.brand += ` ${element.id}`;
       } else {
-        localStorage.brand = ` ${element.id}`;
+        // localStorage.brand = ` ${element.id}`;
+        // localStorage.setItem('brand', ` ${element.id}`);
+        localStorageUtil.setBrand(` ${element.id}`);
       }
-    } else if (!element.checked && localStorageUtil.getBrand().length === 1) {
+    } else if (!element.checked && localStorageUtil.getBrand()?.length === 1) {
       localStorage.removeItem('brand');
     } else {
-      localStorage.brand = localStorage.brand.replace(` ${element.id}`,'')
+      localStorage.brand = localStorage.brand.replace(` ${element.id}`,'');
     }
-    // console.log(localStorageUtil.getBrand())
     productsPage.render();
   }
 
-  filterTypeMethod(element: HTMLInputElement) {
+  filterTypeMethod(element: HTMLInputElement): void {
     if (element.checked === true) {
-      if(localStorage.type) {
+      if(localStorage.type ) {
         localStorage.type += ` ${element.id}`;
       } else {
         localStorage.type = ` ${element.id}`;
       }
-    } else if (!element.checked && localStorageUtil.getType().length === 1) {
+    } else if (!element.checked && localStorageUtil.getType()?.length === 1) {
       localStorage.removeItem('type');
     } else {
       localStorage.type = localStorage.type.replace(` ${element.id}`,'')
@@ -86,14 +65,14 @@ export class Filters {
     productsPage.render();
   }
 
-  filterPickupsMethod(element: HTMLInputElement) {
+  filterPickupsMethod(element: HTMLInputElement): void {
     if (element.checked === true) {
       if(localStorage.pickups) {
         localStorage.pickups += ` ${element.id}`;
       } else {
         localStorage.pickups = ` ${element.id}`;
       }
-    } else if (!element.checked && localStorageUtil.getPickups().length === 1) {
+    } else if (!element.checked && localStorageUtil.getPickups()?.length === 1) {
       localStorage.removeItem('pickups');
     } else {
       localStorage.pickups = localStorage.pickups.replace(` ${element.id}`,'')
@@ -171,10 +150,6 @@ export class Filters {
 
     const filterPrice = document.getElementById('filter-price') as noUiSlider.target;
 
-    // filterPrice.noUiSlider.set([2000, 2500]);
-    // const filterPriceSet = filterPrice.noUiSlider.set.bind(filterPrice);
-    // filterPriceSet([2000,4000])
-
     noUiSlider.create(filterPrice, {
       start: [239, 4749],
       step: 1,
@@ -186,9 +161,8 @@ export class Filters {
       }
     });
 
-    filterPrice.addEventListener('click', function(){
-      // console.log(filterPrice.noUiSlider.get());
-      const filterPriceMethod = filtersPage.filterPriceMethod.bind(filtersPage);
+    filterPrice.addEventListener('click', function(): void {
+      const filterPriceMethod = filtersPage?.filterPriceMethod.bind(filtersPage);
       filterPriceMethod(filterPrice);
     })
 
@@ -205,47 +179,47 @@ export class Filters {
       }
     });
 
-    filterStrings.addEventListener('click', function(){
+    filterStrings.addEventListener('click', function(): void {
       // console.log(filterPrice.noUiSlider.get());
       const filterStringsMethod = filtersPage.filterStringsMethod.bind(filtersPage);
       filterStringsMethod(filterStrings);
     })
 
     const brands: NodeListOf<HTMLInputElement> = document.querySelectorAll('[data-type="brand"]');
-    Array.from(brands).forEach(element => element.addEventListener('click', function() {
+    Array.from(brands).forEach(element => element.addEventListener('click', function(): void {
       const filterBrandMethod = filtersPage.filterBrandMethod.bind(filtersPage);
       filterBrandMethod(element);
     }));
-    Array.from(brands).forEach(function(el) {
-      if (localStorage.brand && localStorageUtil.getBrand().includes(el.id)) {
+    Array.from(brands).forEach(function(el): void {
+      if (localStorage.brand && localStorageUtil.getBrand()?.includes(el.id)) {
         el.setAttribute('checked', '');
       }
     });
 
     const types: NodeListOf<HTMLInputElement> = document.querySelectorAll('[data-type="type"]');
-    Array.from(types).forEach(element => element.addEventListener('click', function() {
+    Array.from(types).forEach(element => element.addEventListener('click', function(): void {
       const filterTypeMethod = filtersPage.filterTypeMethod.bind(filtersPage);
       filterTypeMethod(element);
     }));
-    Array.from(types).forEach(function(el) {
-      if (localStorage.type && localStorageUtil.getType().includes(el.id)) {
+    Array.from(types).forEach(function(el): void {
+      if (localStorage.type && localStorageUtil.getType()?.includes(el.id)) {
         el.setAttribute('checked', '');
       }
     });
 
     const pickups: NodeListOf<HTMLInputElement> = document.querySelectorAll('[data-type="pickups"]');
-    Array.from(pickups).forEach(element => element.addEventListener('click', function() {
+    Array.from(pickups).forEach(element => element.addEventListener('click', function(): void {
       const filterPickupsMethod = filtersPage.filterPickupsMethod.bind(filtersPage);
       filterPickupsMethod(element);
     }));
-    Array.from(pickups).forEach(function(el) {
-      if (localStorage.pickups && localStorageUtil.getPickups().includes(el.id)) {
+    Array.from(pickups).forEach(function(el): void {
+      if (localStorage.pickups && localStorageUtil.getPickups()?.includes(el.id)) {
         el.setAttribute('checked', '');
       }
     });
 
-    const popular: HTMLElement = document.getElementById('popular');
-    popular.addEventListener('click', function() {
+    const popular = document.getElementById('popular') as HTMLElement;
+    popular.addEventListener('click', function(): void {
       const filterPopularMethod = filtersPage.filterPopularMethod.bind(filtersPage);
       filterPopularMethod();
     })
@@ -253,32 +227,32 @@ export class Filters {
       popular.setAttribute('checked', '');
     }
 
-    const resetFiltersBtn = document.getElementById('reset-filters');
-    resetFiltersBtn.addEventListener('click', function(){
+    const resetFiltersBtn = document.getElementById('reset-filters') as HTMLElement;
+    resetFiltersBtn.addEventListener('click', function(): void {
       localStorageUtil.resetFilters();
       sessionStorage.clear();
       filtersPage.render();
       productsPage.render();
     })
 
-    const resetSettingsBtn = document.getElementById('reset-settings');
-    resetSettingsBtn.addEventListener('click', function(){
+    const resetSettingsBtn = document.getElementById('reset-settings') as HTMLElement;
+    resetSettingsBtn.addEventListener('click', function(): void{
       localStorage.clear();
       sessionStorage.clear();
       filtersPage.render();
       productsPage.render();
     })
 
-    const searchInput = document.getElementById('search');
+    const searchInput = document.getElementById('search') as HTMLElement;
     const searchMethod = filtersPage.searchMethod.bind(filtersPage);
-    searchInput.addEventListener('keyup', function(){
+    searchInput.addEventListener('keyup', function(): void {
       searchMethod(searchInput);
     })
-    searchInput.addEventListener('click', function(){
+    searchInput.addEventListener('click', function(): void{
       searchMethod(searchInput);
     })
-    const searchClose = document.getElementById('close');
-    searchClose.addEventListener('click', function(){
+    const searchClose = document.getElementById('close') as HTMLElement;
+    searchClose.addEventListener('click', function(): void {
       searchMethod(searchInput);
     });
   }

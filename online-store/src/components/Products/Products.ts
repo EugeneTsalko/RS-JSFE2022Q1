@@ -1,9 +1,7 @@
-// import { CATALOG } from '../../constants/catalog';
+import '../Products/Products.scss';
 import { ROOT_PODUCTS } from '../../constants/root';
 import { localStorageUtil } from '../../utils/localStorageUtil';
 import { headerPage } from '../Header/Header';
-import '../Products/Products.scss';
-// import { Product } from '../interfaces';
 import { sortPage } from '../Sort/Sort';
 import { CATALOG } from '../../constants/catalog';
 import { Product } from '../interfaces';
@@ -20,55 +18,32 @@ export class Products {
     this.labelRemove = 'REMOVE FROM CART';
   }
 
-  // handleSetLocationStorage(element: HTMLElement, id: string) {
-  //   if (localStorageUtil.getProducts().length === 20 && !element.classList.contains(this.classNameActive)) {
-  //     alert('Sorry, cart is full.')
-  //   } else {
-  //     const { pushProduct, products } = localStorageUtil.putProducts(id);
-  //     if (pushProduct) {
-  //       element.classList.add(this.classNameActive);
-        // element.parentElement.classList.add(this.classNameActiveLi);
-  //       element.innerHTML = this.labelRemove;
-  //     } else if (pushProduct && element.tagName === 'LI') {
-  //       element.classList.add(this.classNameActiveLi);
-  //       // element.lastElementChild.classList.add(this.classNameActive);
-  //     } else if (element.tagName === 'BUTTON'){
-  //       element.classList.remove(this.classNameActive);
-  //       // element.parentElement.classList.remove(this.classNameActiveLi);
-  //       element.innerHTML = this.labelAdd; 
-  //     } else {
-  //       element.classList.remove(this.classNameActiveLi);
-  //       // element.lastElementChild.classList.remove(this.classNameActive);
-  //     }
-  //     const headerPageRender = headerPage.render.bind(headerPage);
-  //     headerPageRender(products.length);
-  //   } 
-  // }
-
-  handleSetLocationStorage(element: HTMLElement, id: string) {
+  handleSetLocationStorage(element: HTMLElement, id: string): void {
     if (localStorageUtil.getProducts().length === 20 && !element.classList.contains(this.classNameActive)) {
       alert('Sorry, cart is full.')
     } else {
       const { pushProduct, products } = localStorageUtil.putProducts(id);
       if (pushProduct) {
         element.classList.add(this.classNameActiveLi);
-        element.lastElementChild.classList.add(this.classNameActive)
-        element.lastElementChild.innerHTML = this.labelRemove;
+        element.lastElementChild?.classList.add(this.classNameActive);
+        // eslint-disable-next-line
+        element.lastElementChild!.innerHTML = this.labelRemove;
       } else {
         element.classList.remove(this.classNameActiveLi);
-        element.lastElementChild.classList.remove(this.classNameActive)
-        element.lastElementChild.innerHTML = this.labelAdd; 
+        element.lastElementChild?.classList.remove(this.classNameActive);
+        // eslint-disable-next-line
+        element.lastElementChild!.innerHTML = this.labelAdd; 
       }
       const headerPageRender = headerPage.render.bind(headerPage);
       headerPageRender(products.length);
     } 
   }
 
-    render() {
+    render(): void {
     const productsStore = localStorageUtil.getProducts();
     const sortMethod = localStorageUtil.getSort();
 
-    let arr = CATALOG;
+    let arr: Product[] = CATALOG;
 
     if (localStorageUtil.getMaxPrice()) {
       arr = arr.filter(function(el) { //price filter
@@ -84,19 +59,19 @@ export class Products {
 
     if (localStorage.brand) {
       arr = arr.filter(function(el) { //brand filter
-        return localStorageUtil.getBrand().includes(el.producer.toLowerCase())
+        return localStorageUtil.getBrand()?.includes(el.producer.toLowerCase())
       });
     }
 
     if (localStorage.type) {
       arr = arr.filter(function(el) { //type filter
-        return localStorageUtil.getType().includes(el.type.toLowerCase())
+        return localStorageUtil.getType()?.includes(el.type.toLowerCase())
       });
     }
 
     if (localStorage.pickups) {
       arr = arr.filter(function(el) { //pickups filter
-        return localStorageUtil.getPickups().includes(el.pickups.toLowerCase())
+        return localStorageUtil.getPickups()?.includes(el.pickups.toLowerCase())
       });
     }
 
@@ -176,21 +151,14 @@ export class Products {
 
     ROOT_PODUCTS.innerHTML = html;
 
-    // const btns = document.getElementsByClassName("products-element__btn");
-    // Array.from(btns).forEach(element => element.addEventListener('click', function() {
-    //   const handleSetLocationStorage = productsPage.handleSetLocationStorage.bind(productsPage);
-    //   handleSetLocationStorage(this, element.getAttribute('data-id'))
-    //   console.log(element.tagName)
-    // }));
-    const cards = document.getElementsByClassName('products-element');
-    Array.from(cards).forEach(element => element.addEventListener('click', function(){
+    const cards: HTMLCollectionOf<Element> = document.getElementsByClassName('products-element');
+    Array.from(cards).forEach(element => element.addEventListener('click', function(): void {
       const handleSetLocationStorage = productsPage.handleSetLocationStorage.bind(productsPage);
-      handleSetLocationStorage(this, element.getAttribute('data-id'))
-      // console.log(element.tagName)
+      // eslint-disable-next-line
+      handleSetLocationStorage(this, element.getAttribute('data-id')!);
     }))
   }
 }
 
 
 export const productsPage = new Products();
-// productsPage.render();

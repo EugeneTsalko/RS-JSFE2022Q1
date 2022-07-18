@@ -4,48 +4,49 @@ export class LocalStorageUtil {
     this.keyName = 'products';
   }
 
-  // setBrand(arg: string) {
-  //   localStorage.setItem('brand', arg);
-  // }
-
-  resetFilters() {
-    const keys = Object.keys(localStorage);
+  resetFilters(): void {
+    const keys: string[] = Object.keys(localStorage);
     if(keys.length) {
-      for(let i=0; i < keys.length; i++) {
-        if (keys[i] !== 'sort' && keys[i] !== 'products')
+      for(let i = 0; i < keys.length; i++) {
+        if (keys[i] !== 'sort' && keys[i] !== 'products') {
         localStorage.removeItem(keys[i]);
+        }
       }
     }
   }
 
+  setBrand(opt: string) {
+    localStorage.setItem('brand', opt);
+  }
+
   getBrand() {
     if (localStorage.brand) {
-      return localStorage.getItem('brand').trim().split(' ');
-    } else console.log('brand is empty');
+      return localStorage.getItem('brand')?.trim().split(' ');
+    }
   }
 
   getType() {
     if (localStorage.type) {
-      return localStorage.getItem('type').trim().split(' ');
-    } else console.log('type is empty');
+      return localStorage.getItem('type')?.trim().split(' ');
+    } 
   }
 
   getPickups() {
     if (localStorage.pickups) {
-      return localStorage.getItem('pickups').trim().split(' ');
-    } else console.log('pickups is empty');
+      return localStorage.getItem('pickups')?.trim().split(' ');
+    } 
   }
 
-  setPrice(arr: string[]) {
+  setPrice(arr: string[]): void {
     localStorage.setItem('minPrice', arr[0]);
     localStorage.setItem('maxPrice', arr[1]);
   }
 
-  getMaxPrice() {
+  getMaxPrice(): string | number {
     return localStorage.getItem('maxPrice') || 4749;
   }
 
-  getMinPrice() {
+  getMinPrice(): string | number  {
     return localStorage.getItem('minPrice') || 239;
   }
 
@@ -54,24 +55,24 @@ export class LocalStorageUtil {
     localStorage.setItem('maxStrings', arr[1]);
   }
 
-  getMaxStrings() {
+  getMaxStrings(): string | number  {
     return localStorage.getItem('maxStrings') || 7;
   }
 
-  getMinStrings() {
+  getMinStrings(): string | number  {
     return localStorage.getItem('minStrings') || 4;
   }
 
-  setSort(opt: string) {
+  setSort(opt: string): void {
     localStorage.setItem('sort', opt);
   }
 
-  getSort() {
-    return localStorage.getItem('sort');
+  getSort(): string {
+    return localStorage.getItem('sort') as string;
   }
 
-  getProducts() {
-    const productsLocalStorage = localStorage.getItem(this.keyName);
+  getProducts(): string[] {
+    const productsLocalStorage = localStorage.getItem(this.keyName) as string;
     if (productsLocalStorage !== null) {
       return JSON.parse(productsLocalStorage);
     }

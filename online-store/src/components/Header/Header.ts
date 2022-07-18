@@ -3,7 +3,7 @@ import { ROOT_HEADER } from '../../constants/root';
 
 
 export class Header {
-  render(count: number) {
+  render(count: number): void {
     const html = `
       <nav class="nav">
         <a href="./index.html" class="nav__logo">

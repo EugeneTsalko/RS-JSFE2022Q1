@@ -1,4 +1,6 @@
-export const CATALOG = [
+import { Product } from "../components/interfaces";
+
+export const CATALOG: Product[] = [
   {
     id: 'el1',
     name: 'Gibson Les Paul Standard 50s Tobacco Burst',

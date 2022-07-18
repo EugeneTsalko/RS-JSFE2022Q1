@@ -1,6 +1,5 @@
 import '../Sort/Sort.scss';
 import { ROOT_SORT } from '../../constants/root';
-// import { CATALOG } from '../../constants/catalog';
 import { productsPage } from '../Products/Products';
 import { localStorageUtil } from '../../utils/localStorageUtil';
 
@@ -10,81 +9,61 @@ export class Sort {
     this.classNameActive = 'sort-btn_active';
   }
 
-  addClass(element: HTMLElement) {
-    element.classList.add(this.classNameActive)
+  addClass(element: HTMLElement): void {
+    element.classList.add(this.classNameActive);
   }
 
-  sortPriceLow() {
-    // const renderCatalog = CATALOG;
-    // arr = arr.sort((a, b ) => a.price > b.price ? 1 : -1);
-    // return arr;
+  sortPriceLow(): void {
     localStorageUtil.setSort('sortPriceLow');
     productsPage.render();
   }
 
-  sortPriceHigh() {
-    // const renderCatalog = CATALOG;
-    // renderCatalog.sort((a, b ) => b.price > a.price ? 1 : -1);
+  sortPriceHigh(): void {
     localStorageUtil.setSort('sortPriceHigh');
     productsPage.render();
   }
 
-  sortNameA() {
-    // const renderCatalog = CATALOG;
-    // renderCatalog.sort((a, b ) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
+  sortNameA(): void {
     localStorageUtil.setSort('sortNameA');
     productsPage.render();
   }
 
-  sortNameZ() {
-    // const renderCatalog = CATALOG;
-    // renderCatalog.sort((a, b ) => b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1);
+  sortNameZ(): void {
     localStorageUtil.setSort('sortNameZ');
     productsPage.render();
   }
 
   render() {
-    // const html = `
-    //   <form id="sortForm">
-    //     <label for="sort">Sort by</label>
-    //     <select name="sort" id="sort" class="sort-input">
-    //       <option value="price-lowest">price (lowest)</option>
-    //       <option value="price-highest">price (highest)</option>
-    //       <option value="name-a">name (a-z)</option>
-    //       <option value="name-z">name (z-a)</option>
-    //     </select>
-    //   </form>
-    // `
 
     const html = `
     <button class="sort-btn" data-sort="price-lowest">price (lowest)</button>
     <button class="sort-btn" data-sort="price-highest">price (highest)</button>
     <button class="sort-btn" data-sort="name-a">name (a-z)</button>
     <button class="sort-btn" data-sort="name-z">name (z-a)</button>
-    `
+    `;
 
     ROOT_SORT.innerHTML = html;
 
-    const sortOptionPriceLow = document.querySelector("[data-sort='price-lowest']");
-    sortOptionPriceLow.addEventListener('click', function() {
+    const sortOptionPriceLow = document.querySelector("[data-sort='price-lowest']") as HTMLElement;
+    sortOptionPriceLow.addEventListener('click', function(): void {
       const sortPriceLow = sortPage.sortPriceLow.bind(sortPage);
       sortPriceLow();
     });
 
-    const sortOptionPriceHigh = document.querySelector("[data-sort='price-highest']");
-    sortOptionPriceHigh.addEventListener('click', function() {
+    const sortOptionPriceHigh = document.querySelector("[data-sort='price-highest']") as HTMLElement;
+    sortOptionPriceHigh.addEventListener('click', function(): void {
       const sortPriceHigh = sortPage.sortPriceHigh.bind(sortPage);
       sortPriceHigh();
     });
 
-    const sortOptionNameA = document.querySelector("[data-sort='name-a']");
-    sortOptionNameA.addEventListener('click', function() {
+    const sortOptionNameA = document.querySelector("[data-sort='name-a']") as HTMLElement;
+    sortOptionNameA.addEventListener('click', function(): void {
       const sortNameA = sortPage.sortNameA.bind(sortPage);
       sortNameA();
     });
 
-    const sortOptionNameZ = document.querySelector("[data-sort='name-z']");
-    sortOptionNameZ.addEventListener('click', function() {
+    const sortOptionNameZ = document.querySelector("[data-sort='name-z']") as HTMLElement;
+    sortOptionNameZ.addEventListener('click', function(): void {
       const sortNameZ = sortPage.sortNameZ.bind(sortPage);
       sortNameZ();
     });
