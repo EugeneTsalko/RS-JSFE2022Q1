@@ -35,7 +35,6 @@ export class Products {
     } 
   }
 
-  // render(arr: Product[]) {
     render() {
     const productsStore = localStorageUtil.getProducts();
     const sortMethod = localStorageUtil.getSort();
@@ -72,10 +71,15 @@ export class Products {
       });
     }
 
-    if (localStorage.popular) {
-      // console.log(111111)
+    if (localStorage.popular) { //popular filter
       arr = arr.filter(item => item.popular === true)
     }
+
+    if (sessionStorage.search) { // search
+      if(sessionStorage.search != '')
+      arr = arr.filter(item => item.name.toLowerCase().search(sessionStorage.search.toLowerCase()) != -1)
+    }
+    
 
     if (!arr.length) {
       alert("Sorry, no matches found.");

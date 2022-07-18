@@ -9,6 +9,30 @@ import { productsPage } from '../Products/Products';
 
 export class Filters {
 
+  // searchMethod(el: { value: string; }) {
+  //   const val = el.value.trim().toLowerCase();
+  //   const products = document.querySelectorAll('.products-element__name');
+  //   if (val != '') {
+  //     products.forEach(function(elem) {
+  //       if(elem.innerHTML.toLowerCase().search(val) == -1) {
+  //         elem.parentElement.classList.add('hide');
+  //       } else {
+  //         elem.parentElement.classList.remove('hide');
+  //       }
+  //     })
+  //   } else{
+  //     products.forEach(function(elem) {
+  //         elem.parentElement.classList.remove('hide');
+  //     })
+  //   }
+  // }
+
+  searchMethod(el: { value: string; }) {
+    sessionStorage.search = el.value.trim().toLowerCase();
+    productsPage.render()
+    window.onbeforeunload = () => sessionStorage.clear();
+  }
+
   filterPopularMethod() {
     if(!localStorage.popular) {
       localStorage.popular = 'true';
@@ -80,7 +104,7 @@ export class Filters {
   render() {
 
     const html = `
-    <input type="text" name="text" placeholder="search" class="search-input" value="">
+    <input type="search" name="text" id="search" placeholder="search" class="search-input" autocomplete="off" autofocus value="">
 
     <div class="range-filters">
         <span>Price:</span>
@@ -239,9 +263,18 @@ export class Filters {
       productsPage.render();
     })
 
-
-
-
+    const searchInput = document.getElementById('search');
+    const searchMethod = filtersPage.searchMethod.bind(filtersPage);
+    searchInput.addEventListener('keyup', function(){
+      searchMethod(searchInput);
+    })
+    searchInput.addEventListener('click', function(){
+      searchMethod(searchInput);
+      // if(searchMethod.val == ''){
+      //   productsPage.render()
+      // }
+    })
+    // window.onbeforeunload = () => sessionStorage.clear(); 
   }
 }
 
