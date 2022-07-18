@@ -104,8 +104,12 @@ export class Filters {
   render() {
 
     const html = `
-    <input type="search" name="text" id="search" placeholder="search" class="search-input" autocomplete="off" autofocus value="">
-
+    <div class="search-container">
+    <input type="text" id="search" placeholder="search" class="search-input" autocomplete="off" value="" autofocus>
+    <span class="search-input_close" id="close" onclick="this.previousElementSibling.value = ''">
+    &times;
+    </span>
+    </div>
     <div class="range-filters">
         <span>Price:</span>
         <div id="filter-price">
@@ -270,11 +274,11 @@ export class Filters {
     })
     searchInput.addEventListener('click', function(){
       searchMethod(searchInput);
-      // if(searchMethod.val == ''){
-      //   productsPage.render()
-      // }
     })
-    // window.onbeforeunload = () => sessionStorage.clear(); 
+    const searchClose = document.getElementById('close');
+    searchClose.addEventListener('click', function(){
+      searchMethod(searchInput);
+    });
   }
 }
 
