@@ -12,7 +12,7 @@ export class LocalStorageUtil {
     const keys = Object.keys(localStorage);
     if(keys.length) {
       for(let i=0; i < keys.length; i++) {
-        if (keys[i] !== 'sort')
+        if (keys[i] !== 'sort' && keys[i] !== 'products')
         localStorage.removeItem(keys[i]);
       }
     }

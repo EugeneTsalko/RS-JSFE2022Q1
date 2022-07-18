@@ -256,6 +256,7 @@ export class Filters {
     const resetFiltersBtn = document.getElementById('reset-filters');
     resetFiltersBtn.addEventListener('click', function(){
       localStorageUtil.resetFilters();
+      sessionStorage.clear();
       filtersPage.render();
       productsPage.render();
     })
@@ -263,6 +264,7 @@ export class Filters {
     const resetSettingsBtn = document.getElementById('reset-settings');
     resetSettingsBtn.addEventListener('click', function(){
       localStorage.clear();
+      sessionStorage.clear();
       filtersPage.render();
       productsPage.render();
     })
