@@ -29,6 +29,10 @@
   border: 1px solid $color-yellow;
 }
 
+.products-element_active {
+  border: 1px solid $color-yellow;
+}
+
 .products-element__name {
   margin-bottom: auto;
   font-weight: bold;

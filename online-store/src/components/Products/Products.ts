@@ -12,11 +12,38 @@ export class Products {
   classNameActive: string;
   labelAdd: string;
   labelRemove: string;
+  classNameActiveLi: string;
   constructor() {
     this.classNameActive = 'products-element__btn_active';
+    this.classNameActiveLi = 'products-element_active';
     this.labelAdd = 'ADD TO CART';
     this.labelRemove = 'REMOVE FROM CART';
   }
+
+  // handleSetLocationStorage(element: HTMLElement, id: string) {
+  //   if (localStorageUtil.getProducts().length === 20 && !element.classList.contains(this.classNameActive)) {
+  //     alert('Sorry, cart is full.')
+  //   } else {
+  //     const { pushProduct, products } = localStorageUtil.putProducts(id);
+  //     if (pushProduct) {
+  //       element.classList.add(this.classNameActive);
+        // element.parentElement.classList.add(this.classNameActiveLi);
+  //       element.innerHTML = this.labelRemove;
+  //     } else if (pushProduct && element.tagName === 'LI') {
+  //       element.classList.add(this.classNameActiveLi);
+  //       // element.lastElementChild.classList.add(this.classNameActive);
+  //     } else if (element.tagName === 'BUTTON'){
+  //       element.classList.remove(this.classNameActive);
+  //       // element.parentElement.classList.remove(this.classNameActiveLi);
+  //       element.innerHTML = this.labelAdd; 
+  //     } else {
+  //       element.classList.remove(this.classNameActiveLi);
+  //       // element.lastElementChild.classList.remove(this.classNameActive);
+  //     }
+  //     const headerPageRender = headerPage.render.bind(headerPage);
+  //     headerPageRender(products.length);
+  //   } 
+  // }
 
   handleSetLocationStorage(element: HTMLElement, id: string) {
     if (localStorageUtil.getProducts().length === 20 && !element.classList.contains(this.classNameActive)) {
@@ -24,11 +51,13 @@ export class Products {
     } else {
       const { pushProduct, products } = localStorageUtil.putProducts(id);
       if (pushProduct) {
-        element.classList.add(this.classNameActive);
-        element.innerHTML = this.labelRemove;
+        element.classList.add(this.classNameActiveLi);
+        element.lastElementChild.classList.add(this.classNameActive)
+        element.lastElementChild.innerHTML = this.labelRemove;
       } else {
-        element.classList.remove(this.classNameActive);
-        element.innerHTML = this.labelAdd; 
+        element.classList.remove(this.classNameActiveLi);
+        element.lastElementChild.classList.remove(this.classNameActive)
+        element.lastElementChild.innerHTML = this.labelAdd; 
       }
       const headerPageRender = headerPage.render.bind(headerPage);
       headerPageRender(products.length);
@@ -107,18 +136,21 @@ export class Products {
     // const renderCatalog = CATALOG;
 
     arr.forEach(({id, name, price, img, type, strings, pickups, stock}: Product) => {
-      let activeClass = '';
+      let activeClassBtn = '';
+      let activeClassLi = '';
+
       let activeText = '';
 
       if (productsStore.indexOf(id) === -1) {
         activeText = this.labelAdd;
       } else {
         activeText = this.labelRemove;
-        activeClass = ' '+this.classNameActive;
+        activeClassBtn = ' '+this.classNameActive;
+        activeClassLi = ' '+this.classNameActiveLi;
       }
 
       htmlCatalog += `
-        <li class="products-element" data-id="${id}" data-price="${price}">
+        <li class="products-element${activeClassLi}" data-id="${id}" data-price="${price}">
           <span class="products-element__name" data-id="${id}">${name}</span>
           <img class="products-element__img" src="${img}" data-id="${id}">
           <span>Type: ${type}</span>
@@ -129,7 +161,7 @@ export class Products {
             <img class="products-element__price-img" src="./assets/img/price.svg" alt="Price" data-id="${id}">
             <span data-id="${id}">${price.toLocaleString()} USD</span>
           </div>
-          <button class="products-element__btn${activeClass}" data-id="${id}">
+          <button class="products-element__btn${activeClassBtn}" data-id="${id}">
             ${activeText}
           </button>
         </li>
@@ -144,11 +176,18 @@ export class Products {
 
     ROOT_PODUCTS.innerHTML = html;
 
-    const btns = document.getElementsByClassName("products-element__btn");
-    Array.from(btns).forEach(element => element.addEventListener('click', function() {
+    // const btns = document.getElementsByClassName("products-element__btn");
+    // Array.from(btns).forEach(element => element.addEventListener('click', function() {
+    //   const handleSetLocationStorage = productsPage.handleSetLocationStorage.bind(productsPage);
+    //   handleSetLocationStorage(this, element.getAttribute('data-id'))
+    //   console.log(element.tagName)
+    // }));
+    const cards = document.getElementsByClassName('products-element');
+    Array.from(cards).forEach(element => element.addEventListener('click', function(){
       const handleSetLocationStorage = productsPage.handleSetLocationStorage.bind(productsPage);
       handleSetLocationStorage(this, element.getAttribute('data-id'))
-    }));
+      // console.log(element.tagName)
+    }))
   }
 }
 
