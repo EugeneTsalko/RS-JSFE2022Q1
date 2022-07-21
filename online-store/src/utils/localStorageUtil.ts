@@ -1,4 +1,5 @@
 export class LocalStorageUtil {
+
   keyName: string;
   constructor() {
     this.keyName = 'products';
@@ -20,11 +21,9 @@ export class LocalStorageUtil {
   }
 
   getBrand() {
-    // if (localStorage.getItem('brand') !== null) return localStorage.getItem('brand')?.trim().split(' ');
     if (localStorage.brand) {
       console.log(localStorage.getItem('brand')?.trim().split(' '))
       return localStorage.getItem('brand')?.trim().split(' ');
-      
     }
   }
 
