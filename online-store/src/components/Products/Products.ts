@@ -47,31 +47,31 @@ export class Products {
     let arr: Product[] = CATALOG;
 
     if (localStorageUtil.getMaxPrice()) {
-      arr = arr.filter(function(el) { //price filter
+      arr = arr.filter(function(el): boolean { //price filter
         return el.price <= +localStorageUtil.getMaxPrice() && el.price >= +localStorageUtil.getMinPrice()
       });
     }
 
     if (localStorageUtil.getMaxStrings()) {
-      arr = arr.filter(function(el) { //strings filter
+      arr = arr.filter(function(el): boolean { //strings filter
         return el.strings <= +localStorageUtil.getMaxStrings() && el.strings >= +localStorageUtil.getMinStrings();
       });
     }
 
     if (localStorage.brand) {
-      arr = arr.filter(function(el) { //brand filter
+      arr = arr.filter(function(el): boolean | undefined { //brand filter
         return localStorageUtil.getBrand()?.includes(el.producer.toLowerCase());
       });
     }
 
     if (localStorage.type) {
-      arr = arr.filter(function(el) { //type filter
+      arr = arr.filter(function(el): boolean | undefined { //type filter
         return localStorageUtil.getType()?.includes(el.type.toLowerCase());
       });
     }
 
     if (localStorage.pickups) {
-      arr = arr.filter(function(el) { //pickups filter
+      arr = arr.filter(function(el): boolean | undefined { //pickups filter
         return localStorageUtil.getPickups()?.includes(el.pickups.toLowerCase());
       });
     }
@@ -85,7 +85,6 @@ export class Products {
       arr = arr.filter(item => item.name.toLowerCase().search(sessionStorage.search.toLowerCase()) != -1);
     }
     
-
     if (!arr.length) {
       alert("Sorry, no matches found.");
     }
@@ -109,10 +108,9 @@ export class Products {
 
     let htmlCatalog = '';
 
-    arr.forEach(({id, name, price, img, type, strings, pickups, stock}: Product) => {
+    arr.forEach(({id, name, price, img, type, strings, pickups, stock}: Product): void => {
       let activeClassBtn = '';
       let activeClassLi = '';
-
       let activeText = '';
 
       if (productsStore.indexOf(id) === -1) {
@@ -151,7 +149,7 @@ export class Products {
     ROOT_PODUCTS.innerHTML = html;
 
     const cards: HTMLCollectionOf<Element> = document.getElementsByClassName('products-element');
-    Array.from(cards).forEach((element: Element) => element.addEventListener('click', (): void => {
+    Array.from(cards).forEach((element: Element): void => element.addEventListener('click', (): void => {
       const handleSetLocationStorage = productsPage.handleSetLocationStorage.bind(productsPage);
       // eslint-disable-next-line
       handleSetLocationStorage(element, element.getAttribute('data-id')!);
