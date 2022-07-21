@@ -7,6 +7,7 @@ import { CATALOG } from '../../constants/catalog';
 import { Product } from '../interfaces';
 
 export class Products {
+
   classNameActive: string;
   labelAdd: string;
   labelRemove: string;
@@ -157,6 +158,5 @@ export class Products {
     }));
   }
 }
-
 
 export const productsPage = new Products();
