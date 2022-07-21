@@ -20,20 +20,19 @@ export class LocalStorageUtil {
     localStorage.setItem('brand', opt);
   }
 
-  getBrand() {
+  getBrand(): string[] | undefined {
     if (localStorage.brand) {
-      console.log(localStorage.getItem('brand')?.trim().split(' '))
       return localStorage.getItem('brand')?.trim().split(' ');
     }
   }
 
-  getType() {
+  getType(): string[] | undefined {
     if (localStorage.type) {
       return localStorage.getItem('type')?.trim().split(' ');
     } 
   }
 
-  getPickups() {
+  getPickups(): string[] | undefined {
     if (localStorage.pickups) {
       return localStorage.getItem('pickups')?.trim().split(' ');
     } 
