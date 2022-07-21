@@ -17,21 +17,21 @@
 .value-filters {
   display: flex;
   flex-direction: column;
-  // align-items: center;
   gap: $spacing-small;
 }
 
 input[type="checkbox"] {
   cursor: pointer;
 }
+
 label {
   cursor: pointer;
   transition: $transition;
 }
+
 label:hover {
   color: $color-red;
 }
-
 
 .hide {
   display: none;
@@ -82,4 +82,3 @@ label:hover {
 .noUi-touch-area:hover {
   background-color: $color-red;
 }
-
