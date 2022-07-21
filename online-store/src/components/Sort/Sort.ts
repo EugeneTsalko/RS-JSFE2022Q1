@@ -34,7 +34,7 @@ export class Sort {
     productsPage.render();
   }
 
-  render() {
+  render(): void {
 
     const html = `
     <button class="sort-btn" data-sort="price-lowest">price (lowest)</button>
