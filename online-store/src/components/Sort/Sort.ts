@@ -4,6 +4,7 @@ import { productsPage } from '../Products/Products';
 import { localStorageUtil } from '../../utils/localStorageUtil';
 
 export class Sort {
+
   classNameActive: string;
   constructor() {
     this.classNameActive = 'sort-btn_active';
@@ -84,10 +85,7 @@ export class Sort {
       sortOptionNameZ.classList.add(this.classNameActive);
         break;
     }
-
-    
   }
-
 }
 
 export const sortPage = new Sort();
