@@ -1,4 +1,3 @@
-
 export interface Product {
   id: string,
   name: string,
@@ -18,7 +17,6 @@ export interface IElement extends HTMLElement {
 
 export interface InoUiSlider extends HTMLElement {
   noUiSlider: {
-    // get: () => string[];
     get: (unencoded?: boolean) => string[];
   }
 }
