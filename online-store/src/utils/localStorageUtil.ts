@@ -51,7 +51,7 @@ export class LocalStorageUtil {
     return localStorage.getItem('minPrice') || 239;
   }
 
-  setStrings(arr: string[]) {
+  setStrings(arr: string[]): void {
     localStorage.setItem('minStrings', arr[0]);
     localStorage.setItem('maxStrings', arr[1]);
   }
