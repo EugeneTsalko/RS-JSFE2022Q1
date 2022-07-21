@@ -1,7 +1,6 @@
 import '../Header/Header.scss';
 import { ROOT_HEADER } from '../../constants/root';
 
-
 export class Header {
   render(count: number): void {
     const html = `

@@ -10,7 +10,6 @@
 }
 
 .nav {
-  // background-color: aquamarine;
   max-width: 1440px;
   width: 100%;
   display: flex;
@@ -22,25 +21,25 @@
 .nav__logo {
   display: flex;
   align-items: center;
+  transition: $transition;
+
   h1 {
     font-size: xx-large;
-    // color: #3ab4f2;
     color: #2C3333;
     text-shadow: 1px 1px 1px #000;
     transition: $transition;
     letter-spacing: 0.1rem;
   }
-  transition: $transition;
 }
 
 .nav__logo:hover {
   .nav__logo-img{
     transform: scale(0.95);
   }
+  
   h1 {
     transform: scale(1.05);
   }
-  
 }
 
 .nav__logo-img {
