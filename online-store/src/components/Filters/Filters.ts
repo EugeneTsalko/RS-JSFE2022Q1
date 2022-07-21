@@ -22,7 +22,7 @@ export class Filters {
     productsPage.render();
   }
 
-  filterPriceMethod(){
+  filterPriceMethod(): void {
     const filterPrice = document.getElementById('filter-price') as InoUiSlider;
     localStorageUtil.setPrice(filterPrice?.noUiSlider.get());
     productsPage.render();
@@ -79,7 +79,7 @@ export class Filters {
     productsPage.render();
   }
 
-  render() {
+  render(): void {
 
     const html = `
     <div class="search-container">
