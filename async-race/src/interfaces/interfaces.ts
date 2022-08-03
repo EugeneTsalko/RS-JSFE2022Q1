@@ -8,3 +8,8 @@ export interface CarResponse {
   items: ICar[],
   count: string
 }
+
+export interface CarRequest {
+  name: string,
+  color: string
+}
