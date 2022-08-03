@@ -13,3 +13,5 @@ export interface CarRequest {
   name: string,
   color: string
 }
+
+export type ISvg = HTMLElement & SVGElement;

@@ -1,4 +1,6 @@
 import './render.scss';
+import carSvgImage from '../assets/svg/carSvgImage';
+import { ISvg } from '../interfaces/interfaces';
 
 export const renderMenu = (): void => {
   const html = `
@@ -26,4 +28,11 @@ export const renderMenu = (): void => {
   document.body.appendChild(header);
 };
 
-export const a = 1;
+// export const a = 1;
+
+export const renderCarImage = (color: string): ISvg => {
+  const carImage = document.createElement('svg') as ISvg;
+  carImage.style.fill = color;
+  carImage.innerHTML = carSvgImage;
+  return carImage;
+};
