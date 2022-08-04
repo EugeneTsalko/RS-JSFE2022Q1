@@ -1,8 +1,13 @@
 export interface ICar {
   name: string,
   color: string,
-  id: number
+  id: number,
+  isEngine?: boolean
 }
+
+// export interface ICarEngine extends ICar {
+//   isEngine?: boolean
+// }
 
 export interface CarResponse {
   items: ICar[],

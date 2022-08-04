@@ -1,13 +1,21 @@
 .car-svg {
-  
+  padding-top: 10px;
   svg {
     width: 100px;
     height: 50px;
   }
 }
 
+.track {
+  padding: 20px 0;
+}
+
 .flag {
-  width: 100px;
-  height: 100px;
-  background-image: '../assets/svg/flag';
+  margin-right: 100px;
+}
+
+.car {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted black;
 }
