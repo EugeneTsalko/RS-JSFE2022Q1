@@ -2,15 +2,17 @@
 // import state from './api/state';
 // import { getCar, getCars } from './api/car-api';
 import './index.scss';
-import renderGarage from './ui/car/render-car';
-import renderMenu from './ui/menu/render-menu';
+// import renderGarage from './ui/car/render-car';
+// import renderMenu from './ui/menu/render-menu';
+import render from './ui/render';
 
 // import { renderMenu, renderTrack } from './ui/render';
+render();
 
-renderMenu();
+// renderMenu();
 
 // document.body.appendChild(renderGarage());
-renderGarage();
+// renderGarage();
 
 // document.body.appendChild(renderTrack({
 //   id: 1, color: '#fff', name: '123235', isEngine: true,
