@@ -28,11 +28,16 @@ export const renderMenu = (): void => {
   document.body.appendChild(header);
 };
 
-// export const a = 1;
-
-export const renderCarImage = (color: string): ISvg => {
+export const renderCar = (name: string, color: string): DocumentFragment => {
+  const carFragment = document.createDocumentFragment();
+  const carName = document.createElement('span');
+  carName.classList.add('car-name');
+  carName.innerHTML = name;
   const carImage = document.createElement('svg') as ISvg;
   carImage.style.fill = color;
   carImage.innerHTML = carSvgImage;
-  return carImage;
+  carImage.classList.add('car-svg');
+  carFragment.appendChild(carName);
+  carFragment.appendChild(carImage);
+  return carFragment;
 };
