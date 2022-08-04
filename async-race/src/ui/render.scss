@@ -1,34 +1,3 @@
-.body {
-  display: flex;
-  flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  background-color: aqua;
-  padding: 50px 100px;
-}
-
-.menu {
-  padding: 10px;
-}
-
-.garage-menu {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  max-width: 25%;
-  width: 100%;
-}
-
-.form__controls-wrapper {
-  display: flex;
-  gap: 1rem;
-}
-
-#generate-cars {
-  width: 100%;
-}
-
 // .car-container {
 
 // }
@@ -38,4 +7,10 @@
     width: 100px;
     height: 50px;
   }
+}
+
+.flag {
+  width: 100px;
+  height: 100px;
+  background-image: '../assets/svg/flag';
 }

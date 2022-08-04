@@ -21,3 +21,10 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.body {
+  display: flex;
+  flex-direction: column;
+  background-color:antiquewhite;
+  padding: 50px 100px;
+}

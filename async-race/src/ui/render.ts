@@ -1,44 +1,47 @@
-import './render.scss';
-import carSvgImage from '../assets/svg/carSvgImage';
-import { ISvg } from '../interfaces/interfaces';
-import NewComponent from '../components/new-component';
+// import './render.scss';
+// import carSvgImage from '../assets/svg/carSvgImage';
+// import { ISvg } from '../interfaces/interfaces';
+// import NewComponent from '../components/new-component';
 
-export const renderMenu = (): void => {
-  const html = `
-  <div class="menu">
-    <button class="button" id="garage-menu">To Garage</button>
-    <button class="button" id="winners-menu">To Winners</button>
-  </div>
-  <div class="garage-menu form">
-    <div class="form__create-wrapper">
-      <input class="input form__car_name" id="create-name" type="text" placeholder="Car name">
-      <input class="input form__car_color" id="create-color" type="color" value="#ffffff">
-      <button class="button" type="submit">Create</button>
-    </div>
-    <button class="button" id="generate-cars">Generate random cars</button>
-    <div class="form__controls-wrapper">
-      <button class="button" id="start-race">Start race</button>
-      <button class="button" id="reset-race">Reset race</button>
-    </div>
-  </div>
-  `;
-  const header = document.createElement('header');
-  header.classList.add('header');
-  header.innerHTML = html;
-  document.body.classList.add('body');
-  document.body.appendChild(header);
-};
+// const renderCar = (name: string, color: string): DocumentFragment => {
+//   const carFragment = document.createDocumentFragment();
+//   const carName = new NewComponent(['car-name'], name);
+//   const carImage = document.createElement('svg') as ISvg;
+//   carImage.style.fill = color;
+//   carImage.innerHTML = carSvgImage;
+//   carImage.classList.add('car-svg');
+//   const carContainer = new NewComponent(['car-container']);
+//   carContainer.insertChild(carName);
+//   carContainer.getNode().appendChild(carImage);
+//   carFragment.appendChild(carContainer.getNode());
+//   return carFragment;
+// };
 
-export const renderCar = (name: string, color: string): DocumentFragment => {
-  const carFragment = document.createDocumentFragment();
-  const carName = new NewComponent(['car-name'], name, 'div');
-  const carImage = document.createElement('svg') as ISvg;
-  carImage.style.fill = color;
-  carImage.innerHTML = carSvgImage;
-  carImage.classList.add('car-svg');
-  const carContainer = new NewComponent(['car-container']);
-  carContainer.insertChild(carName);
-  carContainer.getNode().appendChild(carImage);
-  carFragment.appendChild(carContainer.getNode());
-  return carFragment;
-};
+// export const renderTrack = ({ id, name, color, isEngine }) => {
+// export const renderTrack = (name: string, color: string): DocumentFragment => {
+//   const trackFragment = document.createDocumentFragment();
+//   const editBtns = new NewComponent(['edit-btns']);
+//   const selectBtn = new NewComponent(['button', 'select-btn'], 'Select', 'button');
+//   const removeBtn = new NewComponent(['button', 'remove-btn'], 'Remove', 'button');
+//   editBtns.insertChilds([selectBtn, removeBtn]);
+//   trackFragment.appendChild(editBtns.getNode());
+//   const track = new NewComponent(['track']);
+//   const launchBtns = new NewComponent(['launch-btns']);
+//   const startBtn = new NewComponent(['button', 'start-btn'], 'Start', 'button');
+//   const stopBtn = new NewComponent(['button', 'stop-btn'], 'Stop', 'button');
+//   launchBtns.insertChilds([startBtn, stopBtn]);
+//   track.insertChild(launchBtns);
+//   const car = renderCar(name, color);
+//   const flag = new NewComponent(['flag']);
+//   track.getNode().appendChild(car);
+//   track.insertChild(flag);
+//   trackFragment.appendChild(track.getNode());
+//   return trackFragment;
+// };
+
+// const renderTrack = (
+//   {
+//     id, name, color, isEngine,
+//   }: { id: number, name: string, color: string, isEngine: boolean },
+// ) => `
+// `;

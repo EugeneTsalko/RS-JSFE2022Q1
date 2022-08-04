@@ -1,6 +1,7 @@
 import './index.scss';
-import { renderMenu, renderCar } from './ui/render';
+import renderMenu from './ui/menu/render-menu';
+// import { renderMenu, renderTrack } from './ui/render';
 
 renderMenu();
 
-document.body.appendChild(renderCar('ZAZ 968m', '#fff'));
+// document.body.appendChild(renderTrack('ZAZ 968m', '#fff'));
