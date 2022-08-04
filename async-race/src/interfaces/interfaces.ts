@@ -9,6 +9,11 @@ export interface ICar {
 //   isEngine?: boolean
 // }
 
+export interface EngineResponse {
+  velocity: number,
+  distance: number
+}
+
 export interface CarResponse {
   items: ICar[],
   count: string

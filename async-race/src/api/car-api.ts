@@ -1,5 +1,7 @@
-import { CarResponse, CarRequest, ICar } from '../interfaces/interfaces';
-import { GARAGE_URL } from './constants-api';
+import {
+  CarResponse, CarRequest, ICar, EngineResponse,
+} from '../interfaces/interfaces';
+import { GARAGE_URL, ENGINE_URL } from './constants-api';
 
 // eslint-disable-next-line max-len
 // export const getCars = async (page: number, limit = WINNERS_CARS_LIMIT): Promise<CarResponse> => {
@@ -42,3 +44,7 @@ export const updateCar = async (id: number, body: CarRequest): Promise<CarRespon
       },
     },
   )).json()) as Promise<CarResponse>;
+
+export const startEngine = async (id: number): Promise<EngineResponse> => ((await fetch(`${ENGINE_URL}?id=${id}&status=started`)).json()) as Promise<EngineResponse>;
+
+export const stopEngine = async (id: number): Promise<EngineResponse> => ((await fetch(`${ENGINE_URL}?id=${id}&status=stopped`)).json()) as Promise<EngineResponse>;
