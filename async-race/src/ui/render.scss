@@ -29,7 +29,13 @@
   width: 100%;
 }
 
+// .car-container {
+
+// }
 .car-svg {
-  width: 100px;
-  height: 50px;
+  
+  svg {
+    width: 100px;
+    height: 50px;
+  }
 }

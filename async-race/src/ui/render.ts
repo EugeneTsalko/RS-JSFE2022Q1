@@ -1,6 +1,7 @@
 import './render.scss';
 import carSvgImage from '../assets/svg/carSvgImage';
 import { ISvg } from '../interfaces/interfaces';
+import NewComponent from '../components/new-component';
 
 export const renderMenu = (): void => {
   const html = `
@@ -30,14 +31,14 @@ export const renderMenu = (): void => {
 
 export const renderCar = (name: string, color: string): DocumentFragment => {
   const carFragment = document.createDocumentFragment();
-  const carName = document.createElement('span');
-  carName.classList.add('car-name');
-  carName.innerHTML = name;
+  const carName = new NewComponent(['car-name'], name, 'div');
   const carImage = document.createElement('svg') as ISvg;
   carImage.style.fill = color;
   carImage.innerHTML = carSvgImage;
   carImage.classList.add('car-svg');
-  carFragment.appendChild(carName);
-  carFragment.appendChild(carImage);
+  const carContainer = new NewComponent(['car-container']);
+  carContainer.insertChild(carName);
+  carContainer.getNode().appendChild(carImage);
+  carFragment.appendChild(carContainer.getNode());
   return carFragment;
 };

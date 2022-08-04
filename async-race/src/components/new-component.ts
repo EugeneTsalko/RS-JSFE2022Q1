@@ -6,4 +6,16 @@ export default class NewComponent {
     this.node.classList.add(...classNames);
     this.node.innerText = innerText;
   }
+
+  getNode(): HTMLElement {
+    return this.node;
+  }
+
+  insertChild(child: NewComponent):void {
+    this.node.appendChild(child.getNode());
+  }
+
+  insertChilds(childs: NewComponent[]): void {
+    childs.forEach((item) => this.insertChild(item));
+  }
 }
