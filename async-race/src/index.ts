@@ -1,4 +1,5 @@
 // import { getCars, getCar } from './api/car-api';
+// import { getCars } from './api/car-api';
 // import state from './api/state';
 // import { getCar, getCars } from './api/car-api';
 import './index.scss';
@@ -9,7 +10,9 @@ import render from './ui/render';
 render();
 
 // async function check() {
-//   const a = await getCars();
+//   const a = await getCars(2);
 //   console.log(a);
 //   return a;
 // }
+
+// check();

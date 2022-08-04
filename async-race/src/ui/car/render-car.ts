@@ -1,6 +1,7 @@
 // import { getCar, getCars } from '../../api/car-api';
 // import state from '../../api/state';
 import { getCars } from '../../api/car-api';
+// import state from '../../api/state';
 import carSvgImage from '../../assets/svg/carSvgImage';
 import { ICar, ISvg } from '../../interfaces/interfaces';
 import './render-car.scss';
@@ -125,9 +126,10 @@ const renderGarage = async (): Promise<void> => {
   //   { id: 12, color: '#777', name: 'ZAZ' },
   //   { id: 13, color: '#888', name: 'LADA' }];
 
-  const carsArr = await getCars();
+  const carsArr = await getCars(1);
+  // const carsArr = state.cars;
 
-  carsArr.forEach((el) => {
+  carsArr.items.forEach((el) => {
     const li = document.createElement('li');
     li.classList.add('track');
 
