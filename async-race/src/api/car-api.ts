@@ -1,13 +1,5 @@
 import { CarResponse, CarRequest, ICar } from '../interfaces/interfaces';
-
-const BASE_URL = 'http://127.0.0.1:3000';
-
-const GARAGE_URL = `${BASE_URL}/garage`;
-// const ENGINE_URL = `${BASE_URL}/engine`;
-// const WINNERS_URL = `${BASE_URL}/winners`;
-
-// const GARAGE_CARS_LIMIT = 7;
-const WINNERS_CARS_LIMIT = 10;
+import { GARAGE_URL, WINNERS_CARS_LIMIT } from './constants-api';
 
 export const getCars = async (page: number, limit = WINNERS_CARS_LIMIT): Promise<CarResponse> => {
   const response = await fetch(`${GARAGE_URL}&_page=${page}&_limit=${limit}`);
