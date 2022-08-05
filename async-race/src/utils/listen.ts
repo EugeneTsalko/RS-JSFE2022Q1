@@ -22,7 +22,6 @@ const listen = () => {
     if ((event.target as HTMLElement).classList.contains('remove-btn')) {
       await deleteCar(id);
       await updateStateGarage();
-      // document.body.insertAdjacentElement('');
       document.getElementById('garage-container').remove();
       renderGarage();
     }
