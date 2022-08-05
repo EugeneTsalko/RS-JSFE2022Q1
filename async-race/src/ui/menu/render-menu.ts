@@ -3,8 +3,8 @@ import './render-menu.scss';
 const renderMenu = (): void => {
   const html = `
   <div class="menu">
-    <button class="button garag-menu-button" id="garage-menu">To Garage</button>
-    <button class="button" id="winners-menu">To Winners</button>
+    <button class="button garage-menu-button primary" id="garage-menu">To Garage</button>
+    <button class="button winners-menu-button primary" id="winners-menu">To Winners</button>
   </div>
   <div class="garage-menu form">
     <div class="form__create-wrapper">

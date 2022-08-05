@@ -1,22 +1,16 @@
 import {
   CarResponse, CarRequest, ICar, EngineResponse,
 } from '../interfaces/interfaces';
-import { GARAGE_URL, ENGINE_URL, WINNERS_CARS_LIMIT } from './constants-api';
+import { GARAGE_URL, ENGINE_URL, GARAGE_CARS_LIMIT } from './constants-api';
 
 // eslint-disable-next-line max-len
-export const getCars = async (page: number, limit = WINNERS_CARS_LIMIT): Promise<CarResponse> => {
+export const getCars = async (page: number, limit = GARAGE_CARS_LIMIT): Promise<CarResponse> => {
   const response = await fetch(`${GARAGE_URL}?_page=${page}&_limit=${limit}`);
   return {
-    count: response.headers.get('X-Total-Count'),
     items: await response.json(),
+    count: response.headers.get('X-Total-Count'),
   };
 };
-
-// export const getCars = async (): Promise<ICar[]> => {
-//   const response = await fetch(`${GARAGE_URL}`);
-//   const result = (await response.json()) as ICar[];
-//   return result;
-// };
 
 export const getCar = async (id: number): Promise<ICar> => ((await fetch(`${GARAGE_URL}/${id}`)).json()) as Promise<ICar>;
 

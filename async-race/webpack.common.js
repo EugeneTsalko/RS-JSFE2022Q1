@@ -52,6 +52,9 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
   },
+  experiments: {
+    topLevelAwait: true
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',

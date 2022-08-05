@@ -4,5 +4,5 @@ export const GARAGE_URL = `${BASE_URL}/garage`;
 export const ENGINE_URL = `${BASE_URL}/engine`;
 // export const WINNERS_URL = `${BASE_URL}/winners`;
 
-// const GARAGE_CARS_LIMIT = 7;
+export const GARAGE_CARS_LIMIT = 7;
 export const WINNERS_CARS_LIMIT = 10;

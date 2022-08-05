@@ -1,7 +1,7 @@
 // import { getCar, getCars } from '../../api/car-api';
 // import state from '../../api/state';
-import { getCars } from '../../api/car-api';
-// import state from '../../api/state';
+// import { getCars } from '../../api/car-api';
+import state from '../../api/state';
 import carSvgImage from '../../assets/svg/carSvgImage';
 import { ICar, ISvg } from '../../interfaces/interfaces';
 import './render-car.scss';
@@ -25,7 +25,6 @@ const renderCar = (name: string, color: string): DocumentFragment => {
   const carImage = renderCarImage(color);
   carImage.prepend(carName);
 
-  // carFragment.appendChild(carName);
   carFragment.appendChild(carImage);
 
   return carFragment;
@@ -110,26 +109,19 @@ const renderTrack = ({
   return trackFragment;
 };
 
-const renderGarage = async (): Promise<void> => {
+const renderGarage = () => {
   const garageFragment = document.createDocumentFragment();
 
   const h1 = document.createElement('h1');
-  h1.innerText = `Garage (${1})`;
+  h1.innerText = `Garage (${state.carsCount})`;
 
   const h2 = document.createElement('h2');
-  h2.innerText = `Page #${1}`;
+  h2.innerText = `Page #${state.carsPage}`;
 
   const trackList = document.createElement('ul');
   trackList.classList.add('garage');
 
-  // const carsArr = [{ id: 11, color: '#asd', name: 'Volvo' },
-  //   { id: 12, color: '#777', name: 'ZAZ' },
-  //   { id: 13, color: '#888', name: 'LADA' }];
-
-  const carsArr = await getCars(1);
-  // const carsArr = state.cars;
-
-  carsArr.items.forEach((el) => {
+  state.cars.forEach((el) => {
     const li = document.createElement('li');
     li.classList.add('track');
 
@@ -148,10 +140,10 @@ const renderGarage = async (): Promise<void> => {
 
 export default renderGarage;
 
-// export const render = async () => {
-//  const html = `
-//   <div class="asyncdiv>
+// export const updateStateGarage = async () => {
+//   const { items, count } = await getCars(state.carsPage);
+//   state.cars = items;
+//   state.carsCount = count;
 
-//   </div>
-//  `
+//   // console.log(state.cars);
 // };

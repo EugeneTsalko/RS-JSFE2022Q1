@@ -7,7 +7,10 @@
 }
 
 .track {
-  padding: 20px 0;
+  padding: 20px 20px;
+  border: 1px solid #80808089;
+  border-radius: 10px;
+  margin-bottom: 25px;
 }
 
 .flag {
@@ -17,5 +20,5 @@
 .car {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px dotted black;
+  border-bottom: 3px solid white;
 }

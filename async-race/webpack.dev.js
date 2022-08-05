@@ -7,5 +7,8 @@ module.exports = merge(common, {
   devtool: 'source-map',
   devServer: {
     static: './dist'
+  },
+  experiments: {
+    topLevelAwait: true
   }
 });

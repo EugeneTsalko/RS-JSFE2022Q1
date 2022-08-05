@@ -2,7 +2,9 @@
   padding: 10px;
   max-width: 25%;
   width: 100%;
-  background-color: aquamarine;
+  // background-color: aquamarine;
+  border: 2px dotted white;
+  border-bottom: none;
 }
 
 .garage-menu {
@@ -12,8 +14,10 @@
   row-gap: 1rem;
   max-width: 25%;
   width: 100%;
-  background-color: aqua;
+  // background-color: aqua;
   margin-bottom: 50px;
+  border: 2px dotted white;
+  border-top: none;
 }
 
 .form__controls-wrapper {
