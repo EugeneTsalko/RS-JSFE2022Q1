@@ -12,6 +12,11 @@ const renderMenu = (): void => {
       <input class="input form__car_color" id="create-color" type="color" value="#ffffff">
       <button class="button" type="submit">Create</button>
     </div>
+    <div class="form__update-wrapper">
+    <input class="input form__car_name" id="update-name" type="text" placeholder="Car name">
+    <input class="input form__car_color" id="update-color" type="color" value="#ffffff">
+    <button class="button" type="submit" id="update-submit">Update</button>
+  </div>
     <button class="button" id="generate-cars">Generate random cars</button>
     <div class="form__controls-wrapper">
       <button class="button" id="start-race">Start race</button>

@@ -8,5 +8,7 @@ import './index.scss';
 // import renderGarage from './ui/car/render-car';
 // import renderMenu from './ui/menu/render-menu';
 import render from './ui/render';
+import listen from './utils/listen';
 
 render();
+listen();

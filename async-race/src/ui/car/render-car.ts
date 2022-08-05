@@ -1,6 +1,7 @@
 // import { getCar, getCars } from '../../api/car-api';
 // import state from '../../api/state';
-// import { getCars } from '../../api/car-api';
+import { getCars } from '../../api/car-api';
+// import { GARAGE_CARS_LIMIT } from '../../api/constants-api';
 import state from '../../api/state';
 import carSvgImage from '../../assets/svg/carSvgImage';
 import { ICar, ISvg } from '../../interfaces/interfaces';
@@ -110,7 +111,9 @@ const renderTrack = ({
 };
 
 const renderGarage = () => {
-  const garageFragment = document.createDocumentFragment();
+  const garageContainer = document.createElement('div');
+  garageContainer.classList.add('garage-container');
+  garageContainer.setAttribute('id', 'garage-container');
 
   const h1 = document.createElement('h1');
   h1.innerText = `Garage (${state.carsCount})`;
@@ -129,21 +132,19 @@ const renderGarage = () => {
     trackList.appendChild(li);
   });
 
-  garageFragment.appendChild(h1);
-  garageFragment.appendChild(h2);
-  garageFragment.appendChild(trackList);
+  garageContainer.appendChild(h1);
+  garageContainer.appendChild(h2);
+  garageContainer.appendChild(trackList);
 
-  document.body.appendChild(garageFragment);
+  document.body.appendChild(garageContainer);
 
   // return garageFragment;
 };
 
 export default renderGarage;
 
-// export const updateStateGarage = async () => {
-//   const { items, count } = await getCars(state.carsPage);
-//   state.cars = items;
-//   state.carsCount = count;
-
-//   // console.log(state.cars);
-// };
+export const updateStateGarage = async () => {
+  const { items, count } = await getCars(state.carsPage);
+  state.cars = items;
+  state.carsCount = count;
+};
