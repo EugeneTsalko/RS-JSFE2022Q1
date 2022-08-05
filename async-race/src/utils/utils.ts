@@ -16,3 +16,8 @@ const getRandomColor = (): string => {
   }
   return color;
 };
+
+const getRandomCarsArr = () => new Array(100).fill(null)
+  .map(() => ({ name: getRandomCarName(), color: getRandomColor() }));
+
+export default getRandomCarsArr;

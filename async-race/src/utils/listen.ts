@@ -1,7 +1,8 @@
 /* eslint-disable linebreak-style */
-import { deleteCar, getCar } from '../api/car-api';
+import { createCar, deleteCar, getCar } from '../api/car-api';
 import { ICar } from '../interfaces/interfaces';
 import renderGarage, { updateStateGarage } from '../ui/car/render-car';
+import getRandomCarsArr from './utils';
 
 let selectedCar: ICar = null;
 
@@ -21,6 +22,14 @@ const listen = () => {
 
     if ((event.target as HTMLElement).classList.contains('remove-btn')) {
       await deleteCar(id);
+      await updateStateGarage();
+      document.getElementById('garage-container').remove();
+      renderGarage();
+    }
+
+    if ((event.target as HTMLElement).classList.contains('generate-cars-btn')) {
+      const cars = getRandomCarsArr();
+      await Promise.all(cars.map(async (car) => createCar(car)));
       await updateStateGarage();
       document.getElementById('garage-container').remove();
       renderGarage();

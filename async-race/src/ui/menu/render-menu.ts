@@ -17,7 +17,7 @@ const renderMenu = (): void => {
     <input class="input form__car_color" id="update-color" type="color" value="#ffffff">
     <button class="button" type="submit" id="update-submit">Update</button>
   </div>
-    <button class="button" id="generate-cars">Generate random cars</button>
+    <button class="button generate-cars-btn" id="generate-cars">Generate random cars</button>
     <div class="form__controls-wrapper">
       <button class="button" id="start-race">Start race</button>
       <button class="button" id="reset-race">Reset race</button>
