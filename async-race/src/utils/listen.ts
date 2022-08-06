@@ -52,6 +52,18 @@ const listen = () => {
       renderGarage();
     }
   });
+
+  document.getElementById('create').addEventListener('submit', async () => {
+    const carName = (document.getElementById('create-name') as HTMLInputElement).value;
+    const carColor = (document.getElementById('create-color') as HTMLInputElement).value;
+    const newCar = { name: carName, color: carColor };
+    await createCar(newCar);
+    await updateStateGarage();
+    document.getElementById('garage-container').remove();
+    renderGarage();
+    (document.getElementById('create-name') as HTMLInputElement).value = '';
+    (document.getElementById('create-name') as HTMLInputElement).value = '#ffffff';
+  });
 };
 
 export default listen;
