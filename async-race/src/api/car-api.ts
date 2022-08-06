@@ -39,6 +39,6 @@ export const updateCar = async (id: number, body: CarRequest): Promise<CarRespon
     },
   )).json()) as Promise<CarResponse>;
 
-export const startEngine = async (id: number): Promise<EngineResponse> => ((await fetch(`${ENGINE_URL}?id=${id}&status=started`)).json()) as Promise<EngineResponse>;
+export const startEngine = async (id: number): Promise<EngineResponse> => ((await fetch(`${ENGINE_URL}?id=${id}&status=started`, { method: 'PATCH' })).json()) as Promise<EngineResponse>;
 
 export const stopEngine = async (id: number): Promise<EngineResponse> => ((await fetch(`${ENGINE_URL}?id=${id}&status=stopped`)).json()) as Promise<EngineResponse>;

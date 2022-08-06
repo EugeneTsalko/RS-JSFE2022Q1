@@ -6,6 +6,7 @@ export default {
   carsPage: 1,
   cars,
   carsCount,
+  animation: {},
 };
 
 // console.log(cars);

@@ -71,7 +71,7 @@ const renderTrack = ({
   const startBtn = document.createElement('button');
   startBtn.innerText = 'Start';
   startBtn.classList.add('button');
-  startBtn.classList.add('start-engine-button');
+  startBtn.classList.add('start-engine-btn');
   startBtn.setAttribute('id', `start-engine-car-${id}`);
   if (isEngine) {
     startBtn.setAttribute('disabled', '');

@@ -1,9 +1,11 @@
 /* eslint-disable linebreak-style */
-import { createCar, deleteCar, getCar } from '../api/car-api';
+import {
+  createCar, deleteCar, getCar, updateCar,
+} from '../api/car-api';
 import state from '../api/state';
 import { ICar } from '../interfaces/interfaces';
 import renderGarage, { updateStateGarage } from '../ui/car/render-car';
-import getRandomCarsArr from './utils';
+import getRandomCarsArr, { startDriving } from './utils';
 
 let selectedCar: ICar = null;
 
@@ -51,6 +53,10 @@ const listen = () => {
       document.getElementById('garage-container').remove();
       renderGarage();
     }
+
+    if ((event.target as HTMLElement).classList.contains('start-engine-btn')) {
+      await startDriving(id);
+    }
   });
 
   document.getElementById('create').addEventListener('submit', async () => {
@@ -62,7 +68,19 @@ const listen = () => {
     document.getElementById('garage-container').remove();
     renderGarage();
     (document.getElementById('create-name') as HTMLInputElement).value = '';
-    (document.getElementById('create-name') as HTMLInputElement).value = '#ffffff';
+    (document.getElementById('create-color') as HTMLInputElement).value = '#ffffff';
+  });
+
+  document.getElementById('update').addEventListener('submit', async () => {
+    const carName = (document.getElementById('update-name') as HTMLInputElement).value;
+    const carColor = (document.getElementById('update-color') as HTMLInputElement).value;
+    const updatedCar = { name: carName, color: carColor };
+    await updateCar(selectedCar.id, updatedCar);
+    await updateStateGarage();
+    document.getElementById('garage-container').remove();
+    renderGarage();
+    (document.getElementById('update-name') as HTMLInputElement).value = '';
+    (document.getElementById('update-color') as HTMLInputElement).value = '#ff0000';
   });
 };
 

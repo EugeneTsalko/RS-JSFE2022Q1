@@ -12,9 +12,9 @@ const renderMenu = (): void => {
       <input class="input form__car_color" id="create-color" type="color" value="#ffffff">
       <button class="button" type="submit">Create</button>
     </form>
-    <form class="form__update-wrapper">
+    <form class="form__update-wrapper" id="update">
     <input class="input form__car_name" id="update-name" type="text" placeholder="Car name" autocomplete="off">
-    <input class="input form__car_color" id="update-color" type="color" value="#ffffff">
+    <input class="input form__car_color" id="update-color" type="color" value="#ff0000">
     <button class="button" type="submit" id="update-submit">Update</button>
   </form>
     <button class="button generate-cars-btn" id="generate-cars">Generate random cars</button>
@@ -24,7 +24,7 @@ const renderMenu = (): void => {
     </div>
     <div class="pagination">
       <button class="button primary prev-btn" id="prev" disabled>Prev</button>
-      <button class="button primary next-btn" id="next" disabled>Next</button>
+      <button class="button primary next-btn" id="next">Next</button>
     </div>
   </div>
   `;
