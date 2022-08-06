@@ -1,5 +1,6 @@
 /* eslint-disable linebreak-style */
 import { startEngine } from '../api/car-api';
+// import state from '../api/state';
 
 /* eslint-disable linebreak-style */
 const carNames = ['Jaguar', 'Ferrari', 'BMW', 'VW', 'ZAZ', 'Opel', 'Saab', 'Porsche', 'Lada', 'Audi'];
@@ -20,10 +21,8 @@ const getRandomColor = (): string => {
   return color;
 };
 
-const getRandomCarsArr = () => new Array(100).fill(null)
+export const getRandomCarsArr = () => new Array(100).fill(null)
   .map(() => ({ name: getRandomCarName(), color: getRandomColor() }));
-
-export default getRandomCarsArr;
 
 function getPositionAtCenter(element: HTMLElement) {
   const {
@@ -45,6 +44,12 @@ export function getDistanceBetweenElements(a: HTMLElement, b: HTMLElement) {
 export const startDriving = async (id: number) => {
   const { velocity, distance } = await startEngine(id);
   const time = Math.round(distance / velocity);
-  // eslint-disable-next-line no-console
-  console.log(time);
+
+  const car = document.getElementById(`car-${id}`);
+  const flag = document.getElementById(`flag-${id}`);
+  const htmlDistance = Math.floor(getDistanceBetweenElements(car, flag));
+
+  car.style.transitionDuration = `${time / 1000}s`;
+  car.style.transitionTimingFunction = 'linear';
+  car.style.transform = `translateX(${htmlDistance + 90}px)`;
 };

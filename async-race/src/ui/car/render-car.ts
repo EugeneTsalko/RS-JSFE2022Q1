@@ -97,8 +97,9 @@ const renderTrack = ({
 
   const carContainer = document.createElement('div');
   carContainer.classList.add('car');
-  carContainer.setAttribute('id', `car-${id}`);
+  // carContainer.setAttribute('id', `car-${id}`);
   carContainer.appendChild(renderCar(name, color));
+  (carContainer.lastChild as HTMLElement).setAttribute('id', `car-${id}`);
   carContainer.appendChild(flag);
   launchPad.appendChild(carContainer);
 

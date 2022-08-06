@@ -5,7 +5,7 @@ import {
 import state from '../api/state';
 import { ICar } from '../interfaces/interfaces';
 import renderGarage, { updateStateGarage } from '../ui/car/render-car';
-import getRandomCarsArr, { startDriving } from './utils';
+import { getRandomCarsArr, startDriving } from './utils';
 
 let selectedCar: ICar = null;
 
