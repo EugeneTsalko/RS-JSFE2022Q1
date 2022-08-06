@@ -22,6 +22,10 @@ const renderMenu = (): void => {
       <button class="button" id="start-race">Start race</button>
       <button class="button" id="reset-race">Reset race</button>
     </div>
+    <div class="pagination">
+      <button class="button primary prev-btn" id="prev" disabled>Prev</button>
+      <button class="button primary next-btn" id="next" disabled>Next</button>
+    </div>
   </div>
   `;
   const header = document.createElement('header');

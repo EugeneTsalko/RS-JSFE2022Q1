@@ -147,4 +147,16 @@ export const updateStateGarage = async () => {
   const { items, count } = await getCars(state.carsPage);
   state.cars = items;
   state.carsCount = count;
+
+  if (state.carsPage * 7 < +state.carsCount) {
+    (document.getElementById('next') as HTMLButtonElement).disabled = false;
+  } else {
+    (document.getElementById('next') as HTMLButtonElement).disabled = true;
+  }
+
+  if (state.carsPage > 1) {
+    (document.getElementById('prev') as HTMLButtonElement).disabled = false;
+  } else {
+    (document.getElementById('prev') as HTMLButtonElement).disabled = true;
+  }
 };
