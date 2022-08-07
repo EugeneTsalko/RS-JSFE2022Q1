@@ -4,8 +4,10 @@ import {
 } from '../api/car-api';
 import state from '../api/state';
 import { ICar } from '../interfaces/interfaces';
-import renderGarage, { updateStateGarage } from '../ui/car/render-car';
-import { getRandomCarsArr, startDriving, stopDriving } from './utils';
+import { renderGarage, updateStateGarage } from '../ui/garage/render-garage';
+import {
+  getRandomCarsArr, race, startDriving, stopDriving,
+} from './utils';
 
 let selectedCar: ICar = null;
 
@@ -19,18 +21,15 @@ const listen = () => {
     if ((event.target as HTMLElement).classList.contains('select-btn')) {
       (document.getElementById(`select-car-${id}`) as HTMLInputElement).classList.toggle('select-btn_active');
       selectedCar = await getCar(id);
-      // console.log(selectedCar);
       (document.getElementById('update-name') as HTMLInputElement).value = selectedCar.name;
       (document.getElementById('update-color') as HTMLInputElement).value = selectedCar.color;
     }
 
     if ((event.target as HTMLElement).classList.contains('remove-btn')) {
       await deleteCar(id);
-      // console.log(id);
       await updateStateGarage();
       document.getElementById('garage-container').remove();
       renderGarage();
-      // console.log(state.cars);
     }
 
     if ((event.target as HTMLElement).classList.contains('generate-cars-btn')) {
@@ -61,6 +60,17 @@ const listen = () => {
 
     if ((event.target as HTMLElement).classList.contains('stop-engine-btn')) {
       stopDriving(id);
+    }
+
+    if ((event.target as HTMLElement).classList.contains('start-race-btn')) {
+      (document.getElementById('start-race') as HTMLButtonElement).disabled = true;
+      const winner = await race(startDriving);
+      // eslint-disable-next-line no-alert
+      alert(`winner: ${winner.name}, time: ${winner.time}`);
+    }
+
+    if ((event.target as HTMLElement).classList.contains('reset-race-btn')) {
+      document.location.reload();
     }
   });
 

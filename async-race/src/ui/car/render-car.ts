@@ -1,8 +1,3 @@
-// import { getCar, getCars } from '../../api/car-api';
-// import state from '../../api/state';
-import { getCars } from '../../api/car-api';
-// import { GARAGE_CARS_LIMIT } from '../../api/constants-api';
-import state from '../../api/state';
 import carSvgImage from '../../assets/svg/carSvgImage';
 import { ICar, ISvg } from '../../interfaces/interfaces';
 import './render-car.scss';
@@ -60,7 +55,7 @@ const renderEditBtns = (id: number): DocumentFragment => {
 const renderTrack = ({
   id, name, color, isEngine,
 }: ICar): DocumentFragment => {
-  const trackFragment = document.createDocumentFragment(); // fragment
+  const trackFragment = document.createDocumentFragment();
 
   const launchPad = document.createElement('div');
   launchPad.classList.add('launch-pad');
@@ -93,11 +88,10 @@ const renderTrack = ({
   const flag = document.createElement('div');
   flag.classList.add('flag');
   flag.setAttribute('id', `flag-${id}`);
-  flag.innerHTML = '&#127937'; // flag html code
+  flag.innerHTML = '&#127937';
 
   const carContainer = document.createElement('div');
   carContainer.classList.add('car');
-  // carContainer.setAttribute('id', `car-${id}`);
   carContainer.appendChild(renderCar(name, color));
   (carContainer.lastChild as HTMLElement).setAttribute('id', `car-${id}`);
   carContainer.appendChild(flag);
@@ -111,53 +105,4 @@ const renderTrack = ({
   return trackFragment;
 };
 
-const renderGarage = () => {
-  const garageContainer = document.createElement('div');
-  garageContainer.classList.add('garage-container');
-  garageContainer.setAttribute('id', 'garage-container');
-
-  const h1 = document.createElement('h1');
-  h1.innerText = `Garage (${state.carsCount})`;
-
-  const h2 = document.createElement('h2');
-  h2.innerText = `Page #${state.carsPage}`;
-
-  const trackList = document.createElement('ul');
-  trackList.classList.add('garage');
-
-  state.cars.forEach((el) => {
-    const li = document.createElement('li');
-    li.classList.add('track');
-
-    li.appendChild(renderTrack(el));
-    trackList.appendChild(li);
-  });
-
-  garageContainer.appendChild(h1);
-  garageContainer.appendChild(h2);
-  garageContainer.appendChild(trackList);
-
-  document.body.appendChild(garageContainer);
-
-  // return garageFragment;
-};
-
-export default renderGarage;
-
-export const updateStateGarage = async () => {
-  const { items, count } = await getCars(state.carsPage);
-  state.cars = items;
-  state.carsCount = count;
-
-  if (state.carsPage * 7 < +state.carsCount) {
-    (document.getElementById('next') as HTMLButtonElement).disabled = false;
-  } else {
-    (document.getElementById('next') as HTMLButtonElement).disabled = true;
-  }
-
-  if (state.carsPage > 1) {
-    (document.getElementById('prev') as HTMLButtonElement).disabled = false;
-  } else {
-    (document.getElementById('prev') as HTMLButtonElement).disabled = true;
-  }
-};
+export default renderTrack;

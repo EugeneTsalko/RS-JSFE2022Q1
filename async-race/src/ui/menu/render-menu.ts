@@ -19,8 +19,8 @@ const renderMenu = (): void => {
   </form>
     <button class="button generate-cars-btn" id="generate-cars">Generate random cars</button>
     <div class="form__controls-wrapper">
-      <button class="button" id="start-race">Start race</button>
-      <button class="button" id="reset-race">Reset race</button>
+      <button class="button start-race-btn" id="start-race">Start race</button>
+      <button class="button reset-race-btn" id="reset-race">Reset race</button>
     </div>
     <div class="pagination">
       <button class="button primary prev-btn" id="prev" disabled>Prev</button>

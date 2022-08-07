@@ -1,6 +1,6 @@
 import './render.scss';
 import renderMenu from './menu/render-menu';
-import renderGarage from './car/render-car';
+import { renderGarage } from './garage/render-garage';
 
 const render = () => {
   renderMenu();

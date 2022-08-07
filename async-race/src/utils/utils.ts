@@ -1,9 +1,10 @@
 /* eslint-disable linebreak-style */
 import { drive, startEngine, stopEngine } from '../api/car-api';
 import state from '../api/state';
-// import state from '../api/state';
+import {
+  CarRequest, ICar, RaceResponse, StartDrivingFunction,
+} from '../interfaces/interfaces';
 
-/* eslint-disable linebreak-style */
 const carNames = ['Jaguar', 'Ferrari', 'BMW', 'VW', 'ZAZ', 'Opel', 'Saab', 'Porsche', 'Lada', 'Audi'];
 const carModels = ['XKR', 'Enzo', '316', 'Passat', '968M', 'Vectra', '9000', 'Cayenne', '2108', '80'];
 
@@ -22,10 +23,10 @@ const getRandomColor = (): string => {
   return color;
 };
 
-export const getRandomCarsArr = () => new Array(100).fill(null)
+export const getRandomCarsArr = (): Array<CarRequest> => new Array(100).fill(null)
   .map(() => ({ name: getRandomCarName(), color: getRandomColor() }));
 
-function getPositionAtCenter(element: HTMLElement) {
+function getPositionAtCenter(element: HTMLElement): { x: number, y: number } {
   const {
     top, left, width, height,
   } = element.getBoundingClientRect();
@@ -35,7 +36,7 @@ function getPositionAtCenter(element: HTMLElement) {
   };
 }
 
-export function getDistanceBetweenElements(a: HTMLElement, b: HTMLElement) {
+export function getDistanceBetweenElements(a: HTMLElement, b: HTMLElement): number {
   const aPosition = getPositionAtCenter(a);
   const bPosition = getPositionAtCenter(b);
 
@@ -44,15 +45,14 @@ export function getDistanceBetweenElements(a: HTMLElement, b: HTMLElement) {
 
 export function animateCar(car: HTMLElement, distance: number, animationTime: number) {
   let start: unknown = null;
-  const animationBody: { id: string | number | null } = { id: null };
+  const animationBody: { id: string | number } = { id: null };
 
-  function step(timestamp: number) {
+  function step(timestamp: number): void {
     if (!start) start = timestamp;
     const time = timestamp - (start as number);
     const passed = Math.round(time * (distance / animationTime));
-
-    // eslint-disable-next-line no-param-reassign
-    car.style.transform = `translateX(${Math.min(passed, distance)}px)`;
+    const animatedCar = car;
+    animatedCar.style.transform = `translateX(${Math.min(passed, distance)}px)`;
 
     if (passed < distance) {
       animationBody.id = window.requestAnimationFrame(step);
@@ -62,7 +62,7 @@ export function animateCar(car: HTMLElement, distance: number, animationTime: nu
   return animationBody;
 }
 
-export const startDriving = async (id: number) => {
+export const startDriving = async (id: number): Promise<RaceResponse> => {
   const startButton = document.getElementById(`start-engine-car-${id}`);
   const stopBtn = document.getElementById(`stop-engine-car-${id}`);
   (startButton as HTMLButtonElement).disabled = true;
@@ -79,9 +79,6 @@ export const startDriving = async (id: number) => {
 
   const { success } = await drive(id);
 
-  // eslint-disable-next-line no-console
-  console.log(success);
-
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   if (!success) window.cancelAnimationFrame(state.animation.id.id);
@@ -94,8 +91,33 @@ export const stopDriving = async (id: number) => {
   await stopEngine(id);
   const car = document.getElementById(`car-${id}`);
   car.style.transform = '';
+
+  if ((state.animation as Record<string, unknown>).id) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  // eslint-disable-next-line max-len
-  if ((state.animation as Record<string, unknown>).id) window.cancelAnimationFrame(state.animation.id.id);
+    window.cancelAnimationFrame(state.animation.id.id);
+  }
+};
+
+// eslint-disable-next-line max-len
+export const raceAll = async (promiseArr: Promise<RaceResponse>[], idArr: number[]): Promise<ICar> => {
+  const { success, id, time } = await Promise.race(promiseArr);
+
+  if (!success) {
+    const failIndex = idArr.findIndex((i: number) => i === id);
+    // eslint-disable-next-line max-len
+    const restPromises = [...promiseArr.slice(0, failIndex), ...promiseArr.slice(failIndex + 1, promiseArr.length)];
+    const restIds = [...idArr.slice(0, failIndex), ...idArr.slice(failIndex + 1, idArr.length)];
+    return raceAll(restPromises, restIds);
+  }
+
+  return { ...state.cars.find((car) => car.id === id), time: +(time / 1000).toFixed(2) };
+};
+
+export const race = async (startDrivingFunc: StartDrivingFunction): Promise<ICar> => {
+  const promiseArr = state.cars.map(({ id }) => startDrivingFunc(id));
+
+  const winner: ICar = await raceAll(promiseArr, state.cars.map((car) => car.id));
+
+  return winner;
 };
