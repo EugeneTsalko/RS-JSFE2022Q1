@@ -1,5 +1,6 @@
 /* eslint-disable linebreak-style */
-import { startEngine } from '../api/car-api';
+import { drive, startEngine } from '../api/car-api';
+import state from '../api/state';
 // import state from '../api/state';
 
 /* eslint-disable linebreak-style */
@@ -41,15 +42,45 @@ export function getDistanceBetweenElements(a: HTMLElement, b: HTMLElement) {
   return Math.hypot(aPosition.x - bPosition.x, aPosition.y - bPosition.y);
 }
 
+export function animateCar(car: HTMLElement, distance: number, animationTime: number) {
+  let start: unknown = null;
+  const animationBody: { id: string | number | null } = { id: null };
+
+  function step(timestamp: number) {
+    if (!start) start = timestamp;
+    const time = timestamp - (start as number);
+    const passed = Math.round(time * (distance / animationTime));
+
+    // eslint-disable-next-line no-param-reassign
+    car.style.transform = `translateX(${Math.min(passed, distance)}px)`;
+
+    if (passed < distance) {
+      animationBody.id = window.requestAnimationFrame(step);
+    }
+  }
+  animationBody.id = window.requestAnimationFrame(step);
+  return animationBody;
+}
+
 export const startDriving = async (id: number) => {
+  const startButton = document.getElementById(`start-engine-car-${id}`);
+  (startButton as HTMLButtonElement).disabled = true;
+
   const { velocity, distance } = await startEngine(id);
   const time = Math.round(distance / velocity);
 
   const car = document.getElementById(`car-${id}`);
   const flag = document.getElementById(`flag-${id}`);
-  const htmlDistance = Math.floor(getDistanceBetweenElements(car, flag));
+  const htmlDistance = Math.floor(getDistanceBetweenElements(car, flag) + 90);
 
-  car.style.transitionDuration = `${time / 1000}s`;
-  car.style.transitionTimingFunction = 'linear';
-  car.style.transform = `translateX(${htmlDistance + 90}px)`;
+  (state.animation as Record<string, unknown>).id = animateCar(car, htmlDistance, time);
+
+  const { success } = await drive(id);
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  if (!success) window.cancelAnimationFrame(state.animation.id.id);
+  (startButton as HTMLButtonElement).disabled = false;
+
+  return { success, id, time };
 };
