@@ -17,6 +17,7 @@ const listen = () => {
     const id = +fullId[fullId.length - 1];
 
     if ((event.target as HTMLElement).classList.contains('select-btn')) {
+      (document.getElementById(`select-car-${id}`) as HTMLInputElement).classList.toggle('select-btn_active');
       selectedCar = await getCar(id);
       // console.log(selectedCar);
       (document.getElementById('update-name') as HTMLInputElement).value = selectedCar.name;
