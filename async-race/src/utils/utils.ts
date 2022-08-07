@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-import { drive, startEngine } from '../api/car-api';
+import { drive, startEngine, stopEngine } from '../api/car-api';
 import state from '../api/state';
 // import state from '../api/state';
 
@@ -64,7 +64,9 @@ export function animateCar(car: HTMLElement, distance: number, animationTime: nu
 
 export const startDriving = async (id: number) => {
   const startButton = document.getElementById(`start-engine-car-${id}`);
+  const stopBtn = document.getElementById(`stop-engine-car-${id}`);
   (startButton as HTMLButtonElement).disabled = true;
+  (stopBtn as HTMLButtonElement).disabled = false;
 
   const { velocity, distance } = await startEngine(id);
   const time = Math.round(distance / velocity);
@@ -77,10 +79,23 @@ export const startDriving = async (id: number) => {
 
   const { success } = await drive(id);
 
+  // eslint-disable-next-line no-console
+  console.log(success);
+
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   if (!success) window.cancelAnimationFrame(state.animation.id.id);
   (startButton as HTMLButtonElement).disabled = false;
 
   return { success, id, time };
+};
+
+export const stopDriving = async (id: number) => {
+  await stopEngine(id);
+  const car = document.getElementById(`car-${id}`);
+  car.style.transform = '';
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  // eslint-disable-next-line max-len
+  if ((state.animation as Record<string, unknown>).id) window.cancelAnimationFrame(state.animation.id.id);
 };

@@ -5,7 +5,7 @@ import {
 import state from '../api/state';
 import { ICar } from '../interfaces/interfaces';
 import renderGarage, { updateStateGarage } from '../ui/car/render-car';
-import { getRandomCarsArr, startDriving } from './utils';
+import { getRandomCarsArr, startDriving, stopDriving } from './utils';
 
 let selectedCar: ICar = null;
 
@@ -55,7 +55,11 @@ const listen = () => {
     }
 
     if ((event.target as HTMLElement).classList.contains('start-engine-btn')) {
-      await startDriving(id);
+      startDriving(id);
+    }
+
+    if ((event.target as HTMLElement).classList.contains('stop-engine-btn')) {
+      stopDriving(id);
     }
   });
 

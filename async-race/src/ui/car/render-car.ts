@@ -80,11 +80,11 @@ const renderTrack = ({
   const stopBtn = document.createElement('button');
   stopBtn.innerText = 'Stop';
   stopBtn.classList.add('button');
-  stopBtn.classList.add('stop-engine-button');
+  stopBtn.classList.add('stop-engine-btn');
   stopBtn.setAttribute('id', `stop-engine-car-${id}`);
-  // if (!isEngine) {
-  //   stopBtn.setAttribute('disabled', '');
-  // }
+  if (!isEngine) {
+    stopBtn.setAttribute('disabled', '');
+  }
 
   controlPanel.appendChild(startBtn);
   controlPanel.appendChild(stopBtn);
