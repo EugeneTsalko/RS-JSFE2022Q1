@@ -73,7 +73,7 @@ export const startDriving = async (id: number): Promise<RaceResponse> => {
 
   const car = document.getElementById(`car-${id}`);
   const flag = document.getElementById(`flag-${id}`);
-  const htmlDistance = Math.floor(getDistanceBetweenElements(car, flag) + 90);
+  const htmlDistance = Math.floor(getDistanceBetweenElements(car, flag) + 50);
 
   (state.animation as Record<string, unknown>).id = animateCar(car, htmlDistance, time);
 
