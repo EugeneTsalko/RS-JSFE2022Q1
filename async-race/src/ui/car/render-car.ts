@@ -1,4 +1,5 @@
 import carSvgImage from '../../assets/svg/carSvgImage';
+import { insertChilds, NewComponent } from '../../components/new-component';
 import { ICar, ISvg } from '../../interfaces/interfaces';
 import './render-car.scss';
 
@@ -14,9 +15,7 @@ const renderCarImage = (color: string): ISvg => {
 const renderCar = (name: string, color: string): DocumentFragment => {
   const carFragment = document.createDocumentFragment();
 
-  const carName = document.createElement('div');
-  carName.innerText = name;
-  carName.classList.add('car-name');
+  const carName = NewComponent('div', ['car-name'], name);
 
   const carImage = renderCarImage(color);
   carImage.prepend(carName);
@@ -29,23 +28,15 @@ const renderCar = (name: string, color: string): DocumentFragment => {
 const renderEditBtns = (id: number): DocumentFragment => {
   const editBtnsFragment = document.createDocumentFragment();
 
-  const editBtns = document.createElement('div');
-  editBtns.classList.add('edit-btns');
+  const editBtns = NewComponent('div', ['edit-btns']);
 
-  const selectBtn = document.createElement('button');
-  selectBtn.innerText = 'Select';
-  selectBtn.classList.add('button');
-  selectBtn.classList.add('select-btn');
+  const selectBtn = NewComponent('button', ['button', 'select-btn'], 'Select to upd');
   selectBtn.setAttribute('id', `select-car-${id}`);
 
-  const removeBtn = document.createElement('button');
-  removeBtn.innerText = 'Remove';
-  removeBtn.classList.add('button');
-  removeBtn.classList.add('remove-btn');
+  const removeBtn = NewComponent('button', ['button', 'renove-btn'], 'Remove');
   removeBtn.setAttribute('id', `remove-car-${id}`);
 
-  editBtns.appendChild(selectBtn);
-  editBtns.appendChild(removeBtn);
+  insertChilds(editBtns, [selectBtn, removeBtn]);
 
   editBtnsFragment.appendChild(editBtns);
 
@@ -57,41 +48,30 @@ const renderTrack = ({
 }: ICar): DocumentFragment => {
   const trackFragment = document.createDocumentFragment();
 
-  const launchPad = document.createElement('div');
-  launchPad.classList.add('launch-pad');
+  const launchPad = NewComponent('div', ['launch-pad']);
 
-  const controlPanel = document.createElement('div');
-  controlPanel.classList.add('control-panel');
+  const controlPanel = NewComponent('div', ['control-panel']);
 
-  const startBtn = document.createElement('button');
-  startBtn.innerText = 'Start';
-  startBtn.classList.add('button');
-  startBtn.classList.add('start-engine-btn');
+  const startBtn = NewComponent('button', ['button', 'start-engine-btn'], 'Start');
   startBtn.setAttribute('id', `start-engine-car-${id}`);
   if (isEngine) {
     startBtn.setAttribute('disabled', '');
   }
 
-  const stopBtn = document.createElement('button');
-  stopBtn.innerText = 'Stop';
-  stopBtn.classList.add('button');
-  stopBtn.classList.add('stop-engine-btn');
+  const stopBtn = NewComponent('button', ['button', 'stop-engine-btn'], 'Stop');
   stopBtn.setAttribute('id', `stop-engine-car-${id}`);
   if (!isEngine) {
     stopBtn.setAttribute('disabled', '');
   }
 
-  controlPanel.appendChild(startBtn);
-  controlPanel.appendChild(stopBtn);
+  insertChilds(controlPanel, [startBtn, stopBtn]);
   launchPad.appendChild(controlPanel);
 
-  const flag = document.createElement('div');
-  flag.classList.add('flag');
+  const flag = NewComponent('div', ['flag']);
   flag.setAttribute('id', `flag-${id}`);
   flag.innerHTML = '&#127937';
 
-  const carContainer = document.createElement('div');
-  carContainer.classList.add('car');
+  const carContainer = NewComponent('div', ['car']);
   carContainer.appendChild(renderCar(name, color));
   (carContainer.lastChild as HTMLElement).setAttribute('id', `car-${id}`);
   carContainer.appendChild(flag);

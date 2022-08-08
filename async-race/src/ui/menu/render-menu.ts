@@ -1,4 +1,4 @@
-import { insertChilds, NewComponent } from '../../components/new-component';
+import { insertChilds, NewComponent, setAttributes } from '../../components/new-component';
 import './render-menu.scss';
 
 const renderMenu = (): void => {
@@ -12,14 +12,11 @@ const renderMenu = (): void => {
   const formCreate = NewComponent('form', ['form__create-wrapper']);
   formCreate.setAttribute('id', 'create');
   const createName = NewComponent('input', ['input', 'form__car_name']);
-  createName.setAttribute('id', 'create-name');
-  createName.setAttribute('type', 'text');
-  createName.setAttribute('placeholder', 'Car name');
-  createName.setAttribute('autocomplete', 'off');
+  setAttributes(createName, {
+    id: 'create-name', type: 'text', placeholder: 'Car name', autocomplete: 'off',
+  });
   const createColor = NewComponent('input', ['input', 'form__car_color']);
-  createColor.setAttribute('id', 'create-color');
-  createColor.setAttribute('type', 'color');
-  createColor.setAttribute('value', '#ffffff');
+  setAttributes(createColor, { id: 'create-color', type: 'color', value: '#ffffff' });
   const createBtn = NewComponent('button', ['button', 'create-btn'], 'Create');
   createBtn.setAttribute('type', 'submit');
   insertChilds(formCreate, [createName, createColor, createBtn]);
@@ -27,17 +24,13 @@ const renderMenu = (): void => {
   const formUpdate = NewComponent('form', ['form__update-wrapper']);
   formUpdate.setAttribute('id', 'update');
   const updateName = NewComponent('input', ['input', 'form__car_name']);
-  updateName.setAttribute('id', 'update-name');
-  updateName.setAttribute('type', 'text');
-  updateName.setAttribute('placeholder', 'Car name');
-  updateName.setAttribute('autocomplete', 'off');
+  setAttributes(updateName, {
+    id: 'update-name', type: 'text', placeholder: 'Car name', autocomplete: 'off',
+  });
   const updateColor = NewComponent('input', ['input', 'form__car_color']);
-  updateColor.setAttribute('id', 'update-color');
-  updateColor.setAttribute('type', 'color');
-  updateColor.setAttribute('value', '#ff0000');
+  setAttributes(updateColor, { id: 'update-color', type: 'color', value: '#ff0000' });
   const updateBtn = NewComponent('button', ['button', 'update-btn'], 'Update');
-  updateBtn.setAttribute('type', 'submit');
-  updateBtn.setAttribute('id', 'update-submit');
+  setAttributes(updateBtn, { type: 'sumbit', id: 'update-submit' });
   insertChilds(formUpdate, [updateName, updateColor, updateBtn]);
 
   const generateCarsBtn = NewComponent('button', ['button', 'generate-cars-btn'], 'Generate random cars');
@@ -52,16 +45,18 @@ const renderMenu = (): void => {
 
   const pagination = NewComponent('div', ['pagination']);
   const prevPageBtn = NewComponent('button', ['button', 'prev-btn'], 'Prev Page');
-  prevPageBtn.setAttribute('id', 'prev');
-  prevPageBtn.setAttribute('disabled', '');
+  setAttributes(prevPageBtn, { id: 'prev', disabled: '' });
   const nextPageBtn = NewComponent('button', ['button', 'next-btn'], 'Next Page');
   nextPageBtn.setAttribute('id', 'next');
 
   insertChilds(pagination, [prevPageBtn, nextPageBtn]);
 
   const garageMenuForm = NewComponent('div', ['form', 'garage-menu']);
-  // eslint-disable-next-line max-len
-  insertChilds(garageMenuForm, [formCreate, formUpdate, generateCarsBtn, controlsWrapper, pagination]);
+
+  insertChilds(
+    garageMenuForm,
+    [formCreate, formUpdate, generateCarsBtn, controlsWrapper, pagination],
+  );
 
   const header = NewComponent('header', ['header']);
   insertChilds(header, [menu, garageMenuForm]);
