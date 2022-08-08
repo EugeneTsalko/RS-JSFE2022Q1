@@ -33,7 +33,7 @@ const renderEditBtns = (id: number): DocumentFragment => {
   const selectBtn = NewComponent('button', ['button', 'select-btn'], 'Select to upd');
   selectBtn.setAttribute('id', `select-car-${id}`);
 
-  const removeBtn = NewComponent('button', ['button', 'renove-btn'], 'Remove');
+  const removeBtn = NewComponent('button', ['button', 'remove-btn'], 'Remove');
   removeBtn.setAttribute('id', `remove-car-${id}`);
 
   insertChilds(editBtns, [selectBtn, removeBtn]);

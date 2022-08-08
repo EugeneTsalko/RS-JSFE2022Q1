@@ -2,33 +2,27 @@
 
 import { getCars } from '../../api/car-api';
 import state from '../../api/state';
+import { insertChilds, NewComponent } from '../../components/new-component';
 import renderTrack from '../car/render-car';
 
 export const renderGarage = (): void => {
-  const garageContainer = document.createElement('div');
-  garageContainer.classList.add('garage-container');
+  const garageContainer = NewComponent('div', ['garage-container']);
   garageContainer.setAttribute('id', 'garage-container');
 
-  const h1 = document.createElement('h1');
-  h1.innerText = `Garage (${state.carsCount})`;
+  const h1 = NewComponent('h1', ['header-garage'], `Garage (${state.carsCount})`);
 
-  const h2 = document.createElement('h2');
-  h2.innerText = `Page #${state.carsPage}`;
+  const h2 = NewComponent('h2', ['header-page'], `Page #${state.carsPage}`);
 
-  const trackList = document.createElement('ul');
-  trackList.classList.add('garage');
+  const trackList = NewComponent('ul', ['garage']);
 
   state.cars.forEach((el) => {
-    const li = document.createElement('li');
-    li.classList.add('track');
+    const li = NewComponent('li', ['track']);
 
     li.appendChild(renderTrack(el));
     trackList.appendChild(li);
   });
 
-  garageContainer.appendChild(h1);
-  garageContainer.appendChild(h2);
-  garageContainer.appendChild(trackList);
+  insertChilds(garageContainer, [h1, h2, trackList]);
 
   document.body.appendChild(garageContainer);
 };
