@@ -17,7 +17,9 @@ export const renderWinners = () => {
   const thCar = NewComponent('th', ['th-car'], 'Car');
   const thName = NewComponent('th', ['th-name'], 'Name');
   const thWins = NewComponent('th', ['th-wins'], 'Wins');
+  thWins.setAttribute('id', 'wins');
   const thTime = NewComponent('th', ['th-time'], 'Best Time (s)');
+  thTime.setAttribute('id', 'time');
   insertChilds(thead, [thNum, thCar, thName, thWins, thTime]);
 
   const tbody = NewComponent('tbody', ['tbody']);

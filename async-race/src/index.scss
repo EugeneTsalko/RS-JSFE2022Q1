@@ -41,6 +41,12 @@ img {
   text-transform: uppercase;
   box-sizing: border-box;
   margin: 2px;
+  transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: lightskyblue;
 }
 
 .button.primary {
@@ -59,4 +65,8 @@ img {
 
 .hidden {
   display: none;
+}
+
+.input {
+  cursor: pointer;
 }

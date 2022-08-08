@@ -12,3 +12,17 @@ td {
   padding: 10px;
   border: 1px solid white;
 }
+
+#wins {
+  cursor: pointer;
+}
+#wins:hover{
+  background-color: greenyellow;
+}
+
+#time {
+  cursor: pointer;
+}
+#time:hover{
+  background-color: greenyellow;
+}
