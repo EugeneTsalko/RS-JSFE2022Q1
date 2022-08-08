@@ -12,6 +12,4 @@ export default {
   winnersPage: 1,
   winners,
   winnersCount,
-  sortBy: null,
-  sortOrder: null,
 };

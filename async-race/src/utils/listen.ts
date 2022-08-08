@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 import {
   createCar, deleteCar, getCar, updateCar,
 } from '../api/car-api';
@@ -6,14 +5,14 @@ import state from '../api/state';
 import { deleteWinner, saveWinner } from '../api/winners-api';
 import { ICar } from '../interfaces/interfaces';
 import { renderGarage, updateStateGarage } from '../ui/garage/render-garage';
-import { renderWinners, updateStateWinners } from '../ui/winners/render-winners';
+import { openDialog, renderWinners, updateStateWinners } from '../ui/winners/render-winners';
 import {
   getRandomCarsArr, race, startDriving, stopDriving,
 } from './utils';
 
 let selectedCar: ICar = null;
 
-const listen = () => {
+const listen = (): void => {
   document.body.addEventListener('click', async (event) => {
     const fullId = (event.target as HTMLElement).id.split('-');
     const id = +fullId[fullId.length - 1];
@@ -55,7 +54,6 @@ const listen = () => {
       await updateStateGarage();
       document.getElementById('garage-container').remove();
       renderGarage();
-      // renderWinners();
     }
 
     if ((event.target as HTMLElement).classList.contains('generate-cars-btn')) {
@@ -110,11 +108,7 @@ const listen = () => {
       (document.getElementById('start-race') as HTMLButtonElement).disabled = true;
       const winner = await race(startDriving);
       await saveWinner({ id: winner.id, time: winner.time });
-      // document.getElementById('winners-view').remove();
-      // renderWinners();
-      // eslint-disable-next-line no-alert
-      alert(`winner: ${winner.name}, time: ${winner.time}
-      click Reset before new race, please`);
+      openDialog(winner.name, winner.time);
     }
 
     if ((event.target as HTMLElement).classList.contains('reset-race-btn')) {

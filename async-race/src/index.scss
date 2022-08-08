@@ -22,8 +22,6 @@ img {
   height: auto;
 }
 
-// 
-
 .body {
   display: flex;
   flex-direction: column;
@@ -51,12 +49,10 @@ img {
 
 .button.primary {
   background: greenyellow;
-  border-bottom: 4px solid white;
 }
 
 .button:active {
   transform: translateY(4px);
-  border-bottom: 2px solid red;
 }
 
 .button:disabled {

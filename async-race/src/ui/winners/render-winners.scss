@@ -3,26 +3,23 @@
   padding: 20px;
 }
 
-th {
+.th, .td {
   padding: 10px;
   border: 1px solid white;
 }
 
-td {
-  padding: 10px;
-  border: 1px solid white;
-}
-
-#wins {
+#wins, #time {
   cursor: pointer;
 }
-#wins:hover{
+
+#wins:hover, #time:hover{
   background-color: greenyellow;
 }
 
-#time {
-  cursor: pointer;
-}
-#time:hover{
-  background-color: greenyellow;
+.dialog {
+  font-size: 2rem;
+  line-height: 3rem;
+  background: inherit;
+  color: white;
+  margin-top: 140px;
 }

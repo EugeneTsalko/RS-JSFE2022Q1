@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-
 import { getCars } from '../../api/car-api';
 import { GARAGE_CARS_LIMIT } from '../../api/constants-api';
 import state from '../../api/state';
@@ -9,11 +7,8 @@ import renderTrack from '../car/render-car';
 export const renderGarage = (): void => {
   const garageContainer = NewComponent('div', ['garage-container']);
   garageContainer.setAttribute('id', 'garage-container');
-
   const h1 = NewComponent('h1', ['header-garage'], `Garage (${state.carsCount})`);
-
   const h2 = NewComponent('h2', ['header-page'], `Page #${state.carsPage}`);
-
   const trackList = NewComponent('ul', ['garage']);
 
   state.cars.forEach((el) => {
@@ -24,7 +19,6 @@ export const renderGarage = (): void => {
   });
 
   insertChilds(garageContainer, [h1, h2, trackList]);
-
   document.body.appendChild(garageContainer);
 };
 
