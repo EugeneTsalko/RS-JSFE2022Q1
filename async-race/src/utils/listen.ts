@@ -31,6 +31,8 @@ const listen = () => {
 
     if ((event.target as HTMLElement).classList.contains('winners-menu-btn')) {
       await updateStateWinners();
+      document.getElementById('winners-view').remove();
+      renderWinners();
       (document.getElementById('garage-container') as HTMLElement).classList.add('hidden');
       (document.getElementById('winners-view') as HTMLElement).classList.remove('hidden');
       (document.getElementById('create-submit') as HTMLButtonElement).disabled = true;
@@ -53,6 +55,7 @@ const listen = () => {
       await updateStateGarage();
       document.getElementById('garage-container').remove();
       renderGarage();
+      // renderWinners();
     }
 
     if ((event.target as HTMLElement).classList.contains('generate-cars-btn')) {
@@ -107,6 +110,8 @@ const listen = () => {
       (document.getElementById('start-race') as HTMLButtonElement).disabled = true;
       const winner = await race(startDriving);
       await saveWinner({ id: winner.id, time: winner.time });
+      // document.getElementById('winners-view').remove();
+      // renderWinners();
       // eslint-disable-next-line no-alert
       alert(`winner: ${winner.name}, time: ${winner.time}
       click Reset before new race, please`);
