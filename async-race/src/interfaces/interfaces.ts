@@ -21,6 +21,23 @@ export interface CarRequest {
   color: string
 }
 
+export interface WinnersRequest {
+  page: number,
+  limit?: number
+}
+
+export interface WinnersResponse {
+  items: WinnerStat[],
+  count: string,
+}
+
+export interface WinnerStat {
+  id?: number,
+  wins?: number,
+  time: number,
+  car?: ICar
+}
+
 export interface RaceResponse {
   success: boolean,
   id: number,

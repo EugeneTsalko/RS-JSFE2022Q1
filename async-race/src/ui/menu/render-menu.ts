@@ -18,7 +18,7 @@ const renderMenu = (): void => {
   const createColor = NewComponent('input', ['input', 'form__car_color']);
   setAttributes(createColor, { id: 'create-color', type: 'color', value: '#ffffff' });
   const createBtn = NewComponent('button', ['button', 'create-btn'], 'Create');
-  createBtn.setAttribute('type', 'submit');
+  setAttributes(createBtn, { id: 'create-submit', type: 'submit' });
   insertChilds(formCreate, [createName, createColor, createBtn]);
 
   const formUpdate = NewComponent('form', ['form__update-wrapper']);

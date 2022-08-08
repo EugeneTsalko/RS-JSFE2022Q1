@@ -3,7 +3,6 @@ import {
 } from '../interfaces/interfaces';
 import { GARAGE_URL, ENGINE_URL, GARAGE_CARS_LIMIT } from './constants-api';
 
-// eslint-disable-next-line max-len
 export const getCars = async (page: number, limit = GARAGE_CARS_LIMIT): Promise<CarResponse> => {
   const response = await fetch(`${GARAGE_URL}?_page=${page}&_limit=${limit}`);
   return {

@@ -3,7 +3,7 @@ import { insertChilds, NewComponent } from '../../components/new-component';
 import { ICar, ISvg } from '../../interfaces/interfaces';
 import './render-car.scss';
 
-const renderCarImage = (color: string): ISvg => {
+export const renderCarImage = (color: string): ISvg => {
   const carImage = document.createElement('svg') as ISvg;
   carImage.style.fill = color;
   carImage.innerHTML = carSvgImage;

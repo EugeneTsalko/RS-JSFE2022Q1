@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 
 import { getCars } from '../../api/car-api';
+import { GARAGE_CARS_LIMIT } from '../../api/constants-api';
 import state from '../../api/state';
 import { insertChilds, NewComponent } from '../../components/new-component';
 import renderTrack from '../car/render-car';
@@ -32,7 +33,7 @@ export const updateStateGarage = async (): Promise<void> => {
   state.cars = items;
   state.carsCount = count;
 
-  if (state.carsPage * 7 < +state.carsCount) {
+  if (state.carsPage * GARAGE_CARS_LIMIT < +state.carsCount) {
     (document.getElementById('next') as HTMLButtonElement).disabled = false;
   } else {
     (document.getElementById('next') as HTMLButtonElement).disabled = true;
